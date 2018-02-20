@@ -20,3 +20,5 @@ With console, go in your project folder
 To run this project in web mode : ionic serve
   
 To run this project in mobile mode : ionic serve --lab
+
+Console may ask you if you want to install node_modules, answer yes !
