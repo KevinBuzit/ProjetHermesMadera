@@ -18,3 +18,23 @@
 ion-menu {
     max-width: 200px!important;
 }
+
+.card-md ion-card-content{
+  color: color($colors, grey-madera);
+
+  p{
+    color: color($colors, grey-madera);
+  }
+}
+
+.content-ios {
+  color: color($colors, grey-madera);
+}
+
+.card-header-md{
+  color: color($colors, brown-madera);
+}
+
+.card-header-ios{
+  color: color($colors, brown-madera);
+}

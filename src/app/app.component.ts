@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { ConceptionDevisPage } from '../pages/ConceptionDevis/ConceptionDevis';
+import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
 
 @Component({
   templateUrl: 'app.html'

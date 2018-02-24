@@ -1,0 +1,89 @@
+<!--
+  Generated template for the ConceptionDevisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>conceptionDevis</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+
+    <ion-card-header>
+      Conception de devis
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 text-start>
+            <p>Référence projet : 1555</p>
+            <ion-item>
+              <ion-input placeholder="Adresse du projet"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate" placeholder="Date du projet"></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col col-4></ion-col>
+          <ion-col col-4 text-end>
+            <p>Référence client : 1555</p>
+            <p>Mr. Kévin BUZIT</p>
+            <p>28 rue de Douarnenez</p>
+            <p>29100 Carhaix</p>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center>
+          <ion-col col-4>
+            <ion-item>
+              <ion-input placeholder="Nom du projet"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row class="border">
+          <ion-col col-9>Gestion des produits</ion-col>
+          <ion-col text-end col-3>
+            <ion-icon name="add"></ion-icon>
+            <ion-icon name="remove"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2 text-center class="border">
+            REF.
+          </ion-col>
+          <ion-col col-2 text-center class="border">
+            GAMME
+          </ion-col>
+          <ion-col col-2 text-center class="border">
+            MODELE
+          </ion-col>
+          <ion-col col-2 text-center class="border">
+          ISO.
+        </ion-col>
+          <ion-col col-2 text-center class="border">
+            FIN.
+          </ion-col>
+          <ion-col col-2 text-center class="border">
+            COU.
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <button ion-button color="grey-madera" float-right>VALIDER</button>
+            <button ion-button color="green-madera" float-right>ANNULER</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
