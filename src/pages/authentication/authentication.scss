@@ -1,0 +1,41 @@
+page-authentication {
+  ion-content {
+
+  }
+  .scroll-content {
+    overflow: hidden;
+  }
+  .background {
+    background-image: url('../../assets/imgs/background.jpg');
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    z-index:0;
+    position: absolute;
+
+  }
+  .card{
+        z-index:1;
+
+  }
+  .imglogo{
+   max-width: 100px;
+  }
+  .button{
+    float: right;
+  }
+  .ion-card{
+    max-width: 150px;
+    max-height: 150px;
+
+
+  }
+  .iongrid{
+    height: 100%;
+  }
+  .ionrow
+  {
+  height: 100%;
+
+}
+}
