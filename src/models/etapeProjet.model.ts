@@ -1,9 +1,9 @@
 export const enum EtapeProjet {
-  "A la signature" = 1,
-  "Obtention du permis de construire",
-  "Ouverture du chantier",
-  "Achevement des fondations",
-  "Mise hors d'eau/hors d'air",
-  "Achevement des travaux d'equipement",
-  "Remise des cles"
+  "A_LA_SIGNATURE" = 1,
+  "OBTENTION_DU_PERMIS_DE_CONSTRUIRE",
+  "OUVERTURE_DU_CHANTIER",
+  "ACHEVEMENT_DES_FONDATIONS",
+  "MISE_HORS_DEAU_HORS_DAIR",
+  "ACHEVEMENT_DES_TRAVAUX_DEQUIPEMENT",
+  "REMISE_DES_CLES"
 }

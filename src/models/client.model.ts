@@ -8,9 +8,9 @@ export class Client {
   private _mailClient: string;
   private _telephoneClient: string;
   private _dateNaissanceClient: string;
-  private _dateCreationClient: number;
+  private _dateCreationClient: string;
 
-  constructor(referenceClient: number, nomClient: string, prenomClient: string, adresseRueClient: string, adresseVilleClient: string, codePostalClient: string, mailClient: string, telephoneClient: string, dateNaissanceClient: string, dateCreationClient: number) {
+  constructor(referenceClient: number, nomClient: string, prenomClient: string, adresseRueClient: string, adresseVilleClient: string, codePostalClient: string, mailClient: string, telephoneClient: string, dateNaissanceClient: string, dateCreationClient: string) {
     this._referenceClient = referenceClient;
     this._nomClient = nomClient;
     this._prenomClient = prenomClient;
@@ -95,11 +95,11 @@ export class Client {
     this._dateNaissanceClient = value;
   }
 
-  get dateCreationClient(): number {
+  get dateCreationClient(): string {
     return this._dateCreationClient;
   }
 
-  set dateCreationClient(value: number) {
+  set dateCreationClient(value: string) {
     this._dateCreationClient = value;
   }
 }

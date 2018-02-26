@@ -11,10 +11,10 @@ export class Employe {
   private _mailEmploye: string;
   private _telephoneEmploye: string;
   private _dateNaissanceEmploye: string;
-  private _dateDeCreationEmploye: number;
+  private _dateDeCreationEmploye: string;
   private _metier: Metier;
 
-  constructor(matriculeEmploye: number, motDePasseEmploye: string, nomEmploye: string, prenomEmploye: string, adresseRueEmploye: string, adresseVilleEmploye: string, codePostalEmploye: string, mailEmploye: string, telephoneEmploye: string, dateNaissanceEmploye: string, dateDeCreationEmploye: number, metier: Metier) {
+  constructor(matriculeEmploye: number, motDePasseEmploye: string, nomEmploye: string, prenomEmploye: string, adresseRueEmploye: string, adresseVilleEmploye: string, codePostalEmploye: string, mailEmploye: string, telephoneEmploye: string, dateNaissanceEmploye: string, dateDeCreationEmploye: string, metier: Metier) {
     this._matriculeEmploye = matriculeEmploye;
     this._motDePasseEmploye = motDePasseEmploye;
     this._nomEmploye = nomEmploye;
@@ -109,11 +109,11 @@ export class Employe {
     this._dateNaissanceEmploye = value;
   }
 
-  get dateDeCreationEmploye(): number {
+  get dateDeCreationEmploye(): string {
     return this._dateDeCreationEmploye;
   }
 
-  set dateDeCreationEmploye(value: number) {
+  set dateDeCreationEmploye(value: string) {
     this._dateDeCreationEmploye = value;
   }
 
