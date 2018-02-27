@@ -4,7 +4,7 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>Conception de devis</ion-title>
+      <img src="../../assets/imgs/logo.svg" class="imglogo" alt="Madera">
     </ion-navbar>
   </ion-header>
 
@@ -12,15 +12,12 @@
   <ion-menu [content]="content">
     <ion-header>
       <ion-toolbar>
+          <img src="../../assets/imgs/logo.svg" class="imglogo" alt="Madera">
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
+    <ion-content text-center>
       <ion-list>
-        <!--<button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
-        </button>-->
-        <!--<input type="image" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" src="..\\assets\\imgs\\{{ p.img }}" value="{{ p.title }}"/>-->
         <div class="menu-item" *ngFor="let p of pages">
           <input type="image" menuClose ion-item (click)="openPage(p)" src="..\\assets\\imgs\\{{ p.img }}" value="{{ p.title }}"/>
           <span>{{ p.title }}</span>

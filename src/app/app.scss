@@ -18,13 +18,14 @@
 ion-menu {
     max-width: 200px!important;
     ion-content{
+        max-width: 200px!important;
         background-color:color($colors, green-madera) !important;
         ion-list{
             input{
                 background-color: color($colors, green-madera) !important;
                 max-width: 100px;
                 max-height: 100px;
-                padding: 100px;
+                padding: 50px;
             }
             span{
                 color: ghostwhite;
@@ -36,4 +37,9 @@ ion-menu {
 .menu-item{
     margin:10px auto;
     display: block;
+    max-width: 200px!important;
 }
+
+.imglogo{
+  max-width: 100px;
+ }
