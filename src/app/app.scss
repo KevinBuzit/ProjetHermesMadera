@@ -17,4 +17,23 @@
 
 ion-menu {
     max-width: 200px!important;
+    ion-content{
+        background-color:color($colors, green-madera) !important;
+        ion-list{
+            input{
+                background-color: color($colors, green-madera) !important;
+                max-width: 100px;
+                max-height: 100px;
+                padding: 100px;
+            }
+            span{
+                color: ghostwhite;
+            }
+        }
+    }
+}
+
+.menu-item{
+    margin:10px auto;
+    display: block;
 }
