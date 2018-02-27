@@ -1,0 +1,7 @@
+organization=atomos
+projectKey=HermesMadera
+serverUrl=https://sonarcloud.io
+serverVersion=7.1.0.36868
+dashboardUrl=https://sonarcloud.io/dashboard/index/HermesMadera
+ceTaskId=AWHRri_7m6Cp4If4XDwr
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWHRri_7m6Cp4If4XDwr
