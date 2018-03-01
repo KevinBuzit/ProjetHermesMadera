@@ -1,4 +1,4 @@
-export const enum EtapeProjet {
+export enum EtapeProjet {
   "A_LA_SIGNATURE" = 1,
   "OBTENTION_DU_PERMIS_DE_CONSTRUIRE",
   "OUVERTURE_DU_CHANTIER",
