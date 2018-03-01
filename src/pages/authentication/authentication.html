@@ -19,20 +19,21 @@
                 <img  src="../../assets/imgs/logo.svg" class="img-logo">
 
               </ion-card-header>
+                <form >
+                  <ion-item>
+                      <ion-label floating>Matricule</ion-label>
+                    <ion-input name="matricule"[(ngModel)]="matricule" type="text"></ion-input>
+                  </ion-item>
 
-              <ion-item>
-                  <ion-label floating>Matricule</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label floating>Mot de passe</ion-label>
-                <ion-input type="password"></ion-input>
-              </ion-item>
+                  <ion-item>
+                    <ion-label floating>Mot de passe</ion-label>
+                    <ion-input name="password" [(ngModel)]="password" type="password"></ion-input>
+                  </ion-item>
 
               <div padding class="button">
-                <button class="green-button" ion-button color="green-madera">CONNEXION</button>
+                <button class="green-button" ion-button color="green-madera" (click)="login()">CONNEXION</button>
               </div>
+                </form>
             </ion-list>
 
           </ion-card>
