@@ -23,7 +23,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Conception de devis', component: ConceptionDevisPage, img: 'devis.svg' },
-      { title: 'Home', component: HomePage, img: 'devis.svg' },
+      { title: 'Accueil', component: HomePage, img: 'devis.svg' },
       { title: 'List', component: ListPage, img: 'devis.svg' }
     ];
 
