@@ -11,31 +11,43 @@ page-authentication {
     height: 100%;
     width: 100%;
     z-index:0;
-    position: absolute;
+    background-repeat: no-repeat;
 
   }
   .card{
         z-index:1;
-
+    margin: 0px auto;
+    left: 0px;
+    right: 0px;
   }
-  .imglogo{
+  .img-logo{
    max-width: 100px;
   }
   .button{
     float: right;
   }
   .ion-card{
-    max-width: 150px;
-    max-height: 150px;
-
+    max-width: 500px;
 
   }
-  .iongrid{
+  .ion-grid{
     height: 100%;
   }
-  .ionrow
+  .ion-row
   {
   height: 100%;
 
-}
+  }
+  .scroll-content
+  {
+    padding-bottom: 0px;
+
+  }
+  ion-content.content-md[padding] .scroll-content {
+    padding-bottom: 16px !important;
+  }
+
+  ion-content.content-md:not([padding]) .scroll-content {
+    padding-bottom: 0 !important;
+  }
 }
