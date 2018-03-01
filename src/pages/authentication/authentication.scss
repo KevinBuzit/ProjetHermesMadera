@@ -10,12 +10,13 @@ page-authentication {
     background-position: center;
     height: 100%;
     width: 100%;
+    background-size: cover;
     z-index:0;
     background-repeat: no-repeat;
 
   }
   .card{
-        z-index:1;
+    z-index:1;
     margin: 0px auto;
     left: 0px;
     right: 0px;
