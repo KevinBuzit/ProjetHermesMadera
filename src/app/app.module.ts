@@ -8,6 +8,7 @@ import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis'
 import { AuthenticationPage } from '../pages/authentication/authentication';
 import { NouveauClientPage } from '../pages/nouveau-client/nouveau-client';
 import { IdentificationClientPage } from '../pages/identification-client/identification-client';
+import { IdentificationProjetPage } from '../pages/identification-projet/identification-projet';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +21,8 @@ import { GlobalProvider } from '../providers/global/global';
     ConceptionDevisPage,
     AuthenticationPage,
     IdentificationClientPage,
-    NouveauClientPage
+    NouveauClientPage,
+    IdentificationProjetPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { GlobalProvider } from '../providers/global/global';
     ConceptionDevisPage,
     AuthenticationPage,
     IdentificationClientPage,
-    NouveauClientPage
+    NouveauClientPage,
+    IdentificationProjetPage
   ],
   providers: [
     StatusBar,

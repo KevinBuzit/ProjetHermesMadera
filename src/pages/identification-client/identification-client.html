@@ -17,23 +17,22 @@
                 DEJA CLIENT ?
               </ion-card-header>
               <form >
-                <ion-item>
-                  <ion-label floating>Nom</ion-label>
-                  <ion-input name="surname"[(ngModel)]="surname" type="text"></ion-input>
-                </ion-item>
+                  <ion-item>
+                    <ion-label floating>Nom</ion-label>
+                    <ion-input name="surname"[(ngModel)]="surname" type="text"></ion-input>
+                  </ion-item>
 
-                <ion-item>
-                  <ion-label floating>Mot de passe</ion-label>
-                  <ion-input name="name" [(ngModel)]="name" type="text"></ion-input>
-                </ion-item>
+                  <ion-item>
+                    <ion-label floating>Mot de passe</ion-label>
+                    <ion-input name="name" [(ngModel)]="name" type="text"></ion-input>
+                  </ion-item>
 
-                <ion-item>
-                  <ion-label floating>Code postal</ion-label>
-                  <ion-input name="zipcode" [(ngModel)]="zipcode" type="text"></ion-input>
-                </ion-item>
-
+                  <ion-item>
+                    <ion-label floating>Code postal</ion-label>
+                    <ion-input name="zipcode" [(ngModel)]="zipcode" type="text"></ion-input>
+                  </ion-item>
                 <div padding class="button">
-                  <button class="green-button" ion-button color="green-madera" (click)="login()">VALIDER</button>
+                  <button class="green-button" ion-button color="green-madera" (click)="validate()">VALIDER</button>
                 </div>
               </form>
             </ion-card-content>

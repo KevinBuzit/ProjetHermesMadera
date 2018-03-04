@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IdentificationProjetPage } from '../identification-projet/identification-projet';
 
 /**
  * Generated class for the NouveauClientPage page.
@@ -20,6 +21,10 @@ export class NouveauClientPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NouveauClientPage');
+  }
+  validate()
+  {
+    this.navCtrl.push(IdentificationProjetPage);
   }
 
 }

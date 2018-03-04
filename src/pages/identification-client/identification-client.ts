@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NouveauClientPage } from '../nouveau-client/nouveau-client';
+import { IdentificationProjetPage } from '../identification-projet/identification-projet';
+
 
 @IonicPage()
 @Component({
@@ -23,6 +25,10 @@ export class IdentificationClientPage {
   createCustomer()
   {
       this.navCtrl.push(NouveauClientPage);
+  }
+  validate()
+  {
+    this.navCtrl.push(IdentificationProjetPage);
   }
 
 }
