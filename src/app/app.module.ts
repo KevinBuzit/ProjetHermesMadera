@@ -12,6 +12,8 @@ import { IdentificationClientPage } from '../pages/identification-client/identif
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GlobalProvider } from '../providers/global/global';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import {AddProductComponent} from "../components/add-product/add-product";
 
 @NgModule({
   declarations: [
@@ -20,11 +22,12 @@ import { GlobalProvider } from '../providers/global/global';
     ConceptionDevisPage,
     AuthenticationPage,
     IdentificationClientPage,
-    NouveauClientPage
+    NouveauClientPage,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,13 +36,15 @@ import { GlobalProvider } from '../providers/global/global';
     ConceptionDevisPage,
     AuthenticationPage,
     IdentificationClientPage,
-    NouveauClientPage
+    NouveauClientPage,
+    AddProductComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GlobalProvider
+    GlobalProvider,
+    ScreenOrientation
   ]
 })
 export class AppModule {}

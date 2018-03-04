@@ -1,8 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavParams } from 'ionic-angular';
-
-import { ProductPage } from '../product/product';
+import { AddProductComponent } from '../../components/add-product/add-product';
 
 @IonicPage()
 @Component({
@@ -11,15 +9,15 @@ import { ProductPage } from '../product/product';
 })
 export class ConceptionDevisPage {
 
-  pushAddPage: any;
-
   constructor(public modal: ModalController, public navParams: NavParams) {
   }
 
-  openAddProduct()
+  presentAddProductModal()
   {
-    const addProductModal = this.modal.create('ProductPage');
-
+    const addProductModal = this.modal.create(AddProductComponent);
+    addProductModal.onDidDismiss(data => {
+      console.log(data);
+    });
     addProductModal.present();
   }
 

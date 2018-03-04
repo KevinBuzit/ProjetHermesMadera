@@ -5,15 +5,13 @@ export class Modele {
   private _urlImageModele: string;
   private _designationModele: string;
   private _descriptionModele: string;
-  private _gamme : Gamme;
   private _modules: Array<Module> = [];
 
-  constructor(referenceModele: number, urlImageModele: string, designationModele: string, descriptionModele: string, gamme: Gamme) {
+  constructor(referenceModele: number, urlImageModele: string, designationModele: string, descriptionModele: string) {
     this._referenceModele = referenceModele;
     this._urlImageModele = urlImageModele;
     this._designationModele = designationModele;
     this._descriptionModele = descriptionModele;
-    this._gamme = gamme;
   }
 
   addModule(module:Module){
@@ -34,14 +32,6 @@ export class Modele {
 
   set designationModele(value: string) {
     this._designationModele = value;
-  }
-
-  get gamme(): Gamme {
-    return this._gamme;
-  }
-
-  set gamme(value: Gamme) {
-    this._gamme = value;
   }
 
   get referenceModele(): number {

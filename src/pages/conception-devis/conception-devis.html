@@ -12,7 +12,7 @@
   <ion-card>
 
     <ion-card-header>
-      Conception de devis
+      <h2>Conception de devis</h2>
     </ion-card-header>
 
     <ion-card-content>
@@ -22,11 +22,11 @@
             <ion-item text-center text-sm-start>
               <p>Référence projet : 1555</p>
             </ion-item>
-            <ion-item text-center text-sm-start>
-              <ion-input [(ngModel)]="adresseProjet" text-center placeholder="Adresse projet" clearInput></ion-input>
+            <ion-item>
+              <ion-input [(ngModel)]="adresseProjet" text-center text-sm-start placeholder="Adresse projet" clearInput></ion-input>
             </ion-item>
             <ion-item text-center text-sm-start>
-              <ion-label>Date du projet</ion-label>
+              <ion-label fixed>Date du projet</ion-label>
               <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="dateProjet" placeholder="Date du projet" clearInput></ion-datetime>
             </ion-item>
           </ion-col>
@@ -48,7 +48,7 @@
         <ion-row class="border">
           <ion-col col-9>Gestion des produits</ion-col>
           <ion-col text-end col-3>
-            <button ion-button icon-only class="button_add" (click)="openAddProduct()">
+            <button ion-button icon-only class="button_add" (click)="presentAddProductModal()">
               <ion-icon name="add"></ion-icon>
             </button>
             <button ion-button icon-only class="button_remove">

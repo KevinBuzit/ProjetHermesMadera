@@ -4,8 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ListPage } from '../pages/list/list';
-import { AuthenticationPage } from '../pages/authentication/authentication';
 import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
+// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,12 +13,18 @@ import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AuthenticationPage;
+  rootPage: any = ConceptionDevisPage;
 
   pages: Array<{title: string, component: any, img:string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
+
+    // get current
+    // console.log(this.screenOrientation.type);
+
+    // set to landscape
+    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
     // used for an example of ngFor and navigation
     this.pages = [
