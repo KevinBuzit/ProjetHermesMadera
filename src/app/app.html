@@ -9,9 +9,9 @@
 
 <ion-menu [content]="content">
   <ion-content>
-    <a class="pageLink" menuClose ion-item (click)="openPage(page)" *ngFor="let page of pages">
+    <a class="page-link" menuClose ion-item (click)="openPage(page)" *ngFor="let page of pages">
       <div text-center>
-        <img (click)="openPage(page)" src="..\\assets\\imgs\\{{ page.img }}" alt="{{ page.title }}"/>
+        <img src="..\\assets\\imgs\\{{ page.img }}" alt="{{ page.title }}"/>
       </div>
       <div text-center>
         {{ page.title }}

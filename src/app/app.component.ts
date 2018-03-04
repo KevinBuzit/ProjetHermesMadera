@@ -3,7 +3,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ConceptionDevisPage } from '../pages/ConceptionDevis/ConceptionDevis';
 
@@ -22,9 +21,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Conception de devis', component: ConceptionDevisPage, img: 'devis.svg' },
-      { title: 'Accueil', component: HomePage, img: 'devis.svg' },
-      { title: 'List', component: ListPage, img: 'devis.svg' }
+      { title: 'Conception de devis', component: ConceptionDevisPage, img: 'file.png' },
+      { title: 'Modalités de paiement', component: ListPage, img: 'card.png' }
     ];
 
   }
