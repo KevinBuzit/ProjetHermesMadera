@@ -15,7 +15,7 @@ export class IdentificationClientPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.pages = [
-      { title: 'Conception de devis', component: IdentificationClientPage },
+      { title: 'Conception de devis', component: IdentificationProjetPage },
     ];
   }
 
