@@ -7,7 +7,6 @@ import { ListPage } from '../pages/list/list';
 import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
 import { AuthenticationPage } from '../pages/authentication/authentication';
 import { NouveauClientPage } from '../pages/nouveau-client/nouveau-client';
-
 import { IdentificationClientPage } from '../pages/identification-client/identification-client';
 
 import { StatusBar } from '@ionic-native/status-bar';
