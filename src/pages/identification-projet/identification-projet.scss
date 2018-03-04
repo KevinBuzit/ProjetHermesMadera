@@ -1,0 +1,53 @@
+page-identification-client {
+}
+.scroll-content {
+  overflow: hidden;
+}
+ion-content.content-md[padding] .scroll-content {
+  padding-bottom: 16px !important;
+}
+
+ion-content.content-md:not([padding]) .scroll-content {
+  padding-bottom: 0 !important;
+}
+.ion-title{
+}
+.toolbar-title-md {
+  color: #683c11;
+}
+.button{
+  float: right;
+}
+.add-project-icon{
+  color: #95c11f;
+  font-size: 6em;
+}
+.toolbar-title-ios {
+  color: #683c11;
+}
+.ion-card{
+  height: 100%;
+
+}
+.ion-card-project{
+  max-height: 500px;
+  max-width: 500px;
+}
+.ion-card-new-customer{
+  max-width: 200px;
+
+}
+.form-customer{
+  max-width: 350px;
+
+}
+.ion-icon {
+}
+.text-project{
+  color:#683c11 ;
+}
+.text-project{
+  color:#683c11 ;
+
+}
+
