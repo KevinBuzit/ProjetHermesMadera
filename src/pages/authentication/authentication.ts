@@ -27,7 +27,6 @@ export class AuthenticationPage {
   }
   login()
   {
-
    if((this.global.projets[0].employe.matriculeEmploye == this.matricule) &&( this.global.projets[0].employe.motDePasseEmploye==this.password))
     {
       this.navCtrl.push(ConceptionDevisPage);
