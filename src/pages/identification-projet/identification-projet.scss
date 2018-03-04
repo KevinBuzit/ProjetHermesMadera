@@ -1,5 +1,4 @@
-page-identification-client {
-
+page-identification-projet {
 }
 .scroll-content {
   overflow: hidden;
@@ -19,11 +18,10 @@ ion-content.content-md:not([padding]) .scroll-content {
 .button{
   float: right;
 }
-.add-customer-icon{
+.add-project-icon{
   color: #95c11f;
   font-size: 6em;
   margin: 0 auto;
-
 }
 .toolbar-title-ios {
   color: #683c11;
@@ -32,16 +30,27 @@ ion-content.content-md:not([padding]) .scroll-content {
   height: 100%;
 
 }
-.ion-card-new-customer{
-  max-width: 200px;
+.ion-card-project{
+  max-height: 500px;
+  max-width: 500px;
   margin: 0 auto;
 
-
+}
+.ion-card-new-project{
+  max-width: 200px;
+  margin: 0 auto;
 }
 .form-customer{
   max-width: 350px;
-  margin: 0 auto;
 
 }
 .ion-icon {
 }
+.text-project{
+  color:#683c11 ;
+}
+.text-project{
+  color:#683c11 ;
+
+}
+

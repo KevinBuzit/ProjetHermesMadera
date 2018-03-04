@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { IdentificationProjetPage } from '../identification-projet/identification-projet';
 
 /**
- * Generated class for the NouveauClientPage page.
+ * Generated class for the IdentificationProjetPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,20 +10,16 @@ import { IdentificationProjetPage } from '../identification-projet/identificatio
 
 @IonicPage()
 @Component({
-  selector: 'page-nouveau-client',
-  templateUrl: 'nouveau-client.html',
+  selector: 'page-identification-projet',
+  templateUrl: 'identification-projet.html',
 })
-export class NouveauClientPage {
+export class IdentificationProjetPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NouveauClientPage');
-  }
-  validate()
-  {
-    this.navCtrl.push(IdentificationProjetPage);
+    console.log('ionViewDidLoad IdentificationProjetPage');
   }
 
 }

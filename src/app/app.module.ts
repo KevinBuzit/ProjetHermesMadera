@@ -8,6 +8,7 @@ import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis'
 import { AuthenticationPage } from '../pages/authentication/authentication';
 import { NouveauClientPage } from '../pages/nouveau-client/nouveau-client';
 import { IdentificationClientPage } from '../pages/identification-client/identification-client';
+import { IdentificationProjetPage } from '../pages/identification-projet/identification-projet';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +25,8 @@ import {AddProductComponent} from "../components/add-product/add-product";
     IdentificationClientPage,
     NouveauClientPage,
     AddProductComponent
+    NouveauClientPage,
+    IdentificationProjetPage
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,8 @@ import {AddProductComponent} from "../components/add-product/add-product";
     ConceptionDevisPage,
     AuthenticationPage,
     IdentificationClientPage,
+    NouveauClientPage,
+    IdentificationProjetPage
     NouveauClientPage,
     AddProductComponent
   ],
