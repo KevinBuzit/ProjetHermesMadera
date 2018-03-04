@@ -4,17 +4,10 @@ import { IonicPage, ModalController, NavParams } from 'ionic-angular';
 
 import { ProductPage } from '../product/product';
 
-/**
- * Generated class for the ConceptionDevisPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-conception-devis',
-  templateUrl: 'conception-devis.html',
+  templateUrl: 'conception-devis.html'
 })
 export class ConceptionDevisPage {
 
@@ -26,7 +19,7 @@ export class ConceptionDevisPage {
   openAddProduct()
   {
     const addProductModal = this.modal.create('ProductPage');
-    
+
     addProductModal.present();
   }
 
