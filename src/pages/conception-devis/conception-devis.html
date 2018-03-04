@@ -1,6 +1,9 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>conceptionDevis</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img src="../../assets/imgs/logo.svg" class="img-logo" alt="Madera">
   </ion-navbar>
 </ion-header>
 
@@ -15,17 +18,20 @@
     <ion-card-content>
       <ion-grid>
         <ion-row>
-          <ion-col col-4 text-start>
-            <p>Référence projet : 1555</p>
-            <ion-item>
-              <ion-input placeholder="Adresse du projet"></ion-input>
+          <ion-col col-12 col-sm-4 >
+            <ion-item text-center text-sm-start>
+              <p>Référence projet : 1555</p>
             </ion-item>
-            <ion-item>
-              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate" placeholder="Date du projet"></ion-datetime>
+            <ion-item text-center text-sm-start>
+              <ion-input [(ngModel)]="adresseProjet" text-center placeholder="Adresse projet" clearInput></ion-input>
+            </ion-item>
+            <ion-item text-center text-sm-start>
+              <ion-label>Date du projet</ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="dateProjet" placeholder="Date du projet" clearInput></ion-datetime>
             </ion-item>
           </ion-col>
-          <ion-col col-4></ion-col>
-          <ion-col col-4 text-end>
+          <ion-col col-0 col-sm-4></ion-col>
+          <ion-col col-12 col-sm-4 text-center text-sm-end>
             <p>Référence client : 1555</p>
             <p>Mr. Kévin BUZIT</p>
             <p>28 rue de Douarnenez</p>
@@ -33,9 +39,9 @@
           </ion-col>
         </ion-row>
         <ion-row justify-content-center>
-          <ion-col col-4>
+          <ion-col col-12 col-md-4>
             <ion-item>
-              <ion-input placeholder="Nom du projet"></ion-input>
+              <ion-input text-center [(ngModel)]="nomProjet" placeholder="Nom du projet" clearInput></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
