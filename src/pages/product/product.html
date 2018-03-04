@@ -30,33 +30,58 @@
 
 
 <ion-content padding>
+
   <div class="left-side">
-      <ion-item>
-        <ion-label>Isolation</ion-label>
-        <ion-select [(ngModel)]="isolation">
-          <ion-option value="s">Synthètique</ion-option>
-          <ion-option value="n">Naturelle</ion-option>
-        </ion-select>
-      </ion-item>
+    <ion-card>
+      <ion-card-header>
+        Ajout d'un produit
+      </ion-card-header>
 
-      <ion-item>
-        <ion-label>Finition extérieure</ion-label>
-        <ion-select [(ngModel)]="finition">
-          <ion-option value="b">Bois</ion-option>
-          <ion-option value="c">Crépis</ion-option>
-        </ion-select>
-      </ion-item>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Isolation</ion-label>
+                <ion-select [(ngModel)]="isolation">
+                  <ion-option value="s">Synthètique</ion-option>
+                  <ion-option value="n">Naturelle</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Finition extérieure</ion-label>
+                <ion-select [(ngModel)]="finition">
+                  <ion-option value="b">Bois</ion-option>
+                  <ion-option value="c">Crépis</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
 
-      <ion-item>
-        <ion-label>Couverture</ion-label>
-        <ion-select [(ngModel)]="couverture">
-          <ion-option value="b">Tuiles</ion-option>
-          <ion-option value="c">Ardoises</ion-option>
-        </ion-select>
-      </ion-item>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Couverture</ion-label>
+                <ion-select [(ngModel)]="couverture">
+                  <ion-option value="b">Tuiles</ion-option>
+                  <ion-option value="c">Ardoises</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-card-content>
+
+    </ion-card>
   </div>
-  <div class="main-content">
-
+  <div class="header">
+    <img  src="../../assets/imgs/logo.svg" class="img-logo">
   </div>
 
 </ion-content>
