@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Nav, Platform } from 'ionic-angular';
+import { IonicPage, ModalController, NavParams } from 'ionic-angular';
+
+import { ProductPage } from '../product/product';
 
 /**
  * Generated class for the ConceptionDevisPage page.
@@ -15,7 +18,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ConceptionDevisPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  pushAddPage: any;
+
+  constructor(public modal: ModalController, public navParams: NavParams) {
+  }
+
+  openAddProduct()
+  {
+    const addProductModal = this.modal.create('ProductPage');
+    
+    addProductModal.present();
   }
 
   ionViewDidLoad() {

@@ -51,8 +51,12 @@
         <ion-row class="border">
           <ion-col col-9>Gestion des produits</ion-col>
           <ion-col text-end col-3>
-            <ion-icon name="add"></ion-icon>
-            <ion-icon name="remove"></ion-icon>
+            <button ion-button icon-only class="button_add" (click)="openAddProduct()">
+              <ion-icon name="add"></ion-icon>
+            </button>
+            <button ion-button icon-only class="button_remove">
+              <ion-icon name="remove"></ion-icon>
+            </button>
           </ion-col>
         </ion-row>
         <ion-row>
