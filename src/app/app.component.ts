@@ -6,7 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ListPage } from '../pages/list/list';
 import { AuthenticationPage } from '../pages/authentication/authentication';
 import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
-import { IdentificationClientPage } from '../pages/identification-client/identification-client';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +13,7 @@ import { IdentificationClientPage } from '../pages/identification-client/identif
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = IdentificationClientPage;
+  rootPage: any = AuthenticationPage;
 
   pages: Array<{title: string, component: any, img:string}>;
 
