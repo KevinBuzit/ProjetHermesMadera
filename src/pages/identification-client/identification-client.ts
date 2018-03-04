@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { IdentificationClientPage } from '../identification-client/identification-client';
 import { NouveauClientPage } from '../nouveau-client/nouveau-client';
 
 
