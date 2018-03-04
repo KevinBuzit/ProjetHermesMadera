@@ -1,3 +1,35 @@
 page-identification-client {
 
 }
+.scroll-content {
+  overflow: hidden;
+}
+ion-content.content-md[padding] .scroll-content {
+  padding-bottom: 16px !important;
+}
+
+ion-content.content-md:not([padding]) .scroll-content {
+  padding-bottom: 0 !important;
+}
+.ion-title{
+}
+.toolbar-title-md {
+  color: #683c11;
+}
+.button{
+  float: right;
+}
+.add-customer-icon{
+  color: #95c11f;
+  font-size: 6em;
+}
+.ion-card{
+  max-width: 200px;
+
+}
+.form-customer{
+  max-width: 350px;
+
+}
+.ion-icon {
+}

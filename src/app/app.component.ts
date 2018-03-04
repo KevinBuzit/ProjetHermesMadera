@@ -15,7 +15,7 @@ import { IdentificationClientPage } from '../pages/identification-client/identif
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AuthenticationPage;
+  rootPage: any = IdentificationClientPage;
 
   pages: Array<{title: string, component: any}>;
 

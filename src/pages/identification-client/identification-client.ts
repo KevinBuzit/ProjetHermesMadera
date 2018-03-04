@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IdentificationClientPage } from '../identification-client/identification-client';
+import { NouveauClientPage } from '../nouveau-client/nouveau-client';
+
 
 /**
  * Generated class for the IdentificationClientPage page.
@@ -12,14 +15,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-identification-client',
   templateUrl: 'identification-client.html',
+
 })
 export class IdentificationClientPage {
+  pages: Array<{title: string, component: any}>;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.pages = [
+      { title: 'Conception de devis', component: IdentificationClientPage },
+    ];
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IdentificationClientPage');
+  }
+  createCustomer()
+  {
+      this.navCtrl.push(NouveauClientPage);
   }
 
 }

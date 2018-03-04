@@ -6,13 +6,65 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>identificationClient</ion-title>
-  </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card >
+
+  <ion-grid class="ion-grid" >
+    <ion-row>
+      <ion-title text-center>CLIENT</ion-title>
+
+    </ion-row>
+
+    <ion-row class="ion-row" justify-content-center align-items-center>
+      <ion-col col-md-6 col-xs-12 >
+
+          <div class="form-customer">
+            <ion-card-content >
+              <ion-card-header>
+                DEJA CLIENT ?
+              </ion-card-header>
+              <form >
+                <ion-item>
+                  <ion-label floating>Nom</ion-label>
+                  <ion-input name="surname"[(ngModel)]="surname" type="text"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label floating>Mot de passe</ion-label>
+                  <ion-input name="name" [(ngModel)]="name" type="text"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label floating>Code postal</ion-label>
+                  <ion-input name="zipcode" [(ngModel)]="zipcode" type="text"></ion-input>
+                </ion-item>
+
+                <div padding class="button">
+                  <button class="green-button" ion-button color="green-madera" (click)="login()">VALIDER</button>
+                </div>
+              </form>
+            </ion-card-content>
+          </div>
+
+      </ion-col >
+      <ion-col text-center col-md-6 col-xs-12>
+
+              <ion-card text-center class="ion-card" (click)="createCustomer()">
+                <ion-card-header text-center class="add-customer">
+                  NOUVEAU CLIENT
+                </ion-card-header>
+                <ion-icon  class="add-customer-icon" name="person-add"></ion-icon>
+              </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-card>
+
+
 
 </ion-content>

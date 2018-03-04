@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, MenuController} from 'ionic-angular';
 import {GlobalProvider} from "../../providers/global/global";
-import { ConceptionDevisPage } from '../conception-devis/conception-devis';
+import { IdentificationClientPage } from '../identification-client/identification-client';
 
 import { AlertController } from 'ionic-angular';
 
@@ -18,7 +18,7 @@ export class AuthenticationPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl:MenuController, public global: GlobalProvider, private alertCtrl: AlertController) {
     this.pages = [
-      { title: 'Conception de devis', component: ConceptionDevisPage },
+      { title: 'Identification client', component: IdentificationClientPage },
     ];
 
   }
@@ -29,7 +29,7 @@ export class AuthenticationPage {
   {
    if((this.global.projets[0].employe.matriculeEmploye == this.matricule) &&( this.global.projets[0].employe.motDePasseEmploye==this.password))
     {
-      this.navCtrl.push(ConceptionDevisPage);
+      this.navCtrl.push(IdentificationClientPage);
     }
     else
     {
