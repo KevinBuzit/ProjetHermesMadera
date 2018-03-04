@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { ListPage } from '../pages/list/list';
 import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
 import { AuthenticationPage } from '../pages/authentication/authentication';
+import { ProductPage } from '../pages/product/product';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
