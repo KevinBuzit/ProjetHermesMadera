@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { AuthenticationPage } from '../pages/authentication/authentication';
 import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
+import { IdentificationClientPage } from '../pages/identification-client/identification-client';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,9 @@ export class MyApp {
       { title: 'Conception de devis', component: ConceptionDevisPage },
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Authentication', component: AuthenticationPage }
+      { title: 'Authentication', component: AuthenticationPage },
+      { title: 'IdentificationClient', component: IdentificationClientPage }
+
     ];
   }
 
