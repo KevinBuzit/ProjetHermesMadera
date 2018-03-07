@@ -22,8 +22,7 @@ export class IdentificationClientPage {
       { title: 'Conception de devis', component: IdentificationProjetPage },
     ];
   }
-  presentAddCustomerModal()
-  {
+  presentAddCustomerModal() {
     const addCustomerModal = this.modal.create(AddCustomerComponent);
     addCustomerModal.onDidDismiss(data => {
       console.log(data);
