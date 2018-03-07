@@ -13,9 +13,8 @@ export class Projet {
   private _employe : Employe;
   private _etapeProjet : EtapeProjet;
   private _etatDevis : EtatDevis;
-  private _client : Client;
 
-  constructor(referenceProjet: number, nomProjet: string, adresseProjet: string, dateProjet: string, margeCommercialeProjet: number, margeEntrepriseProjet: number, employe: Employe, etapeProjet: EtapeProjet, etatDevis: EtatDevis, client: Client) {
+  constructor(referenceProjet: number, nomProjet: string, adresseProjet: string, dateProjet: string, margeCommercialeProjet: number, margeEntrepriseProjet: number, employe: Employe, etapeProjet: EtapeProjet, etatDevis: EtatDevis) {
     this._referenceProjet = referenceProjet;
     this._nomProjet = nomProjet;
     this._adresseProjet = adresseProjet;
@@ -25,7 +24,6 @@ export class Projet {
     this._employe = employe;
     this._etapeProjet = etapeProjet;
     this._etatDevis = etatDevis;
-    this._client = client;
   }
 
   get referenceProjet(): number {
@@ -98,13 +96,5 @@ export class Projet {
 
   set etatDevis(value: EtatDevis) {
     this._etatDevis = value;
-  }
-
-  get client(): Client {
-    return this._client;
-  }
-
-  set client(value: Client) {
-    this._client = value;
   }
 }
