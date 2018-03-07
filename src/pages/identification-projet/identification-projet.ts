@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ConceptionDevisPage } from '../conception-devis/conception-devis';
 /**
  * Generated class for the IdentificationProjetPage page.
  *
@@ -20,6 +20,10 @@ export class IdentificationProjetPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IdentificationProjetPage');
+  }
+  newProject()
+  {
+    this.navCtrl.push(ConceptionDevisPage);
   }
 
 }

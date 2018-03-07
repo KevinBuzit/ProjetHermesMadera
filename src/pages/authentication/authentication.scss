@@ -1,10 +1,4 @@
 page-authentication {
-  ion-content {
-
-  }
-  .scroll-content {
-    overflow: hidden;
-  }
   .background {
     background-image: url('../../assets/imgs/background.jpg');
     background-position: center;
@@ -13,7 +7,6 @@ page-authentication {
     background-size: cover;
     z-index:0;
     background-repeat: no-repeat;
-
   }
   .card{
     z-index:1;
@@ -29,25 +22,12 @@ page-authentication {
   }
   .ion-card{
     max-width: 500px;
-
   }
   .ion-grid{
     height: 100%;
   }
   .ion-row
   {
-  height: 100%;
-
-  }
-  .scroll-content  {
-    padding-bottom: 0px;
-
-  }
-  ion-content.content-md[padding] .scroll-content {
-    padding-bottom: 16px !important;
-  }
-
-  ion-content.content-md:not([padding]) .scroll-content {
-    padding-bottom: 0 !important;
+    height: 100%;
   }
 }

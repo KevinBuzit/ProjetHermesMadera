@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { AddProductComponent } from './add-product/add-product';
+import { AddCustomerComponent } from './add-customer/add-customer';
 @NgModule({
-	declarations: [AddProductComponent],
+	declarations: [AddProductComponent,
+    AddCustomerComponent],
 	imports: [],
-	exports: [AddProductComponent]
+	exports: [AddProductComponent,
+    AddCustomerComponent]
 })
 export class ComponentsModule {}

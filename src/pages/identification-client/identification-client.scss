@@ -1,16 +1,4 @@
-page-identification-client {
 
-}
-.scroll-content {
-  overflow: hidden;
-}
-ion-content.content-md[padding] .scroll-content {
-  padding-bottom: 16px !important;
-}
-
-ion-content.content-md:not([padding]) .scroll-content {
-  padding-bottom: 0 !important;
-}
 .ion-title{
 }
 .toolbar-title-md {
@@ -23,25 +11,19 @@ ion-content.content-md:not([padding]) .scroll-content {
   color: #95c11f;
   font-size: 6em;
   margin: 0 auto;
-
 }
 .toolbar-title-ios {
   color: #683c11;
 }
 .ion-card{
   height: 100%;
-
 }
 .ion-card-new-customer{
   max-width: 200px;
   margin: 0 auto;
-
-
 }
 .form-customer{
   max-width: 350px;
   margin: 0 auto;
+}
 
-}
-.ion-icon {
-}

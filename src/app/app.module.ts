@@ -15,6 +15,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GlobalProvider } from '../providers/global/global';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import {AddProductComponent} from "../components/add-product/add-product";
+import {AddCustomerComponent} from "../components/add-customer/add-customer";
+
 
 @NgModule({
   declarations: [
@@ -24,8 +26,8 @@ import {AddProductComponent} from "../components/add-product/add-product";
     AuthenticationPage,
     IdentificationClientPage,
     NouveauClientPage,
-    AddProductComponent
-    NouveauClientPage,
+    AddProductComponent,
+    AddCustomerComponent,
     IdentificationProjetPage
   ],
   imports: [
@@ -39,10 +41,10 @@ import {AddProductComponent} from "../components/add-product/add-product";
     ConceptionDevisPage,
     AuthenticationPage,
     IdentificationClientPage,
+    IdentificationProjetPage,
     NouveauClientPage,
-    IdentificationProjetPage
-    NouveauClientPage,
-    AddProductComponent
+    AddProductComponent,
+    AddCustomerComponent
   ],
   providers: [
     StatusBar,
