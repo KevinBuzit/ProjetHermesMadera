@@ -22,7 +22,7 @@ export class GlobalProvider {
     let employe = new Employe(1,'test','Employe','Lambda','18 rue des lilas','Brest','29000','xxxxxxxx@gmail.com','0000000000','01/01/1995','26/02/2018 18:00',metier);
 
     this.projets = [];
-    let projet1 = new Projet('Maison bois','19 rue des lilas 29000 Brest','25/12/2018',2,5,employe,EtapeProjet.A_LA_SIGNATURE,EtatDevis.ACCEPTE);
+    let projet1 = new Projet(1,'Maison bois','19 rue des lilas 29000 Brest','25/12/2018',2,5,employe,EtapeProjet.A_LA_SIGNATURE,EtatDevis.ACCEPTE);
     this.projets.push(projet1);
 
     this.clients = [];
