@@ -4,7 +4,6 @@ import {EtatDevis} from "./etatDevis.model";
 import {Client} from "./client.model";
 
 export class Projet {
-  private _referenceProjet: number;
   private _nomProjet: string;
   private _adresseProjet: string;
   private _dateProjet: string;
@@ -14,8 +13,7 @@ export class Projet {
   private _etapeProjet : EtapeProjet;
   private _etatDevis : EtatDevis;
 
-  constructor(referenceProjet: number, nomProjet: string, adresseProjet: string, dateProjet: string, margeCommercialeProjet: number, margeEntrepriseProjet: number, employe: Employe, etapeProjet: EtapeProjet, etatDevis: EtatDevis) {
-    this._referenceProjet = referenceProjet;
+  constructor(nomProjet: string, adresseProjet: string, dateProjet: string, margeCommercialeProjet: number, margeEntrepriseProjet: number, employe: Employe, etapeProjet: EtapeProjet, etatDevis: EtatDevis) {
     this._nomProjet = nomProjet;
     this._adresseProjet = adresseProjet;
     this._dateProjet = dateProjet;
@@ -24,14 +22,6 @@ export class Projet {
     this._employe = employe;
     this._etapeProjet = etapeProjet;
     this._etatDevis = etatDevis;
-  }
-
-  get referenceProjet(): number {
-    return this._referenceProjet;
-  }
-
-  set referenceProjet(value: number) {
-    this._referenceProjet = value;
   }
 
   get nomProjet(): string {

@@ -7,16 +7,16 @@
       <ion-col>
         <ion-item>
           <ion-label>Gamme</ion-label>
-          <ion-select [(ngModel)]="gamme">
+          <ion-select [(ngModel)]="product.gamme">
             <ion-option *ngFor="let gamme of global.gammes" [value]="gamme">{{gamme.designationGamme}}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
-      <ion-col ngif="gamme.modeles.length > 0">
+      <ion-col ngif="product.gamme.modeles.length > 0">
         <ion-item>
           <ion-label>Modèle</ion-label>
-          <ion-select [(ngModel)]="modele">
-            <ion-option *ngFor="let modele of gamme.modeles" [value]="modele">{{modele.designationModele}}</ion-option>
+          <ion-select [(ngModel)]="product.modele">
+            <ion-option *ngFor="let modele of product.gamme.modeles" [value]="modele">{{modele.designationModele}}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
@@ -25,47 +25,32 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-12 col-md-4>
-          <ion-item>
-            <ion-label>Isolation</ion-label>
-            <ion-select [(ngModel)]="isolation">
-              <ion-option value="s">Synthètique</ion-option>
-              <ion-option value="n">Naturelle</ion-option>
-            </ion-select>
-          </ion-item>
+  <ion-item>
+    <ion-label>Isolation</ion-label>
+    <ion-select [(ngModel)]="product.isolation">
+      <ion-option value="1">Synthètique</ion-option>
+      <ion-option value="2">Naturelle</ion-option>
+    </ion-select>
+  </ion-item>
 
-          <ion-item>
-            <ion-label>Finition extérieure</ion-label>
-            <ion-select [(ngModel)]="finition">
-              <ion-option value="b">Bois</ion-option>
-              <ion-option value="c">Crépis</ion-option>
-            </ion-select>
-          </ion-item>
+  <ion-item>
+    <ion-label>Finition extérieure</ion-label>
+    <ion-select [(ngModel)]="product.finition">
+      <ion-option value="1">Bois</ion-option>
+      <ion-option value="2">Crépis</ion-option>
+    </ion-select>
+  </ion-item>
 
-          <ion-item>
-            <ion-label>Couverture</ion-label>
-            <ion-select [(ngModel)]="couverture">
-              <ion-option value="b">Tuiles</ion-option>
-              <ion-option value="c">Ardoises</ion-option>
-            </ion-select>
-          </ion-item>
+  <ion-item>
+    <ion-label>Couverture</ion-label>
+    <ion-select [(ngModel)]="product.couverture">
+      <ion-option value="1">Tuiles</ion-option>
+      <ion-option value="2">Ardoises</ion-option>
+    </ion-select>
+  </ion-item>
 
-        </ion-col>
-        <ion-col col-12 col-md-8>
-          <ion-scroll scrollX="true" scrollY="true">
-            <img src="../../assets/imgs/modeles/{{modele.urlImageModele}}" alt="Plan Modèle {{ modele.designationModele }}"/>
-          </ion-scroll>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12>
-          <button ion-button color="grey-madera" float-right>VALIDER</button>
-          <button ion-button color="green-madera" (click)="dismiss()" float-right>ANNULER</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
+  <img src="../../assets/imgs/modeles/{{product.modele.urlImageModele}}" width="100%" height="100%" alt="Plan Modèle {{ product.modele.designationModele }}"/>
+  <button ion-button color="green-madera" (click)="addProduct()" float-right>VALIDER</button>
+  <button ion-button color="green-madera" (click)="dismiss()" float-right>ANNULER</button>
 
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
 import {GlobalProvider} from "../../providers/global/global";
+import {Produit} from "../../models/produit.model";
 
 @Component({
   selector: 'add-product',
@@ -8,20 +9,33 @@ import {GlobalProvider} from "../../providers/global/global";
 })
 export class AddProductComponent {
 
-  private gamme = null;
-  private modele = null;
+  private product = {
+    gamme : null,
+    modele :  null,
+    isolation :  null,
+    finition :  null,
+    couverture : null
+  };
 
-  constructor(public viewCtrl: ViewController, public global: GlobalProvider) {
-    this.gamme = this.global.gammes[0];
-    this.modele = this.gamme.modeles[0];
+  constructor(public viewCtrl: ViewController,
+              public global: GlobalProvider) {
 
-    console.log(this.gamme);
-    console.log(this.modele);
+    this.product = {
+      gamme : this.global.gammes[0],
+      modele :  this.global.gammes[0].modeles[0],
+      isolation :  null,
+      finition :  null,
+      couverture : null
+    };
+
   }
 
   dismiss() {
-    let data = { 'foo': 'bar' };
-    this.viewCtrl.dismiss(data);
+    this.viewCtrl.dismiss();
   }
 
+  addProduct() {
+    let produit = new Produit(this.product.isolation, this.product.finition, this.product.couverture, this.product.modele  );
+    this.viewCtrl.dismiss(produit);
+  }
 }

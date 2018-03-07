@@ -23,11 +23,11 @@
               <p>Référence projet : 1555</p>
             </ion-item>
             <ion-item>
-              <ion-input [(ngModel)]="adresseProjet" text-center text-sm-start placeholder="Adresse projet" clearInput></ion-input>
+              <ion-input [(ngModel)]="projet.adresseProjet" text-center text-sm-start placeholder="Adresse projet" clearInput></ion-input>
             </ion-item>
             <ion-item text-center text-sm-start>
               <ion-label fixed>Date du projet</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="dateProjet" placeholder="Date du projet" clearInput></ion-datetime>
+              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="projet.dateProjet" placeholder="Date du projet" clearInput></ion-datetime>
             </ion-item>
           </ion-col>
           <ion-col col-0 col-sm-4></ion-col>
@@ -41,7 +41,7 @@
         <ion-row justify-content-center>
           <ion-col col-12 col-md-4>
             <ion-item>
-              <ion-input text-center [(ngModel)]="nomProjet" placeholder="Nom du projet" clearInput></ion-input>
+              <ion-input text-center [(ngModel)]="projet.nomProjet" placeholder="Nom du projet" clearInput></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -57,29 +57,20 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col col-2 text-center class="border">
-            REF.
-          </ion-col>
-          <ion-col col-2 text-center class="border">
-            GAMME
-          </ion-col>
-          <ion-col col-2 text-center class="border">
-            MODELE
-          </ion-col>
-          <ion-col col-2 text-center class="border">
-          ISO.
-        </ion-col>
-          <ion-col col-2 text-center class="border">
-            FIN.
-          </ion-col>
-          <ion-col col-2 text-center class="border">
-            COU.
+          <ion-col col-12 class="border" *ngIf="produits.length > 0">
+            <ion-list>
+
+              <button ion-item *ngFor="let produit of produits" (click)="presentDisplayProductModal(produit)">
+                {{ produit.modele.designationModele }}
+              </button>
+
+            </ion-list>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col col-12>
-            <button ion-button color="grey-madera" float-right>VALIDER</button>
-            <button ion-button color="green-madera" float-right>ANNULER</button>
+            <button ion-button ngif="projet.etatDevis === EtatDevis.BROUILLON || projet.etatDevis === EtatDevis.REFUSE" color="green-madera" float-right [navPush]="devisPage" [navParams]="projet">VALIDER</button>
+            <button ion-button color="green-madera" float-right (click)="cancel()">ANNULER</button>
           </ion-col>
         </ion-row>
       </ion-grid>
