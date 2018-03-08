@@ -1,6 +1,7 @@
 import {Employe} from "./employe.model";
 import {EtapeProjet} from "./etapeProjet.model";
 import {EtatDevis} from "./etatDevis.model";
+import {Produit} from "./produit.model";
 
 export class Projet {
   private _nomProjet: string;
@@ -11,8 +12,9 @@ export class Projet {
   private _employe : Employe;
   private _etapeProjet : EtapeProjet;
   private _etatDevis : EtatDevis;
+  private _produits : Array<Produit>;
 
-  constructor(nomProjet: string, adresseProjet: string, dateProjet: string, margeCommercialeProjet: number, margeEntrepriseProjet: number, employe: Employe, etapeProjet: EtapeProjet, etatDevis: EtatDevis) {
+  constructor(nomProjet: string, adresseProjet: string, dateProjet: string, margeCommercialeProjet: number, margeEntrepriseProjet: number, employe: Employe, etapeProjet: EtapeProjet, etatDevis: EtatDevis, produits : Array<Produit>) {
     this._nomProjet = nomProjet;
     this._adresseProjet = adresseProjet;
     this._dateProjet = dateProjet;
@@ -21,6 +23,8 @@ export class Projet {
     this._employe = employe;
     this._etapeProjet = etapeProjet;
     this._etatDevis = etatDevis;
+    this._produits = produits;
+
   }
 
   get nomProjet(): string {
@@ -85,5 +89,12 @@ export class Projet {
 
   set etatDevis(value: EtatDevis) {
     this._etatDevis = value;
+  }
+  get produits(): Array<Produit> {
+    return this._produits;
+  }
+
+  set produits(value: Array<Produit>) {
+    this._produits = value;
   }
 }
