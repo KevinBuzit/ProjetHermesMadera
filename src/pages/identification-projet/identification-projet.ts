@@ -35,10 +35,13 @@ export class IdentificationProjetPage {
   {
     this.navCtrl.push(ConceptionDevisPage);
   }
-  detailsDevis(projet : any )
+  detailsDevis(projet : any, index : any )
   {
-    this.navCtrl.push(DevisPage,{ 'projet': projet });
+    this.navCtrl.push(DevisPage,{ 'projet': projet,'index': index });
     console.log('projet',projet);
+    console.log('index : ',index);
+
+
   }
 
 }
