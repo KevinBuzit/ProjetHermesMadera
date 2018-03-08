@@ -50,7 +50,7 @@ export class IdentificationProjetPage {
     this.createdProjet.etapeProjet= EtapeProjet.A_LA_SIGNATURE;
 
 
-    this.navCtrl.push(ConceptionDevisPage,{ 'projet': this.createdProjet});
+    this.navCtrl.push(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20});
   }
   detailsDevis(projet : any, index : any )
   {
