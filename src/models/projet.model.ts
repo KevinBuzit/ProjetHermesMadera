@@ -14,6 +14,7 @@ export class Projet {
   private _etatDevis : EtatDevis;
   private _produits : Array<Produit>;
 
+
   constructor(nomProjet: string, adresseProjet: string, dateProjet: string, margeCommercialeProjet: number, margeEntrepriseProjet: number, employe: Employe, etapeProjet: EtapeProjet, etatDevis: EtatDevis, produits : Array<Produit>) {
     this._nomProjet = nomProjet;
     this._adresseProjet = adresseProjet;

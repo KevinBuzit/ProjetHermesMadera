@@ -5,6 +5,7 @@ import { IdentificationProjetPage } from '../identification-projet/identificatio
 import {GlobalProvider} from "../../providers/global/global";
 import { AddCustomerComponent } from '../../components/add-customer/add-customer';
 import { AlertController } from 'ionic-angular';
+import { Employe } from '../../models/employe.model';
 
 
 @IonicPage()
@@ -14,17 +15,18 @@ import { AlertController } from 'ionic-angular';
 })
 
 export class IdentificationClientPage {
-  pages: Array<{title: string, component: any}>;
-
+  private pages: Array<{title: string, component: any}>;
+  private employe : Employe;
   private client = {
     nomClient: '',
     prenomClient: '',
     codePostalClient: ''
   };
-  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider,public modal: ModalController,  private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider,public modal: ModalController,  private alertCtrl: AlertController,  public params: NavParams) {
     this.pages = [
       { title: 'Conception de devis', component: IdentificationProjetPage },
     ];
+    this.employe = params.get('employe');
   }
   presentAddCustomerModal() {
     const addCustomerModal = this.modal.create(AddCustomerComponent);
@@ -58,7 +60,8 @@ export class IdentificationClientPage {
     }
     if(trouve)
     {
-      this.navCtrl.push(IdentificationProjetPage,{ 'client': this.global.clients[i] });
+      this.navCtrl.push(IdentificationProjetPage,{ 'client': this.global.clients[i],'employe':  this.employe });
+      console.log("employe ",this.employe);
     }
     else
     {

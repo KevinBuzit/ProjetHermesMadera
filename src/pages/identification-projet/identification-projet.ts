@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ConceptionDevisPage } from '../conception-devis/conception-devis';
-import { EtatDevis } from '../../models/etatDevis.model';
+import { Projet } from '../../models/projet.model';
 import { DevisPage } from '../devis/devis';
+import { Employe } from '../../models/employe.model';
+import { Client } from '../../models/client.model';
+import {EtapeProjet} from "../../models/etapeProjet.model";
 
 
 /**
@@ -18,11 +21,18 @@ import { DevisPage } from '../devis/devis';
   templateUrl: 'identification-projet.html',
 })
 export class IdentificationProjetPage {
-  client : any;
-  haveProjet = false;
+  private client : Client;
+  private haveProjet = false;
+  private createdProjet : Projet;
+  private employe : Employe;
+
+
   constructor(public navCtrl: NavController, public params: NavParams) {
     this.client = params.get('client');
     console.log("client",this.client);
+    this.employe = params.get('employe');
+    console.log("employe identification projet ",this.employe);
+
     if(this.client.projets.length>0){
       this.haveProjet=true;
     }
@@ -33,7 +43,14 @@ export class IdentificationProjetPage {
   }
   newProject()
   {
-    this.navCtrl.push(ConceptionDevisPage);
+
+    this.createdProjet.employe=this.employe;
+    this.createdProjet.margeCommercialeProjet=2;
+    this.createdProjet.margeEntrepriseProjet=5;
+    this.createdProjet.etapeProjet= EtapeProjet.A_LA_SIGNATURE;
+
+
+    this.navCtrl.push(ConceptionDevisPage,{ 'projet': this.createdProjet});
   }
   detailsDevis(projet : any, index : any )
   {

@@ -14,7 +14,7 @@ import { AlertController } from 'ionic-angular';
 export class AuthenticationPage {
   private matricule : number;
   private password : string;
-  pages: Array<{title: string, component: any}>;
+  private pages: Array<{title: string, component: any}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl:MenuController, public global: GlobalProvider, private alertCtrl: AlertController) {
     this.pages = [
@@ -46,7 +46,7 @@ export class AuthenticationPage {
     }
    if(trouve)
     {
-      this.navCtrl.push(IdentificationClientPage);
+      this.navCtrl.push(IdentificationClientPage,{ 'employe': this.global.projets[i].employe });
     }
     else
     {

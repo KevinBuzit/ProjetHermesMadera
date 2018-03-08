@@ -9,6 +9,7 @@ export class Produit {
   private _couverture: Couverture;
   private _modele:Modele;
 
+
   constructor(isolation: Isolation, finitionExterieure: FinitionExterieure, couverture: Couverture, modele: Modele) {
     this._isolation = isolation;
     this._finitionExterieure = finitionExterieure;
