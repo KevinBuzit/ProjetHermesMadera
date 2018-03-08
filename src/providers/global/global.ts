@@ -17,11 +17,11 @@ export class GlobalProvider {
   public gammes : Array<Gamme>;
 
   constructor() {
-    this.projets = [];
-    let metier = new Metier(1,'Commercial');
 
+    let metier = new Metier(1,'Commercial');
     let employe = new Employe(1,'test','Employe','Lambda','18 rue des lilas','Brest','29000','xxxxxxxx@gmail.com','0000000000','01/01/1995','26/02/2018 18:00',metier);
 
+    this.projets = [];
     let projet1 = new Projet(1,'Maison bois','19 rue des lilas 29000 Brest','25/12/2018',2,5,employe,EtapeProjet.A_LA_SIGNATURE,EtatDevis.ACCEPTE);
     this.projets.push(projet1);
 
@@ -29,16 +29,12 @@ export class GlobalProvider {
     let client1 = new Client(1,'Client','Test','17 rue des lilas','Brest','29000','xxxxxxxx@gmail.com','0000000000','01/01/1995','26/02/2018 18:00',this.projets);
     this.clients.push(client1);
 
-
-
-
-
     this.modeles = [];
-    let modele1 = new Modele(1,'','1 Chambre','Modèle 1 chambre');
+    let modele1 = new Modele(1,'modele1.jpg','1 Chambre','Modèle 1 chambre');
     this.modeles.push(modele1);
 
     this.gammes = [];
-    let gamme1 = new Gamme(1,'modele1.jpg','Gamme 1','Gamme bois',this.modeles);
+    let gamme1 = new Gamme(1,'','Gamme 1','Gamme bois',this.modeles);
     this.gammes.push(gamme1);
   }
 }

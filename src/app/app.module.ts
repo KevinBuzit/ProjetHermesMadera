@@ -16,7 +16,8 @@ import { GlobalProvider } from '../providers/global/global';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import {AddProductComponent} from "../components/add-product/add-product";
 import {AddCustomerComponent} from "../components/add-customer/add-customer";
-
+import {DisplayProductComponent} from "../components/display-product/display-product";
+import {DevisPage} from "../pages/devis/devis";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import {AddCustomerComponent} from "../components/add-customer/add-customer";
     NouveauClientPage,
     AddProductComponent,
     AddCustomerComponent,
-    IdentificationProjetPage
+    DisplayProductComponent,
+    IdentificationProjetPage,
+    DevisPage
   ],
   imports: [
     BrowserModule,
@@ -40,11 +43,13 @@ import {AddCustomerComponent} from "../components/add-customer/add-customer";
     ListPage,
     ConceptionDevisPage,
     AuthenticationPage,
+    DisplayProductComponent,
     IdentificationClientPage,
-    IdentificationProjetPage,
     NouveauClientPage,
     AddProductComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    IdentificationProjetPage,
+    DevisPage
   ],
   providers: [
     StatusBar,

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { AddProductComponent } from './add-product/add-product';
 import { AddCustomerComponent } from './add-customer/add-customer';
+import { DisplayProductComponent } from './display-product/display-product';
 @NgModule({
 	declarations: [AddProductComponent,
-    AddCustomerComponent],
+    DisplayProductComponent,AddCustomerComponent],
 	imports: [],
 	exports: [AddProductComponent,
-    AddCustomerComponent]
+    DisplayProductComponent,AddCustomerComponent]
 })
 export class ComponentsModule {}

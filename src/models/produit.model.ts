@@ -1,32 +1,19 @@
 import {Isolation} from "./isolation.model";
 import {FinitionExterieure} from "./finitionExterieure.model";
-import {FinitionInterieure} from "./finitionInterieure.model";
 import {Couverture} from "./couverture.model";
 import {Modele} from "./modele.model";
 
 export class Produit {
-  private _referenceProduit: number;
   private _isolation: Isolation;
   private _finitionExterieure: FinitionExterieure;
-  private _finitionInterieure: FinitionInterieure;
   private _couverture: Couverture;
   private _modele:Modele;
 
-  constructor(referenceProduit: number, isolation: Isolation, finitionExterieure: FinitionExterieure, finitionInterieure: FinitionInterieure, couverture: Couverture, modele: Modele) {
-    this._referenceProduit = referenceProduit;
+  constructor(isolation: Isolation, finitionExterieure: FinitionExterieure, couverture: Couverture, modele: Modele) {
     this._isolation = isolation;
     this._finitionExterieure = finitionExterieure;
-    this._finitionInterieure = finitionInterieure;
     this._couverture = couverture;
     this._modele = modele;
-  }
-
-  get referenceProduit(): number {
-    return this._referenceProduit;
-  }
-
-  set referenceProduit(value: number) {
-    this._referenceProduit = value;
   }
 
   get isolation(): Isolation {
@@ -43,14 +30,6 @@ export class Produit {
 
   set finitionExterieure(value: FinitionExterieure) {
     this._finitionExterieure = value;
-  }
-
-  get finitionInterieure(): FinitionInterieure {
-    return this._finitionInterieure;
-  }
-
-  set finitionInterieure(value: FinitionInterieure) {
-    this._finitionInterieure = value;
   }
 
   get couverture(): Couverture {

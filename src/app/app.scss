@@ -59,6 +59,12 @@ ion-menu {
   }
 }
 
+ion-content{
+  .scroll-content{
+    overflow:auto;
+  }
+}
+
 .img-logo{
   max-width: 100px;
  }

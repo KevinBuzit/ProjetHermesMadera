@@ -1,4 +1,3 @@
-import {Gamme} from "./gamme.model";
 import {Module} from "./module.model";
 export class Modele {
   private _referenceModele: number;
