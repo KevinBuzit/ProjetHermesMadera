@@ -1,8 +1,8 @@
 export enum EtatDevis {
   "BROUILLON" = 1,
   "ACCEPTE",
-  "EN ATTENTE",
+  "EN_ATTENTE",
   "REFUSE",
-  "EN COMMANDE",
-  "EN FACTURATION"
+  "EN_COMMANDE",
+  "EN_FACTURATION"
 }

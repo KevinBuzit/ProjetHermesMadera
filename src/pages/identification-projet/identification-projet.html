@@ -20,24 +20,51 @@
             </ion-card-header>
             <ion-card-content>
               <div *ngIf="haveProjet">
-                <ion-card *ngFor="let projet of client.projets"  class="ion-card-project">
-                  <ion-card-content  class="add-customer">
+                <ion-card *ngFor="let projet of client.projets"  class="ion-card-project" (click)="detailsDevis(projet)">
+                  <ion-card-content  class="add-customer" >
+
+                    <div *ngIf="projet.etatDevis=== 1">
+                      <div class="nom-projet-card">{{projet.nomProjet}}
+                        <ion-icon  name="create" class="edit-icon" >
+                        </ion-icon>
+                      </div>
+                    </div>
+                    <div *ngIf="projet.etatDevis=== 2">
+                        <div class="nom-projet-card">{{projet.nomProjet}}
+                          <ion-icon  name="checkmark" class="edit-icon" >
+                          </ion-icon>
+                        </div>
+
+                    </div>
+                    <div *ngIf="projet.etatDevis=== 3">
+                      <div class="nom-projet-card">{{projet.nomProjet}}
+                        <ion-icon  name="time" class="edit-icon" >
+                        </ion-icon>
+                      </div>
+                    </div>
+                    <div *ngIf="projet.etatDevis=== 4">
+                      <div class="nom-projet-card">{{projet.nomProjet}}
+                        <ion-icon  name="close" class="edit-icon" >
+                        </ion-icon>
+                      </div>
+                    </div>  <div *ngIf="projet.etatDevis=== 5">
                     <div class="nom-projet-card">{{projet.nomProjet}}
-
-                      <ion-icon  name="create" class="edit-icon" >
-
-                    </ion-icon></div>
+                      <ion-icon  name="basket" class="edit-icon" >
+                      </ion-icon>
+                    </div>
+                  </div>  <div *ngIf="projet.etatDevis=== 6">
+                    <div class="nom-projet-card">{{projet.nomProjet}}
+                      <ion-icon  name="filing" class="edit-icon" >
+                      </ion-icon>
+                    </div>
+                  </div>
 
                   </ion-card-content>
-
                 </ion-card>
-
               </div>
               <div *ngIf="!haveProjet">
                 AUCUN PROJET
               </div>
-
-
             </ion-card-content>
           </ion-card>
         </ion-col>

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ConceptionDevisPage } from '../conception-devis/conception-devis';
+import { EtatDevis } from '../../models/etatDevis.model';
+import { DevisPage } from '../devis/devis';
+
+
 /**
  * Generated class for the IdentificationProjetPage page.
  *
@@ -30,6 +34,11 @@ export class IdentificationProjetPage {
   newProject()
   {
     this.navCtrl.push(ConceptionDevisPage);
+  }
+  detailsDevis(projet : any )
+  {
+    this.navCtrl.push(DevisPage,{ 'projet': projet });
+    console.log('projet',projet);
   }
 
 }

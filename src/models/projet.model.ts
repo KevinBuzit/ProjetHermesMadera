@@ -1,7 +1,6 @@
 import {Employe} from "./employe.model";
 import {EtapeProjet} from "./etapeProjet.model";
 import {EtatDevis} from "./etatDevis.model";
-import {Client} from "./client.model";
 
 export class Projet {
   private _nomProjet: string;
