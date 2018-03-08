@@ -14,8 +14,14 @@ import { ConceptionDevisPage } from '../conception-devis/conception-devis';
   templateUrl: 'identification-projet.html',
 })
 export class IdentificationProjetPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  client : any;
+  haveProjet = false;
+  constructor(public navCtrl: NavController, public params: NavParams) {
+    this.client = params.get('client');
+    console.log("client",this.client);
+    if(this.client.projets.length>0){
+      this.haveProjet=true;
+    }
   }
 
   ionViewDidLoad() {

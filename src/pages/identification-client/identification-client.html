@@ -5,7 +5,6 @@
     <ion-grid class="ion-grid" >
       <ion-row>
         <ion-title text-center>CLIENT</ion-title>
-
       </ion-row>
 
       <ion-row class="ion-row" justify-content-center align-items-center>
@@ -16,23 +15,24 @@
               <ion-card-header>
                 DEJA CLIENT ?
               </ion-card-header>
-              <form >
+
+              <form #form="ngForm"(ngSubmit)="validate(form)" >
                   <ion-item>
                     <ion-label floating>Nom</ion-label>
-                    <ion-input name="surname"[(ngModel)]="surname" type="text"></ion-input>
+                    <ion-input name="surname" required [(ngModel)]="client.nomClient" type="text"></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label floating>Mot de passe</ion-label>
-                    <ion-input name="name" [(ngModel)]="name" type="text"></ion-input>
+                    <ion-input name="name" required [(ngModel)]="client.prenomClient" type="text"></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label floating>Code postal</ion-label>
-                    <ion-input name="zipcode" [(ngModel)]="zipcode" type="text"></ion-input>
+                    <ion-input name="zipcode" required  [(ngModel)]="client.codePostalClient" type="text"></ion-input>
                   </ion-item>
                 <div padding class="button">
-                  <button class="green-button" ion-button color="green-madera" (click)="validate()">VALIDER</button>
+                  <button class="green-button" ion-button color="green-madera" >VALIDER</button>
                 </div>
               </form>
             </ion-card-content>

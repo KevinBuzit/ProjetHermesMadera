@@ -27,7 +27,24 @@ export class AuthenticationPage {
   }
   login()
   {
-   if((this.global.projets[0].employe.matriculeEmploye == this.matricule) &&( this.global.projets[0].employe.motDePasseEmploye==this.password))
+
+    let trouve = false;
+    let i = 0;
+    console.log("taille ",this.global.projets.length);
+    console.log("client ",this.global.clients);
+
+    while(!trouve && i< this.global.clients.length )
+    {
+      if((this.global.projets[i].employe.matriculeEmploye == this.matricule) &&( this.global.projets[i].employe.motDePasseEmploye==this.password))
+      {
+        trouve=true;
+      }
+      else {
+        trouve=false;
+        i++;
+      }
+    }
+   if(trouve)
     {
       this.navCtrl.push(IdentificationClientPage);
     }

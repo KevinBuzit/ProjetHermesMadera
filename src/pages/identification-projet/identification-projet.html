@@ -7,19 +7,37 @@
         <ion-title text-center>PROJET</ion-title>
       </ion-row>
       <ion-row>
-        <ion-title class="customer-name"text-center>Kévin Buzit</ion-title>
+        <ion-title class="customer-name"text-center >{{client.nomClient}} {{client.prenomClient}}</ion-title>
       </ion-row>
 
       <ion-row class="ion-row" justify-content-center align-items-center>
         <ion-col col-md-6 col-xs-12>
           <div class="text-project" text-left></div>
 
-          <ion-card text-center class="ion-card-project">
-            <ion-card-header text-center class="add-customer">
-              Vos Projets
+          <ion-card class="ion-card-projects">
+            <ion-card-header  class="add-customer">
+             <div class="titre-projets" text-center>Vos Projets </div>
             </ion-card-header>
             <ion-card-content>
-              AUCUN PROJET
+              <div *ngIf="haveProjet">
+                <ion-card *ngFor="let projet of client.projets"  class="ion-card-project">
+                  <ion-card-content  class="add-customer">
+                    <div class="nom-projet-card">{{projet.nomProjet}}
+
+                      <ion-icon  name="create" class="edit-icon" >
+
+                    </ion-icon></div>
+
+                  </ion-card-content>
+
+                </ion-card>
+
+              </div>
+              <div *ngIf="!haveProjet">
+                AUCUN PROJET
+              </div>
+
+
             </ion-card-content>
           </ion-card>
         </ion-col>
