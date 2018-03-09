@@ -6,6 +6,7 @@ import { DevisPage } from '../devis/devis';
 import { Employe } from '../../models/employe.model';
 import { Client } from '../../models/client.model';
 import {EtapeProjet} from "../../models/etapeProjet.model";
+import { IdentificationClientPage } from '../identification-client/identification-client';
 
 @IonicPage()
 @Component({
@@ -42,5 +43,8 @@ export class IdentificationProjetPage {
   detailsDevis(projet : any, index : any )
   {
     this.navCtrl.push(DevisPage,{ 'projet': projet,'index': index, 'client': this.client });
+  }
+  pop(){
+    this.navCtrl.push(IdentificationClientPage);
   }
 }

@@ -47,7 +47,7 @@ export class IdentificationClientPage {
     let i = 0;
     while(!trouve && i< this.global.clients.length )
     {
-      if((this.global.clients[0].nomClient.toUpperCase() == this.client.nomClient.toUpperCase()) &&(this.global.clients[i].prenomClient.toUpperCase() == this.client.prenomClient.toUpperCase()) && (this.global.clients[i].codePostalClient.toUpperCase() == this.client.codePostalClient.toUpperCase()))
+      if((this.global.clients[i].nomClient.toUpperCase() == this.client.nomClient.toUpperCase()) &&(this.global.clients[i].prenomClient.toUpperCase() == this.client.prenomClient.toUpperCase()) && (this.global.clients[i].codePostalClient.toUpperCase() == this.client.codePostalClient.toUpperCase()))
       {
         trouve=true;
 
@@ -71,4 +71,7 @@ export class IdentificationClientPage {
       });
       alert.present();
     }}
+    pop(){
+    this.navCtrl.pop();
+    }
 }

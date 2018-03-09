@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {NavController, NavParams } from 'ionic-angular';
 import { IdentificationProjetPage } from '../../pages/identification-projet/identification-projet';
 import { Client } from '../../models/client.model';
+import {GlobalProvider} from "../../providers/global/global";
+
 import moment from 'moment';
 
 
@@ -30,19 +32,20 @@ export class AddCustomerComponent {
     dateNaissanceClient: '',
     mailClient: '',
   };
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider) {
   }
 
   ionViewDidLoad() {
   }
   addCustomer()
   {
-    this.client  = new Client(2,this.clientForm.genreClient, this.clientForm.nomClient, this.clientForm.prenomClient, this.clientForm.adresseRueClient, this.clientForm.adresseVilleClient, this.clientForm.codePostalClient, this.clientForm.mailClient ,this.clientForm.telephoneClient, this.clientForm.dateNaissanceClient, (moment().format('YYYYMMDD')+" "+moment().format('HHmm')),null );
-    console.log('client add customer',this.client);
-    console.log('clientForm add customer',this.clientForm);
-
+    this.client  = new Client(2,this.clientForm.genreClient, this.clientForm.nomClient, this.clientForm.prenomClient, this.clientForm.adresseRueClient, this.clientForm.adresseVilleClient, this.clientForm.codePostalClient, this.clientForm.mailClient ,this.clientForm.telephoneClient, this.clientForm.dateNaissanceClient, (moment().format('DD/MM/YYYY')+" "+moment().format('HH:mm')),null );
+    this.global.clients.push(this.client);
+    console.log('global',this.global);
     this.navCtrl.push(IdentificationProjetPage,{ 'client': this.client });
 
   }
-
+  pop(){
+    this.navCtrl.pop();
+  }
 }

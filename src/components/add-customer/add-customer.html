@@ -6,6 +6,7 @@
 
   <ion-card class="ion-card">
     <ion-content padding>
+      <ion-icon name="arrow-back"  (click)="pop()"></ion-icon>
 
     <ion-card-content>
       <form #form="ngForm"(ngSubmit)="addCustomer(form)" >
