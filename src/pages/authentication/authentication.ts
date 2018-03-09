@@ -41,7 +41,8 @@ export class AuthenticationPage {
     }
    if(trouve)
     {
-      this.navCtrl.push(IdentificationClientPage,{ 'employe': this.global.projets[i].employe });
+      this.global.employe = this.global.projets[i].employe;
+      this.navCtrl.push(IdentificationClientPage);
     }
     else
     {

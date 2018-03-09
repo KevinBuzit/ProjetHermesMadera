@@ -1,9 +1,14 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar text-center>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <img src="../../assets/imgs/logo.svg" class="img-logo" alt="Madera">
+    <img src="../../assets/imgs/logo.svg" class="img-logo" alt="Madera"/>
+    <ion-buttons end>
+      <button ion-button icon-only class="contact-icon" (click)="presentPopover($event)">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -12,23 +17,16 @@
   <ion-card>
 
     <ion-card-header>
-      <h2>Conception de devis</h2>
+      <h2>Devis</h2>
     </ion-card-header>
 
     <ion-card-content>
       <ion-grid>
         <ion-row>
-          <ion-col col-12 col-sm-4 >
-            <ion-item text-center text-sm-start>
-              <p>Référence projet : 1555</p>
-            </ion-item>
-            <ion-item>
-              <ion-input [(ngModel)]="projet.adresseProjet" text-center text-sm-start placeholder="Adresse projet" clearInput></ion-input>
-            </ion-item>
-            <ion-item text-center text-sm-start>
-              <ion-label fixed>Date du projet</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="projet.dateProjet" placeholder="Date du projet" clearInput></ion-datetime>
-            </ion-item>
+          <ion-col col-12 col-sm-4 text-center text-sm-left>
+            <p>Réf. projet : {{refProjet}}</p>
+            <p>Date projet : {{projet.dateProjet}}</p>
+            <p>{{projet.adresseProjet}}</p>
           </ion-col>
           <ion-col col-0 col-sm-4></ion-col>
           <ion-col col-12 col-sm-4 text-center text-sm-end>
@@ -39,41 +37,49 @@
           </ion-col>
         </ion-row>
         <ion-row justify-content-center>
-          <ion-col col-12 col-md-4>
-            <ion-item>
-              <ion-input text-center [(ngModel)]="projet.nomProjet" placeholder="Nom du projet" clearInput></ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row class="border">
-          <ion-col col-9>Gestion des produits</ion-col>
-          <ion-col text-end col-3>
-            <button ion-button icon-only class="button_add" (click)="presentAddProductModal()">
-              <ion-icon name="add"></ion-icon>
-            </button>
-            <button ion-button icon-only class="button_remove">
-              <ion-icon name="remove"></ion-icon>
-            </button>
+          <ion-col col-12 text-center>
+            <p>{{projet.nomProjet}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col col-12 class="border" *ngIf="produits.length > 0">
+          <ion-col col-12 text-center>
+            <strong>TOTAL HT : 110 000€</strong>
+            <p>TVA COM {{projet.margeCommercialeProjet}}% : 4950€</p>
+            <p>TVA ENT {{projet.margeEntrepriseProjet}}% : 11000€</p>
+            <strong>TOTAL TTC : 125 950€</strong>
+            <br>
+          </ion-col>
+        </ion-row>
+        <ion-row class="border">
+          <ion-col col-12 *ngIf="null != projet.produits && projet.produits.length > 0">
             <ion-list>
 
-              <button ion-item *ngFor="let produit of produits" (click)="presentDisplayProductModal(produit)">
-                {{ produit.modele.designationModele }}
+              <button ion-item *ngFor="let produit of projet.produits" (click)="presentDisplayProductModal(produit)">
+                {{ produit.modele.referenceModele }} {{ produit.modele.designationModele }}
               </button>
 
             </ion-list>
           </ion-col>
         </ion-row>
+        <ion-row class="border">
+          <ion-col col-12 *ngIf="null != projet.produits && projet.produits.length > 0">
+            <ion-list>
+              <div *ngFor="let produit of projet.produits">
+                <button ion-item *ngFor="let module of produit.modele.modules" (click)="presentDisplayModuleModal(module)">
+                  {{ module.designationModule }}
+                </button>
+              </div>
+            </ion-list>
+          </ion-col>
+        </ion-row>
         <ion-row>
           <ion-col col-12>
-            <button ion-button ngif="projet.etatDevis === EtatDevis.BROUILLON || projet.etatDevis === EtatDevis.REFUSE" color="green-madera" float-right [navPush]="devisPage" [navParams]="projet">VALIDER</button>
+            <button ion-button color="green-madera" float-right (click)="sendDevis()">VALIDER</button>
             <button ion-button color="green-madera" float-right (click)="cancel()">ANNULER</button>
           </ion-col>
         </ion-row>
       </ion-grid>
+
     </ion-card-content>
 
   </ion-card>

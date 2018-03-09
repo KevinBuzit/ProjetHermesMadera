@@ -1,9 +1,14 @@
  <ion-header>
-  <ion-navbar>
+  <ion-navbar text-center>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <img src="../../assets/imgs/logo.svg" class="img-logo" alt="Madera">
+    <img src="../../assets/imgs/logo.svg" class="img-logo" alt="Madera"/>
+    <ion-buttons end>
+      <button ion-button icon-only class="contact-icon" (click)="presentPopover($event)">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -57,10 +62,10 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col col-12 class="border" *ngIf="produits.length > 0">
+          <ion-col col-12 class="border" *ngIf="null != projet.produits && projet.produits.length > 0">
             <ion-list>
 
-              <button ion-item *ngFor="let produit of produits" (click)="presentDisplayProductModal(produit)">
+              <button ion-item *ngFor="let produit of projet.produits" (click)="presentDisplayProductModal(produit)">
                 {{ produit.modele.designationModele }}
               </button>
 
@@ -69,7 +74,7 @@
         </ion-row>
         <ion-row>
           <ion-col col-12>
-            <button ion-button ngif="projet.etatDevis === EtatDevis.BROUILLON || projet.etatDevis === EtatDevis.REFUSE" color="green-madera" float-right [navPush]="devisPage" [navParams]="projet">VALIDER</button>
+            <button ion-button ngif="projet.etatDevis === etatDevis.BROUILLON || projet.etatDevis === etatDevis.REFUSE" color="green-madera" float-right (click)="goToDevisPage()">VALIDER</button>
             <button ion-button color="green-madera" float-right (click)="cancel()">ANNULER</button>
           </ion-col>
         </ion-row>

@@ -18,6 +18,8 @@ import {AddProductComponent} from "../components/add-product/add-product";
 import {AddCustomerComponent} from "../components/add-customer/add-customer";
 import {DisplayProductComponent} from "../components/display-product/display-product";
 import {DevisPage} from "../pages/devis/devis";
+import {AccountPopoverComponent} from "../components/account-popover/account-popover";
+import {DisplayBrouillonComponent} from "../components/display-brouillon/display-brouillon";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {DevisPage} from "../pages/devis/devis";
     AddCustomerComponent,
     DisplayProductComponent,
     IdentificationProjetPage,
-    DevisPage
+    DevisPage,
+    AccountPopoverComponent,
+    DisplayBrouillonComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import {DevisPage} from "../pages/devis/devis";
     AddProductComponent,
     AddCustomerComponent,
     IdentificationProjetPage,
-    DevisPage
+    DevisPage,
+    AccountPopoverComponent,
+    DisplayBrouillonComponent
   ],
   providers: [
     StatusBar,

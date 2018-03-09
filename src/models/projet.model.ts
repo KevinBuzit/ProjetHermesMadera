@@ -25,7 +25,6 @@ export class Projet {
     this._etapeProjet = etapeProjet;
     this._etatDevis = etatDevis;
     this._produits = produits;
-
   }
 
   get nomProjet(): string {

@@ -6,6 +6,7 @@ import { DevisPage } from '../devis/devis';
 import { Employe } from '../../models/employe.model';
 import { Client } from '../../models/client.model';
 import {EtapeProjet} from "../../models/etapeProjet.model";
+import {GlobalProvider} from "../../providers/global/global";
 import { IdentificationClientPage } from '../identification-client/identification-client';
 
 @IonicPage()
@@ -19,9 +20,9 @@ export class IdentificationProjetPage {
   private createdProjet : Projet;
   private employe : Employe;
 
-  constructor(public navCtrl: NavController, public params: NavParams) {
+  constructor(public navCtrl: NavController,public global: GlobalProvider, public params: NavParams) {
     this.client = params.get('client');
-    this.employe = params.get('employe');
+    this.employe = this.global.employe;
 
     if(!(this.client.projets===null))
     {
@@ -33,6 +34,7 @@ export class IdentificationProjetPage {
 
   ionViewDidLoad() {
   }
+
   newProject()
   {
     this.createdProjet = new Projet(null,null,null,2,5,this.employe,EtapeProjet.A_LA_SIGNATURE,null,null);

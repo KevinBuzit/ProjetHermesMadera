@@ -68,3 +68,34 @@ ion-content{
 .img-logo{
   max-width: 100px;
  }
+
+.contact-icon, button-ios{
+  background-color: inherit;
+  color : color($colors, green-madera);
+
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: none;
+}
+
+.contact-icon{
+  background-color: inherit;
+  color : color($colors, green-madera);
+
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: none;
+}
+
+.contact-icon{
+  &.activated{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: inherit;
+  }
+}
+
+.border{
+  border:solid 1px color($colors, grey-madera);
+}
+

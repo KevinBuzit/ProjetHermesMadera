@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ListPage } from '../pages/list/list';
 import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
+import {AuthenticationPage} from "../pages/authentication/authentication";
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
@@ -13,7 +14,7 @@ import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ConceptionDevisPage;
+  rootPage: any = AuthenticationPage;
 
   pages: Array<{title: string, component: any, img:string}>;
 

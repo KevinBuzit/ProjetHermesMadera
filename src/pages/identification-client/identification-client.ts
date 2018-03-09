@@ -26,7 +26,7 @@ export class IdentificationClientPage {
     this.pages = [
       { title: 'Conception de devis', component: IdentificationProjetPage },
     ];
-    this.employe = params.get('employe');
+    this.employe = this.global.employe;
   }
   presentAddCustomerModal() {
     const addCustomerModal = this.modal.create(AddCustomerComponent);
@@ -71,6 +71,7 @@ export class IdentificationClientPage {
       });
       alert.present();
     }}
+
     pop(){
     this.navCtrl.pop();
     }
