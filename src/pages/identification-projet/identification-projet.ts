@@ -36,11 +36,11 @@ export class IdentificationProjetPage {
   {
     this.createdProjet = new Projet(null,null,null,2,5,this.employe,EtapeProjet.A_LA_SIGNATURE,null,null);
 
-    this.navCtrl.push(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20});
+    this.navCtrl.push(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20, 'client': this.client});
   }
 
   detailsDevis(projet : any, index : any )
   {
-    this.navCtrl.push(DevisPage,{ 'projet': projet,'index': index });
+    this.navCtrl.push(DevisPage,{ 'projet': projet,'index': index, 'client': this.client });
   }
 }
