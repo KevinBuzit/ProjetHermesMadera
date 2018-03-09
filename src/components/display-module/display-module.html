@@ -1,0 +1,15 @@
+<ion-content padding text-center>
+  <div>
+    <p>Réf. module : {{module.referenceModule}}</p>
+    <p>Désignation : {{module.designationModule}}</p>
+    <p>Prix HT : {{module.prixHTModule}}</p>
+    <p>Composants :</p>
+    <ion-list class="border">
+      <p ion-item *ngFor="let composant of module.composants">
+        {{ composant.designationComposant }}
+      </p>
+    </ion-list>
+  </div>
+
+  <button ion-button color="green-madera" (click)="dismiss()">ANNULER</button>
+</ion-content>
