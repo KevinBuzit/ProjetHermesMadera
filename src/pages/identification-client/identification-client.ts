@@ -36,7 +36,6 @@ export class IdentificationClientPage {
     addCustomerModal.present();
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad IdentificationClientPage');
   }
   createCustomer()
   {

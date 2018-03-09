@@ -20,18 +20,13 @@ export class AuthenticationPage {
     this.pages = [
       { title: 'Identification client', component: IdentificationClientPage },
     ];
-
   }
   ionViewDidLoad() {
-    console.log(this.global.clients[0].nomClient);
   }
   login()
   {
-
     let trouve = false;
     let i = 0;
-    console.log("taille ",this.global.projets.length);
-    console.log("client ",this.global.clients);
 
     while(!trouve && i< this.global.clients.length )
     {

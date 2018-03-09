@@ -67,7 +67,7 @@ export class GlobalProvider {
     this.projets.push(projet6);
 
     this.clients = [];
-    let client1 = new Client(1,'Martins','Marco','19 rue des lilas','Quimper','29000','marcomartins@gmail.com','0612457896','01/01/1994','20/02/2018 18:00',this.projets);
+    let client1 = new Client(1,'Monsieur','Martins','Marco','19 rue des lilas','Quimper','29000','marcomartins@gmail.com','0612457896','01/01/1994','20/02/2018 18:00',this.projets);
     this.clients.push(client1);
 
 

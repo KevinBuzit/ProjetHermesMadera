@@ -34,7 +34,6 @@
                           <ion-icon  name="checkmark" class="edit-icon" >
                           </ion-icon>
                         </div>
-
                     </div>
                     <div *ngIf="projet.etatDevis=== 3">
                       <div class="nom-projet-card">{{projet.nomProjet}}
@@ -62,7 +61,7 @@
                   </ion-card-content>
                 </ion-card>
               </div>
-              <div *ngIf="!haveProjet">
+              <div *ngIf="!haveProjet" class="noProjets">
                 AUCUN PROJET
               </div>
             </ion-card-content>

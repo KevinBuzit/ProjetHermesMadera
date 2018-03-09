@@ -7,14 +7,6 @@ import { Employe } from '../../models/employe.model';
 import { Client } from '../../models/client.model';
 import {EtapeProjet} from "../../models/etapeProjet.model";
 
-
-/**
- * Generated class for the IdentificationProjetPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-identification-projet',
@@ -26,39 +18,29 @@ export class IdentificationProjetPage {
   private createdProjet : Projet;
   private employe : Employe;
 
-
   constructor(public navCtrl: NavController, public params: NavParams) {
     this.client = params.get('client');
-    console.log("client",this.client);
     this.employe = params.get('employe');
-    console.log("employe identification projet ",this.employe);
 
-    if(this.client.projets.length>0){
-      this.haveProjet=true;
+    if(!(this.client.projets===null))
+    {
+      if(this.client.projets.length>0){
+        this.haveProjet=true;
+      }
     }
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad IdentificationProjetPage');
   }
   newProject()
   {
-
-    this.createdProjet.employe=this.employe;
-    this.createdProjet.margeCommercialeProjet=2;
-    this.createdProjet.margeEntrepriseProjet=5;
-    this.createdProjet.etapeProjet= EtapeProjet.A_LA_SIGNATURE;
-
+    this.createdProjet = new Projet(null,null,null,2,5,this.employe,EtapeProjet.A_LA_SIGNATURE,null,null);
 
     this.navCtrl.push(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20});
   }
+
   detailsDevis(projet : any, index : any )
   {
     this.navCtrl.push(DevisPage,{ 'projet': projet,'index': index });
-    console.log('projet',projet);
-    console.log('index : ',index);
-
-
   }
-
 }

@@ -3,6 +3,7 @@ import {Projet} from "./projet.model";
 
 export class Client {
   private _referenceClient: number;
+  private _genreClient: string;
   private _nomClient: string;
   private _prenomClient: string;
   private _adresseRueClient: string;
@@ -14,8 +15,9 @@ export class Client {
   private _dateCreationClient: string;
   private _projets : Array<Projet>;
 
-  constructor(referenceClient: number, nomClient: string, prenomClient: string, adresseRueClient: string, adresseVilleClient: string, codePostalClient: string, mailClient: string, telephoneClient: string, dateNaissanceClient: string, dateCreationClient: string, projets : Array<Projet>) {
+  constructor(referenceClient: number, genreClient: string, nomClient: string, prenomClient: string, adresseRueClient: string, adresseVilleClient: string, codePostalClient: string, mailClient: string, telephoneClient: string, dateNaissanceClient: string, dateCreationClient: string, projets : Array<Projet>) {
     this._referenceClient = referenceClient;
+    this._genreClient = genreClient;
     this._nomClient = nomClient;
     this._prenomClient = prenomClient;
     this._adresseRueClient = adresseRueClient;
@@ -34,6 +36,13 @@ export class Client {
 
   set referenceClient(value: number) {
     this._referenceClient = value;
+  }
+  get genreClient(): string {
+    return this._genreClient;
+  }
+
+  set genreClient(value: string) {
+    this._genreClient = value;
   }
 
   get nomClient(): string {

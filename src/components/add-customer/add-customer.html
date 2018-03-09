@@ -4,11 +4,11 @@
 </ion-header>
 
 
-<ion-content padding overflow-scroll="false">
-
   <ion-card class="ion-card">
+    <ion-content padding>
+
     <ion-card-content>
-      <form >
+      <form #form="ngForm"(ngSubmit)="addCustomer(form)" >
 
 
         <ion-grid class="ion-grid" >
@@ -17,16 +17,16 @@
             <ion-title text-center>NOUVEAU CLIENT</ion-title>
           </ion-row>
 
-          <ion-row class="ion-row" >
+          <ion-row class="ion-row" [(ngModel)]="clientForm.genreClient" name="genreClient" ngDefaultControl >
             <ion-list radio-group>
               <ion-item>
                 <ion-label>Madame</ion-label>
-                <ion-radio checked="true" value="madame"></ion-radio>
+                <ion-radio checked="true" value="Madame"></ion-radio>
               </ion-item>
 
               <ion-item>
                 <ion-label>Monsieur</ion-label>
-                <ion-radio checked="false" value="monsieur"></ion-radio>
+                <ion-radio checked="false" value="Monsieur"></ion-radio>
               </ion-item>
             </ion-list>
 
@@ -36,13 +36,13 @@
             <ion-col>
               <ion-item>
                 <ion-label floating>Prénom</ion-label>
-                <ion-input name="name" [(ngModel)]="name" type="text"></ion-input>
+                <ion-input name="name" [(ngModel)]="clientForm.prenomClient" type="text" clearInput></ion-input>
               </ion-item>
             </ion-col >
             <ion-col>
               <ion-item>
                 <ion-label floating>Nom</ion-label>
-                <ion-input name="surname"[(ngModel)]="surname" type="text"></ion-input>
+                <ion-input name="surname"[(ngModel)]="clientForm.nomClient" type="text" clearInput></ion-input>
               </ion-item>
             </ion-col >
           </ion-row>
@@ -51,7 +51,7 @@
             <ion-col>
               <ion-item>
                 <ion-label floating>Adresse</ion-label>
-                <ion-input name="address" [(ngModel)]="email" type="text"></ion-input>
+                <ion-input name="address" [(ngModel)]="clientForm.adresseRueClient" type="text" clearInput> </ion-input>
               </ion-item>
             </ion-col >
           </ion-row>
@@ -62,13 +62,13 @@
             <ion-col>
               <ion-item>
                 <ion-label floating>Code Postal</ion-label>
-                <ion-input name="zipcode" [(ngModel)]="zipcode" type="text"></ion-input>
+                <ion-input name="zipcode" [(ngModel)]="clientForm.codePostalClient" type="text" clearInput></ion-input>
               </ion-item>
             </ion-col >
             <ion-col>
               <ion-item>
                 <ion-label floating>Ville</ion-label>
-                <ion-input name="city"[(ngModel)]="city" type="text"></ion-input>
+                <ion-input name="city"[(ngModel)]="clientForm.adresseVilleClient" type="text" clearInput></ion-input>
               </ion-item>
             </ion-col >
           </ion-row>
@@ -77,13 +77,13 @@
             <ion-col>
               <ion-item>
                 <ion-label floating>Numéro de téléphone</ion-label>
-                <ion-input name="phone" [(ngModel)]="phone" type="text"></ion-input>
+                <ion-input name="phone" [(ngModel)]="clientForm.telephoneClient" type="text" clearInput></ion-input>
               </ion-item>
             </ion-col >
             <ion-col>
               <ion-item>
                 <ion-label floating>Date de naissance</ion-label>
-                <ion-input name="birthdate"[(ngModel)]="birthdate" type="text"></ion-input>
+                <ion-datetime name="birthdate" displayFormat="DD/MM/YYYY" [(ngModel)]="clientForm.dateNaissanceClient" clearInput></ion-datetime>
               </ion-item>
             </ion-col >
           </ion-row>
@@ -92,7 +92,7 @@
             <ion-col>
               <ion-item>
                 <ion-label floating>Email</ion-label>
-                <ion-input name="email" [(ngModel)]="email" type="text"></ion-input>
+                <ion-input name="email" [(ngModel)]="clientForm.mailClient" type="text" clearInput></ion-input>
               </ion-item>
             </ion-col >
           </ion-row>
@@ -102,7 +102,7 @@
             </ion-col >
             <ion-col col-6>
               <div padding class="button">
-                <button class="green-button" ion-button color="green-madera" (click)="validate()">VALIDER</button>
+                <button class="green-button" ion-button color="green-madera">VALIDER</button>
               </div>
             </ion-col >
 
@@ -112,7 +112,7 @@
       </form >
 
     </ion-card-content>
+    </ion-content>
 
   </ion-card>
 
-</ion-content>
