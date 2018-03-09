@@ -38,13 +38,12 @@ export class IdentificationProjetPage {
   newProject()
   {
     this.createdProjet = new Projet(null,null,null,2,5,this.employe,EtapeProjet.A_LA_SIGNATURE,null,null);
-
-    this.navCtrl.push(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20, 'client': this.client});
+    this.navCtrl.setRoot(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20, 'client': this.client});
   }
 
   detailsDevis(projet : any, index : any )
   {
-    this.navCtrl.push(DevisPage,{ 'projet': projet,'index': index, 'client': this.client });
+    this.navCtrl.setRoot(DevisPage,{ 'projet': projet,'index': index, 'client': this.client });
   }
   pop(){
     this.navCtrl.push(IdentificationClientPage);

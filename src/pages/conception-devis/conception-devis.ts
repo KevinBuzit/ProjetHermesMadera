@@ -20,7 +20,6 @@ export class ConceptionDevisPage {
   private projet : Projet;
   private refProjet : number;
   private devisPage: any;
-  private etatDevis = EtatDevis;
   private client = Client;
 
   constructor(public modalCtrl: ModalController,
@@ -28,6 +27,7 @@ export class ConceptionDevisPage {
               public navCtrl: NavController,
               public global: GlobalProvider,
               public popoverCtrl: PopoverController) {
+
     this.devisPage = DevisPage;
     this.projet = navParams.get('projet');
     this.refProjet = navParams.get('index');

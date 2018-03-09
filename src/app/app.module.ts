@@ -20,6 +20,7 @@ import {DisplayProductComponent} from "../components/display-product/display-pro
 import {DevisPage} from "../pages/devis/devis";
 import {AccountPopoverComponent} from "../components/account-popover/account-popover";
 import {DisplayBrouillonComponent} from "../components/display-brouillon/display-brouillon";
+import {DisplayModuleComponent} from "../components/display-module/display-module";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {DisplayBrouillonComponent} from "../components/display-brouillon/display
     AddProductComponent,
     AddCustomerComponent,
     DisplayProductComponent,
+    DisplayModuleComponent,
     IdentificationProjetPage,
     DevisPage,
     AccountPopoverComponent,
@@ -48,6 +50,7 @@ import {DisplayBrouillonComponent} from "../components/display-brouillon/display
     ConceptionDevisPage,
     AuthenticationPage,
     DisplayProductComponent,
+    DisplayModuleComponent,
     IdentificationClientPage,
     NouveauClientPage,
     AddProductComponent,

@@ -1,11 +1,11 @@
 import {FamilleComposant} from "./familleComposant.model";
 export class Composant {
   private _referenceComposant: number;
-  private _prixHTComposant: string;
+  private _prixHTComposant: number;
   private _designationComposant: string;
   private _familleComposant:FamilleComposant;
 
-  constructor(referenceComposant: number, prixHTComposant: string, designationComposant: string, familleComposant: FamilleComposant) {
+  constructor(referenceComposant: number, prixHTComposant: number, designationComposant: string, familleComposant: FamilleComposant) {
     this._referenceComposant = referenceComposant;
     this._prixHTComposant = prixHTComposant;
     this._designationComposant = designationComposant;
@@ -20,11 +20,11 @@ export class Composant {
     this._referenceComposant = value;
   }
 
-  get prixHTComposant(): string {
+  get prixHTComposant(): number {
     return this._prixHTComposant;
   }
 
-  set prixHTComposant(value: string) {
+  set prixHTComposant(value: number) {
     this._prixHTComposant = value;
   }
 

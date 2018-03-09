@@ -7,6 +7,8 @@ import {EtatDevis} from "../../models/etatDevis.model";
 import {Projet} from "../../models/projet.model";
 import {DisplayBrouillonComponent} from "../../components/display-brouillon/display-brouillon";
 import {Client} from "../../models/client.model";
+import {Module} from "../../models/module.model";
+import {DisplayModuleComponent} from "../../components/display-module/display-module";
 
 @IonicPage()
 @Component({
@@ -39,6 +41,12 @@ export class DevisPage {
   {
     let displayProductModal = this.modalCtrl.create(DisplayProductComponent, { product: product });
     displayProductModal.present();
+  }
+
+  presentDisplayModuleModal(module:Module)
+  {
+    let displayModuleModal = this.modalCtrl.create(DisplayModuleComponent, { module: module });
+    displayModuleModal.present();
   }
 
   cancel(){

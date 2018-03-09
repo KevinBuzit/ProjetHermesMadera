@@ -12,6 +12,8 @@ import {Isolation} from "../../models/isolation.model";
 import {FinitionExterieure} from "../../models/finitionExterieure.model";
 import {Couverture} from "../../models/couverture.model";
 import {Module} from "../../models/module.model";
+import {Composant} from "../../models/composant.model";
+import {FamilleComposant} from "../../models/familleComposant.model";
 
 @Injectable()
 export class GlobalProvider {
@@ -27,8 +29,12 @@ export class GlobalProvider {
     let metier = new Metier(1,'Commercial');
     let employe = new Employe(1,'test','Employe','Lambda','18 rue des lilas','Brest','29000','xxxxxxxx@gmail.com','0000000000','01/01/1995','26/02/2018 18:00',metier);
 
+    let familleComposant = new FamilleComposant(1,'planches');
+    let composant = new Composant(1,10,'planche bois',familleComposant);
     let module1 = new Module(1,"Mur", 10000);
+    module1.addComposant(composant);
     let module2 = new Module(2,"toit", 15000);
+    module2.addComposant(composant);
     this.modeles = [];
     let modele1 = new Modele(1,'modele1.jpg','1 Chambre','Modèle 1 chambre');
     modele1.addModule(module1);

@@ -1,5 +1,5 @@
  <ion-header>
-  <ion-navbar text-center>
+  <ion-navbar text-center hideBackButton="true">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -74,7 +74,7 @@
         </ion-row>
         <ion-row>
           <ion-col col-12>
-            <button ion-button ngif="projet.etatDevis === etatDevis.BROUILLON || projet.etatDevis === etatDevis.REFUSE" color="green-madera" float-right (click)="goToDevisPage()">VALIDER</button>
+            <button ion-button color="green-madera" float-right (click)="goToDevisPage()">VALIDER</button>
             <button ion-button color="green-madera" float-right (click)="cancel()">ANNULER</button>
           </ion-col>
         </ion-row>
