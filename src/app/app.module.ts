@@ -13,7 +13,6 @@ import { IdentificationProjetPage } from '../pages/identification-projet/identif
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GlobalProvider } from '../providers/global/global';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import {AddProductComponent} from "../components/add-product/add-product";
 import {AddCustomerComponent} from "../components/add-customer/add-customer";
 import {DisplayProductComponent} from "../components/display-product/display-product";
@@ -64,8 +63,7 @@ import {DisplayModuleComponent} from "../components/display-module/display-modul
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GlobalProvider,
-    ScreenOrientation
+    GlobalProvider
   ]
 })
 export class AppModule {}
