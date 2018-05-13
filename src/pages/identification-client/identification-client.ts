@@ -66,7 +66,7 @@ export class IdentificationClientPage {
     {
       let alert = this.alertCtrl.create({
         title: 'Erreur',
-        subTitle: 'Client introuvable',
+        message: 'Client introuvable',
         buttons: ['OK']
       });
       alert.present();

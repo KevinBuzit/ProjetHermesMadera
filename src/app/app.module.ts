@@ -3,7 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { ListPage } from '../pages/list/list';
 import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
 import { AuthenticationPage } from '../pages/authentication/authentication';
 import { NouveauClientPage } from '../pages/nouveau-client/nouveau-client';
@@ -24,7 +23,6 @@ import {DisplayModuleComponent} from "../components/display-module/display-modul
 @NgModule({
   declarations: [
     MyApp,
-    ListPage,
     ConceptionDevisPage,
     AuthenticationPage,
     IdentificationClientPage,
@@ -45,7 +43,6 @@ import {DisplayModuleComponent} from "../components/display-module/display-modul
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ListPage,
     ConceptionDevisPage,
     AuthenticationPage,
     DisplayProductComponent,

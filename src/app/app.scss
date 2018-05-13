@@ -1,33 +1,8 @@
-//APP
-.card-md ion-card-content{
-  color: color($colors, grey-madera);
-
-  p{
-    color: color($colors, grey-madera);
-  }
-}
-
-.content-ios {
-  color: color($colors, grey-madera);
-}
-
-.item-ios {
-  color: color($colors, grey-madera);
-}
-
-.card-header-md{
-  color: color($colors, brown-madera);
-}
-
-.card-header-ios{
-  color: color($colors, brown-madera);
-}
-
 //MENU
 ion-menu {
   ion-content{
-    &.content-md,&.content-ios{
-      background-color: color($colors, green-madera);
+    &.content-md{
+      background-color: initial;
     }
 
     .page-link {
@@ -54,7 +29,7 @@ ion-menu {
 
     a.item-ios:not([detail-none]) .item-inner{
       background-image: none;
-      padding-right: 0px;
+      padding-right: 0;
     }
   }
 }
@@ -97,5 +72,9 @@ ion-content{
 
 .border{
   border:solid 1px color($colors, grey-madera);
+}
+
+body{
+  color: color($colors, grey-madera);;
 }
 
