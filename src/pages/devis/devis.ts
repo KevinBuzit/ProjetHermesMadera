@@ -3,7 +3,6 @@ import {IonicPage, NavController, NavParams, PopoverController, ModalController}
 import {AccountPopoverComponent} from "../../components/account-popover/account-popover";
 import {Produit} from "../../models/produit.model";
 import {DisplayProductComponent} from "../../components/display-product/display-product";
-import {EtatDevis} from "../../models/etatDevis.model";
 import {Projet} from "../../models/projet.model";
 import {DisplayBrouillonComponent} from "../../components/display-brouillon/display-brouillon";
 import {Client} from "../../models/client.model";
@@ -17,7 +16,6 @@ import {DisplayModuleComponent} from "../../components/display-module/display-mo
 })
 export class DevisPage {
 
-  private etatDevis = EtatDevis;
   private projet : Projet;
   private refProjet : number;
   private client : Client;

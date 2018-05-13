@@ -6,7 +6,6 @@ import {DisplayProductComponent} from "../../components/display-product/display-
 import {DevisPage} from "../devis/devis";
 import {AccountPopoverComponent} from "../../components/account-popover/account-popover";
 import {Projet} from "../../models/projet.model";
-import {EtatDevis} from "../../models/etatDevis.model";
 import {Client} from "../../models/client.model";
 import {GlobalProvider} from "../../providers/global/global";
 

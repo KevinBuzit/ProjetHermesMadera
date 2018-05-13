@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, Events, NavParams, App} from "ionic-angular";
+import {NavController, Events, NavParams} from "ionic-angular";
 import {IdentificationProjetPage} from "../../pages/identification-projet/identification-projet";
 import {GlobalProvider} from "../../providers/global/global";
 import {Client} from "../../models/client.model";
