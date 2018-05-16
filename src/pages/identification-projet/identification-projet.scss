@@ -1,54 +1,22 @@
-
-
-.button{
-  float: right;
-}
-.add-project-icon{
-  color: #95c11f;
-  font-size: 6em;
-  margin: 0 auto;
-}
-.toolbar-title-ios {
-  color: #683c11;
-}
-.ion-card{
-  height: 100%;
-
-}
-.ion-card-project{
-  max-height: 500px;
-  margin: 0 auto;
-
-}
-.ion-card-new-projects{
-  max-width: 200px;
-  margin: 0 auto;
-}
-.form-customer{
-  max-width: 350px;
-
-}
-.ion-icon {
+//Identification Projet
+page-identification-projet{
+  .add-project-icon{
+    color: #95c11f;
+    font-size: 6em;
+    margin: 0 auto;
+  }
+  .ion-card-project{
+    max-height: 500px;
+    margin: 0 auto;
+  }
+  .ion-card-new-projects{
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .form-customer{
+    max-width: 350px;
+  }
 }
 
-.customer-name{
-  color: #955518;
-}
-
-.ion-card-new-project{
-  max-width: 200px;
-  margin: 0 auto;
-}
-.edit-icon{
-  color: #95c11f;
-  float: right;
-}
-.nom-projet-card{
-  color: #683c11;
-
-}
-.noProjets{
-text-align: center;
-}
 
 

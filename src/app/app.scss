@@ -46,7 +46,6 @@ ion-content{
 
 .contact-icon, button-ios{
   background-color: inherit;
-  color : color($colors, green-madera);
 
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -55,7 +54,6 @@ ion-content{
 
 .contact-icon{
   background-color: inherit;
-  color : color($colors, green-madera);
 
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -74,7 +72,11 @@ ion-content{
   border:solid 1px color($colors, grey-madera);
 }
 
-body{
-  color: color($colors, grey-madera);;
+.text-color-green-madera{
+  color : color($colors, green-madera);
+}
+
+.height-max{
+  height:100%;
 }
 
