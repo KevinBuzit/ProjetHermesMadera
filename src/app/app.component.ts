@@ -2,13 +2,15 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Keyboard } from '@ionic-native/keyboard';
 
 import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
 import {AuthenticationPage} from "../pages/authentication/authentication";
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [Keyboard]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
