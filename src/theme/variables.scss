@@ -46,6 +46,12 @@ $text-color : color($colors, grey-madera);
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
+// Button
+$button-ios-background-color-hover : color($colors, brown-madera);
+$button-ios-background-color : color($colors, green-madera);
+$button-ios-background-color-activated : color($colors, brown-madera);
+$button-ios-text-color : white;
+
 // Menu
 $menu-ios-background : color($colors, green-madera);
 
@@ -54,7 +60,11 @@ $label-ios-text-color : color($colors, grey-madera);
 $label-ios-text-color-focused : color($colors, grey-madera);
 
 // Alert
-$alert-ios-button-text-color : color($colors, green-madera);
+$alert-ios-button-background-color : color($colors, green-madera);
+$alert-ios-button-text-color : white;
+$alert-ios-button-text-align : center;
+$alert-ios-message-text-color : color($colors, grey-madera);
+$alert-ios-button-group-justify-content : center;
 
 // Toolbar Button
 $toolbar-ios-button-color : color($colors, green-madera);
@@ -70,9 +80,18 @@ $list-md-header-color : color($colors, grey-madera);
 $card-ios-header-color: color($colors, brown-madera);
 $card-ios-text-color: color($colors, grey-madera);
 
+// List
+$list-ios-border-color : transparent;
+
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
+
+// Button
+$button-md-background-color-hover : color($colors, brown-madera);
+$button-md-background-color : color($colors, green-madera);
+$button-md-background-color-activated : color($colors, brown-madera);
+$button-md-text-color : white;
 
 // Toolbar Button
 $toolbar-md-button-color : color($colors, green-madera);
@@ -90,6 +109,16 @@ $menu-md-background : color($colors, green-madera);
 // Card
 $card-md-header-color: color($colors, brown-madera);
 $card-md-text-color: color($colors, grey-madera);
+
+// List
+$list-md-border-color : transparent;
+
+// Alert
+$alert-md-button-background-color : color($colors, green-madera);
+$alert-md-button-text-color : white;
+$alert-md-button-text-align : center;
+$alert-md-message-text-color : color($colors, grey-madera);
+$alert-md-button-group-justify-content : center;
 
 // App Windows Variables
 // --------------------------------------------------

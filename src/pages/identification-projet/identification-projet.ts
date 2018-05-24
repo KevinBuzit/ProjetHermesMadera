@@ -37,7 +37,7 @@ export class IdentificationProjetPage {
 
   newProject()
   {
-    this.createdProjet = new Projet(null,null,null,2,5,this.employe,EtapeProjet.A_LA_SIGNATURE,null,null);
+    this.createdProjet = new Projet(null,null,null,this.employe,EtapeProjet.A_LA_SIGNATURE,null,null);
     this.navCtrl.setRoot(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20, 'client': this.client});
   }
 

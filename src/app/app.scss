@@ -68,15 +68,26 @@ ion-content{
   }
 }
 
+// Utils
 .border{
   border:solid 1px color($colors, grey-madera);
 }
 
 .text-color-green-madera{
-  color : color($colors, green-madera);
+   color : color($colors, green-madera);
+ }
+
+.text-bold{
+  font-weight:600;
 }
 
 .height-max{
   height:100%;
+}
+
+// Alert
+.alert-head{
+  background-color:color($colors, green-madera);
+  color:white;
 }
 

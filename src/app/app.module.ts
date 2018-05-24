@@ -14,11 +14,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GlobalProvider } from '../providers/global/global';
 import {AddProductComponent} from "../components/add-product/add-product";
 import {AddCustomerComponent} from "../components/add-customer/add-customer";
-import {DisplayProductComponent} from "../components/display-product/display-product";
 import {DevisPage} from "../pages/devis/devis";
 import {AccountPopoverComponent} from "../components/account-popover/account-popover";
 import {DisplayBrouillonComponent} from "../components/display-brouillon/display-brouillon";
-import {DisplayModuleComponent} from "../components/display-module/display-module";
+import { DisplayProductComponent } from '../components/display-product/display-product';
 
 @NgModule({
   declarations: [
@@ -29,9 +28,8 @@ import {DisplayModuleComponent} from "../components/display-module/display-modul
     NouveauClientPage,
     AddProductComponent,
     AddCustomerComponent,
-    DisplayProductComponent,
-    DisplayModuleComponent,
     IdentificationProjetPage,
+    DisplayProductComponent,
     DevisPage,
     AccountPopoverComponent,
     DisplayBrouillonComponent
@@ -46,7 +44,6 @@ import {DisplayModuleComponent} from "../components/display-module/display-modul
     ConceptionDevisPage,
     AuthenticationPage,
     DisplayProductComponent,
-    DisplayModuleComponent,
     IdentificationClientPage,
     NouveauClientPage,
     AddProductComponent,

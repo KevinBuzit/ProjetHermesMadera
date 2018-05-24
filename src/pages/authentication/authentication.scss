@@ -9,27 +9,15 @@ page-authentication {
     background-repeat: no-repeat;
 
   }
-  .card{
-    z-index:1;
-    margin: 0px auto;
-    left: 0px;
-    right: 0px;
-  }
   .img-logo{
    max-width: 100px;
   }
   .button{
     float: right;
   }
-  .ion-card{
+  .authentication-card{
     max-width: 500px;
+    margin: 0 auto;
+  }
 
-  }
-  .ion-grid{
-    height: 100%;
-  }
-  .ion-row
-  {
-    height: 100%;
-  }
 }

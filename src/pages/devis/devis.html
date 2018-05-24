@@ -22,6 +22,7 @@
 
     <ion-card-content>
       <ion-grid>
+
         <ion-row>
           <ion-col col-12 col-sm-4 text-center text-sm-left>
             <p>Réf. projet : {{refProjet}}</p>
@@ -30,56 +31,110 @@
           </ion-col>
           <ion-col col-0 col-sm-4></ion-col>
           <ion-col col-12 col-sm-4 text-center text-sm-end>
-            <p>Référence client : 1555</p>
-            <p>Mr. Kévin BUZIT</p>
-            <p>28 rue de Douarnenez</p>
-            <p>29100 Carhaix</p>
+            <p>Référence client : {{client.referenceClient}}</p>
+            <p>Mr. {{client.nomClient | uppercase }} {{client.prenomClient}}</p>
+            <p>{{client.adresseRueClient}}</p>
+            <p>{{client.codePostalClient}} {{client.adresseVilleClient}}</p>
           </ion-col>
         </ion-row>
+
         <ion-row justify-content-center>
           <ion-col col-12 text-center>
             <p>{{projet.nomProjet}}</p>
           </ion-col>
         </ion-row>
+
         <ion-row>
           <ion-col col-12 text-center>
-            <strong>TOTAL HT : 110 000€</strong>
-            <p>TVA COM {{projet.margeCommercialeProjet}}% : 2200€</p>
-            <p>TVA ENT {{projet.margeEntrepriseProjet}}% : 5500€</p>
-            <strong>TOTAL TTC : 117 700€</strong>
+            <strong>TOTAL HT : {{ totalHT }}</strong>
+            <p>+ TVA {{global.tva}}% : {{(totalHT * global.tva) / 100}}€</p>
+            <p>+ MARGE COM {{global.margeCommerciale}}% : {{(totalHT * global.margeCommerciale) / 100}}€</p>
+            <p>+ MARGE ENT {{global.margeEntreprise}}% : {{(totalHT * global.margeEntreprise) / 100}}€</p>
+            <strong>TOTAL TTC : {{ totalHT+ (totalHT * (global.tva + global.margeCommerciale + global.margeEntreprise) / 100) }}</strong>
             <br>
           </ion-col>
         </ion-row>
-        <ion-row class="border">
-          <ion-col col-12 *ngIf="null != projet.produits && projet.produits.length > 0">
-            <ion-list>
 
-              <button ion-item *ngFor="let produit of projet.produits" (click)="presentDisplayProductModal(produit)">
-                {{ produit.modele.referenceModele }} {{ produit.modele.designationModele }}
-              </button>
+        <div *ngIf="null != projet.produits && projet.produits.length > 0">
+          <ion-row *ngFor="let produit of projet.produits">
+            <ion-col col-3>
+              <ion-row>
+                <ion-col class="border">
+                  Réf. Modèle : {{ produit.modele.referenceModele }}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="border">
+                  Dés. Modèle : {{ produit.modele.designationModele }}
+                </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-9>
 
-            </ion-list>
-          </ion-col>
-        </ion-row>
-        <ion-row class="border">
-          <ion-col col-12 *ngIf="null != projet.produits && projet.produits.length > 0">
-            <ion-list>
-              <div *ngFor="let produit of projet.produits">
-                <button ion-item *ngFor="let module of produit.modele.modules" (click)="presentDisplayModuleModal(module)">
-                  {{ module.designationModule }}
-                </button>
-              </div>
-            </ion-list>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-12>
-            <button ion-button color="green-madera" float-right (click)="sendDevis()">VALIDER</button>
-            <button ion-button color="green-madera" float-right (click)="cancel()">ANNULER</button>
-          </ion-col>
-        </ion-row>
+              <ion-row>
+                <ion-col class="border">
+                  <p>Liste des modules</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col class="border text-bold" text-center>
+                  Réf.
+                </ion-col>
+                <ion-col class="border text-bold" text-center>
+                  Dés.
+                </ion-col>
+                <ion-col class="border text-bold" text-center>
+                  PU
+                </ion-col>
+                <ion-col class="border text-bold" text-center>
+                  Qté
+                </ion-col>
+                <ion-col class="border text-bold" text-center>
+                  Prix HT
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col class="border">
+                  <p *ngFor="let module of produit.modele.modules">
+                    {{ module.referenceModule }}
+                  </p>
+                </ion-col>
+                <ion-col class="border">
+                  <p *ngFor="let module of produit.modele.modules">
+                    {{ module.designationModule }}
+                  </p>
+                </ion-col>
+                <ion-col class="border">
+                  <p *ngFor="let module of produit.modele.modules">
+                    {{ module.prixHTModule }}€
+                  </p>
+                </ion-col>
+                <ion-col class="border">
+                  <p *ngFor="let module of produit.modele.modules">
+                    {{ module.quantite }}
+                  </p>
+                </ion-col>
+                <ion-col class="border">
+                  <p *ngFor="let module of produit.modele.modules">
+                    {{ module.quantite * module.prixHTModule }}€
+                  </p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col class="border" text-end>
+                  Total HT : {{calculateProduitTotalHT(produit.modele.referenceModele)}}€
+                </ion-col>
+              </ion-row>
+
+            </ion-col>
+
+          </ion-row>
+        </div>
+
       </ion-grid>
-
     </ion-card-content>
 
   </ion-card>

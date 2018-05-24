@@ -7,20 +7,16 @@ export class Projet {
   private _nomProjet: string;
   private _adresseProjet: string;
   private _dateProjet: string;
-  private _margeCommercialeProjet: number;
-  private _margeEntrepriseProjet: number;
   private _employe : Employe;
   private _etapeProjet : EtapeProjet;
   private _etatDevis : EtatDevis;
   private _produits : Array<Produit>;
 
 
-  constructor(nomProjet: string, adresseProjet: string, dateProjet: string, margeCommercialeProjet: number, margeEntrepriseProjet: number, employe: Employe, etapeProjet: EtapeProjet, etatDevis: EtatDevis, produits : Array<Produit>) {
+  constructor(nomProjet: string, adresseProjet: string, dateProjet: string, employe: Employe, etapeProjet: EtapeProjet, etatDevis: EtatDevis, produits : Array<Produit>) {
     this._nomProjet = nomProjet;
     this._adresseProjet = adresseProjet;
     this._dateProjet = dateProjet;
-    this._margeCommercialeProjet = margeCommercialeProjet;
-    this._margeEntrepriseProjet = margeEntrepriseProjet;
     this._employe = employe;
     this._etapeProjet = etapeProjet;
     this._etatDevis = etatDevis;
@@ -49,22 +45,6 @@ export class Projet {
 
   set dateProjet(value: string) {
     this._dateProjet = value;
-  }
-
-  get margeCommercialeProjet(): number {
-    return this._margeCommercialeProjet;
-  }
-
-  set margeCommercialeProjet(value: number) {
-    this._margeCommercialeProjet = value;
-  }
-
-  get margeEntrepriseProjet(): number {
-    return this._margeEntrepriseProjet;
-  }
-
-  set margeEntrepriseProjet(value: number) {
-    this._margeEntrepriseProjet = value;
   }
 
   get employe(): Employe {

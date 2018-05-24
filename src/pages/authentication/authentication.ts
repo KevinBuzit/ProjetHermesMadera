@@ -48,7 +48,7 @@ export class AuthenticationPage {
     {
       let alert = this.alertCtrl.create({
         title: 'Erreur',
-        subTitle: 'Matricule ou Mot de passe incorrect',
+        message: 'Matricule ou Mot de passe incorrect',
         buttons: ['OK']
       });
       alert.present();

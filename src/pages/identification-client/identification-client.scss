@@ -1,34 +1,30 @@
+page-identification-client {
 
-.ion-title{
-}
-.toolbar-title-md {
-  color: #683c11;
-}
-.button{
-  float: right;
-}
-.add-customer-icon{
-  color: #95c11f;
-  font-size: 6em;
-  margin: 0 auto;
-}
-.toolbar-title-ios {
-  color: #683c11;
-}
-.ion-card{
-  height: 100%;
-}
-.ion-card-new-customer{
-  max-width: 200px;
-  margin: 0 auto;
-}
-.form-customer{
-  max-width: 350px;
-  margin: 0 auto;
-}
+  .toolbar-title-md {
+    color: color($colors, brown-madera);
+  }
 
-.alert-head{
-  background-color:color($colors, green-madera);
-  color:white;
-}
+  .add-customer-icon{
+    color: color($colors, green-madera);
+    font-size: 6em;
+    margin: 0 auto;
+  }
+  .toolbar-title-ios {
+    color: color($colors, brown-madera);
+  }
 
+  .ion-card-new-customer{
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .form-customer{
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .alert-head{
+    background-color:color($colors, green-madera);
+    color:white;
+  }
+
+}
