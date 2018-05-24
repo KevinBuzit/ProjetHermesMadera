@@ -2,23 +2,20 @@
 
   <ion-card class="height-max">
 
-    <ion-grid class="ion-grid" >
-      <ion-row>
-        <ion-icon name="arrow-back"  (click)="pop()"></ion-icon>
+    <ion-card-header text-center>
+      <ion-icon name="arrow-back" (click)="pop()" float-start></ion-icon>
+      <h2>CLIENT</h2>
+    </ion-card-header>
 
-        <ion-title text-center>CLIENT</ion-title>
-      </ion-row>
+    <ion-card-content>
+      <ion-grid class="height-max">
 
-      <ion-row class="ion-row" justify-content-center align-items-center>
-        <ion-col col-md-6 col-xs-12 >
+        <ion-row class="height-max" justify-content-center align-items-center>
 
-          <div class="form-customer">
-            <ion-card-content >
-              <ion-card-header>
-                DEJA CLIENT ?
-              </ion-card-header>
-
-              <form #form="ngForm"(ngSubmit)="validate(form)" >
+          <ion-col col-md-6 col-xs-12>
+            <div class="form-customer">
+              DEJA CLIENT ?
+              <form #form="ngForm"(ngSubmit)="validate(form)">
                   <ion-item>
                     <ion-label floating>Nom</ion-label>
                     <ion-input name="surname" required [(ngModel)]="client.nomClient" type="text"></ion-input>
@@ -37,21 +34,22 @@
                   <button class="green-button" ion-button color="green-madera" >VALIDER</button>
                 </div>
               </form>
-            </ion-card-content>
-          </div>
+            </div>
+          </ion-col>
 
-        </ion-col >
-        <ion-col text-center col-md-6 col-xs-12>
+          <ion-col text-center col-md-6 col-xs-12>
+            <ion-card text-center class="ion-card-new-customer" (click)="presentAddCustomerModal()">
+              <ion-card-header text-center>
+                NOUVEAU CLIENT
+              </ion-card-header>
+              <ion-icon  class="add-customer-icon" name="person-add"></ion-icon>
+            </ion-card>
+          </ion-col>
 
-          <ion-card text-center class="ion-card-new-customer" (click)="presentAddCustomerModal()">
-            <ion-card-header text-center class="add-customer">
-              NOUVEAU CLIENT
-            </ion-card-header>
-            <ion-icon  class="add-customer-icon" name="person-add"></ion-icon>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
   </ion-card>
 
 </ion-content>

@@ -1,16 +1,9 @@
 page-identification-client {
 
-  .toolbar-title-md {
-    color: color($colors, brown-madera);
-  }
-
   .add-customer-icon{
     color: color($colors, green-madera);
     font-size: 6em;
     margin: 0 auto;
-  }
-  .toolbar-title-ios {
-    color: color($colors, brown-madera);
   }
 
   .ion-card-new-customer{
@@ -20,11 +13,6 @@ page-identification-client {
   .form-customer{
     max-width: 350px;
     margin: 0 auto;
-  }
-
-  .alert-head{
-    background-color:color($colors, green-madera);
-    color:white;
   }
 
 }

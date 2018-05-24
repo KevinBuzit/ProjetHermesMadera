@@ -1,23 +1,28 @@
 <ion-header>
   <ion-navbar text-center hideBackButton="true">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <!--<button ion-button menuToggle>-->
+      <!--<ion-icon name="menu"></ion-icon>-->
+    <!--</button>-->
     <img src="./assets/imgs/logo.svg" class="img-logo" alt="Madera"/>
-    <ion-buttons end>
-      <button ion-button icon-only class="contact-icon" (click)="presentPopover($event)">
-        <ion-icon name="contact"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
+  <ion-fab top right edge>
+    <button mini ion-fab class="contact-icon">
+      <ion-icon name="contact"></ion-icon>
+    </button>
+    <ion-fab-list>
+      <button ion-fab (click)="disconnect()"><ion-icon name="exit"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
   <ion-card>
 
-    <ion-card-header>
-      <h2>Devis</h2>
+    <ion-card-header text-center>
+      <ion-icon name="arrow-back" (click)="pop()" float-start></ion-icon>
+      <h2>DEVIS</h2>
     </ion-card-header>
 
     <ion-card-content>

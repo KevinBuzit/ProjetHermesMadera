@@ -1,15 +1,15 @@
-<ion-menu [content]="content">
-  <ion-content>
-    <a class="page-link" menuClose ion-item (click)="openPage(page)" *ngFor="let page of pages">
-      <div text-center>
-        <img src=".\\assets\\imgs\\{{ page.img }}" alt="{{ page.title }}"/>
-      </div>
-      <div text-center>
-        {{ page.title }}
-      </div>
-    </a>
-  </ion-content>
-</ion-menu>
+<!--<ion-menu [content]="content"  persistent="true">-->
+  <!--<ion-content>-->
+    <!--<a class="page-link" menuClose ion-item (click)="openPage(page)" *ngFor="let page of pages">-->
+      <!--<div text-center>-->
+        <!--<img src=".\\assets\\imgs\\{{ page.img }}" alt="{{ page.title }}"/>-->
+      <!--</div>-->
+      <!--<div text-center>-->
+        <!--{{ page.title }}-->
+      <!--</div>-->
+    <!--</a>-->
+  <!--</ion-content>-->
+<!--</ion-menu>-->
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" main #content swipeBackEnabled="false"></ion-nav>

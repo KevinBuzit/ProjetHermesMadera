@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, PopoverController, ModalController} from 'ionic-angular';
-import {AccountPopoverComponent} from "../../components/account-popover/account-popover";
 import {Projet} from "../../models/projet.model";
 import {DisplayBrouillonComponent} from "../../components/display-brouillon/display-brouillon";
 import {Client} from "../../models/client.model";
@@ -22,17 +21,13 @@ export class DevisPage {
               public modalCtrl: ModalController,
               public navParams: NavParams,
               public popoverCtrl: PopoverController,
-              public global: GlobalProvider) {
+              public global: GlobalProvider
+  ) {
 
     this.projet = navParams.get('projet');
     this.client = navParams.get('client');
     this.refProjet = navParams.get('index');
     this.totalHT = this.calculateDevisTotalHT();
-  }
-
-  presentPopover() {
-    let popover = this.popoverCtrl.create(AccountPopoverComponent, {projet: this.projet});
-    popover.present();
   }
 
   cancel(){
@@ -42,6 +37,10 @@ export class DevisPage {
 
   sendDevis(){
 
+  }
+
+  disconnect() {
+    this.navCtrl.popToRoot();
   }
 
   calculateDevisTotalHT():number{
@@ -72,6 +71,10 @@ export class DevisPage {
     }
 
     return totalHT;
+  }
+
+  pop(){
+    this.navCtrl.pop();
   }
 
 }

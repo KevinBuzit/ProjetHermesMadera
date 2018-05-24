@@ -4,7 +4,6 @@ import { AddProductComponent } from '../../components/add-product/add-product';
 import {Produit} from "../../models/produit.model";
 import {DisplayProductComponent} from "../../components/display-product/display-product";
 import {DevisPage} from "../devis/devis";
-import {AccountPopoverComponent} from "../../components/account-popover/account-popover";
 import {Projet} from "../../models/projet.model";
 import {Client} from "../../models/client.model";
 import {GlobalProvider} from "../../providers/global/global";
@@ -25,7 +24,8 @@ export class ConceptionDevisPage {
               public navParams: NavParams,
               public navCtrl: NavController,
               public global: GlobalProvider,
-              public popoverCtrl: PopoverController) {
+              public popoverCtrl: PopoverController
+  ) {
 
     this.devisPage = DevisPage;
     this.projet = navParams.get('projet');
@@ -33,9 +33,12 @@ export class ConceptionDevisPage {
     this.client = navParams.get('client');
   }
 
-  presentPopover() {
-    let popover = this.popoverCtrl.create(AccountPopoverComponent, {employe: this.global.employe});
-    popover.present();
+  disconnect() {
+    this.navCtrl.popToRoot();
+  }
+
+  pop(){
+    this.navCtrl.pop();
   }
 
   presentAddProductModal()

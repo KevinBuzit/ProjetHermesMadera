@@ -44,30 +44,6 @@ ion-content{
   max-width: 100px;
  }
 
-.contact-icon, button-ios{
-  background-color: inherit;
-
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: none;
-}
-
-.contact-icon{
-  background-color: inherit;
-
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: none;
-}
-
-.contact-icon{
-  &.activated{
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    background-color: inherit;
-  }
-}
-
 // Utils
 .border{
   border:solid 1px color($colors, grey-madera);

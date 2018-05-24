@@ -2,69 +2,66 @@
 
   <ion-card class="height-max">
 
-    <ion-grid class="ion-grid" >
-      <ion-row>
-        <ion-icon name="arrow-back"  (click)="pop()"></ion-icon>
+    <ion-card-header text-center>
+      <ion-icon name="arrow-back" (click)="pop()" float-start></ion-icon>
+      <h2>PROJETS</h2>
+    </ion-card-header>
 
-        <ion-title text-center>PROJET</ion-title>
-      </ion-row>
-      <ion-row>
-        <ion-title class="customer-name" text-center >{{client.nomClient}} {{client.prenomClient}}</ion-title>
-      </ion-row>
+    <ion-card-content>
+      <ion-grid class="height-max">
+        <ion-row>
+          <ion-col text-center>
+            Client : {{client.nomClient}} {{client.prenomClient}}
+          </ion-col>
+        </ion-row>
 
-      <ion-row class="ion-row" justify-content-center align-items-center>
-        <ion-col col-md-6 col-xs-12>
-          <div class="text-project" text-left></div>
+        <ion-row class="height-max" justify-content-center align-items-center>
 
-          <ion-card class="ion-card-projects">
-            <ion-card-header  class="add-customer">
-             <div class="titre-projets" text-center>Vos Projets </div>
-            </ion-card-header>
-            <ion-card-content>
-              <div *ngIf="haveProjet">
-                <ion-card *ngFor="let projet of client.projets; let i = index"  class="ion-card-project" (click)="detailsDevis(projet,i)">
-                  <ion-card-content  class="add-customer" >
+          <ion-col col-md-6 col-xs-12>
+            <div *ngIf="haveProjet" class="ion-card-projects">
+              VOS PROJETS
+              <ion-card *ngFor="let projet of client.projets; let i = index" (click)="detailsDevis(projet,i)">
+                <ion-card-content>
+                  {{projet.nomProjet}}
 
-                      {{projet.nomProjet}}
+                  <ion-icon *ngIf="projet.etatDevis=== 1" name="create" class="text-color-green-madera" float-right>
+                  </ion-icon>
 
-                      <ion-icon *ngIf="projet.etatDevis=== 1" name="create" class="text-color-green-madera" float-right>
-                      </ion-icon>
+                  <ion-icon *ngIf="projet.etatDevis=== 2" name="checkmark" class="text-color-green-madera" float-right>
+                  </ion-icon>
 
-                      <ion-icon *ngIf="projet.etatDevis=== 2" name="checkmark" class="text-color-green-madera" float-right>
-                      </ion-icon>
+                  <ion-icon *ngIf="projet.etatDevis=== 3" name="time" class="text-color-green-madera" float-right>
+                  </ion-icon>
 
-                      <ion-icon *ngIf="projet.etatDevis=== 3" name="time" class="text-color-green-madera" float-right>
-                      </ion-icon>
+                  <ion-icon *ngIf="projet.etatDevis=== 4" name="close" class="text-color-green-madera" float-right>
+                  </ion-icon>
 
-                      <ion-icon *ngIf="projet.etatDevis=== 4" name="close" class="text-color-green-madera" float-right>
-                      </ion-icon>
+                  <ion-icon *ngIf="projet.etatDevis=== 5" name="basket" class="text-color-green-madera" float-right>
+                  </ion-icon>
 
-                      <ion-icon *ngIf="projet.etatDevis=== 5" name="basket" class="text-color-green-madera" float-right>
-                      </ion-icon>
+                  <ion-icon *ngIf="projet.etatDevis=== 6" name="filing" class="text-color-green-madera" float-right>
+                  </ion-icon>
+                </ion-card-content>
+              </ion-card>
+            </div>
+            <div *ngIf="!haveProjet" text-center>
+              AUCUN PROJET
+            </div>
+          </ion-col>
 
-                      <ion-icon *ngIf="projet.etatDevis=== 6" name="filing" class="text-color-green-madera" float-right>
-                      </ion-icon>
+          <ion-col text-center col-md-6 col-xs-12>
+            <ion-card text-center class="ion-card-new-projects" (click)="newProject()">
+              <ion-card-header text-center>
+                NOUVEAU PROJET
+              </ion-card-header>
+              <ion-icon class="add-project-icon" name="book"></ion-icon>
+            </ion-card>
+          </ion-col>
 
-                  </ion-card-content>
-                </ion-card>
-              </div>
-              <div *ngIf="!haveProjet" text-center>
-                AUCUN PROJET
-              </div>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col text-center col-md-6 col-xs-12>
+        </ion-row>
 
-          <ion-card text-center class="ion-card-new-project" (click)="newProject()">
-            <ion-card-header text-center class="add-customer">
-              NOUVEAU PROJET
-            </ion-card-header>
-            <ion-icon  class="add-project-icon" name="book"></ion-icon>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+      </ion-grid>
+    </ion-card-content>
   </ion-card>
 
 </ion-content>

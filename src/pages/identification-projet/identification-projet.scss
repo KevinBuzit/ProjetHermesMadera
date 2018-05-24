@@ -1,20 +1,17 @@
 //Identification Projet
 page-identification-projet{
   .add-project-icon{
-    color: #95c11f;
+    color: color($colors, green-madera);
     font-size: 6em;
-    margin: 0 auto;
-  }
-  .ion-card-project{
-    max-height: 500px;
     margin: 0 auto;
   }
   .ion-card-new-projects{
     max-width: 200px;
     margin: 0 auto;
   }
-  .form-customer{
+  .ion-card-projects{
     max-width: 350px;
+    margin:0 auto;
   }
 }
 

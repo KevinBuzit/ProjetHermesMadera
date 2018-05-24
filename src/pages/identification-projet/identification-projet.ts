@@ -7,7 +7,6 @@ import { Employe } from '../../models/employe.model';
 import { Client } from '../../models/client.model';
 import {EtapeProjet} from "../../models/etapeProjet.model";
 import {GlobalProvider} from "../../providers/global/global";
-import { IdentificationClientPage } from '../identification-client/identification-client';
 
 @IonicPage()
 @Component({
@@ -38,14 +37,14 @@ export class IdentificationProjetPage {
   newProject()
   {
     this.createdProjet = new Projet(null,null,null,this.employe,EtapeProjet.A_LA_SIGNATURE,null,null);
-    this.navCtrl.setRoot(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20, 'client': this.client});
+    this.navCtrl.push(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20, 'client': this.client});
   }
 
   detailsDevis(projet : any, index : any )
   {
-    this.navCtrl.setRoot(DevisPage,{ 'projet': projet,'index': index, 'client': this.client });
+    this.navCtrl.push(DevisPage,{ 'projet': projet,'index': index, 'client': this.client });
   }
   pop(){
-    this.navCtrl.push(IdentificationClientPage);
+    this.navCtrl.pop();
   }
 }

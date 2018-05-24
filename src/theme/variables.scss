@@ -68,6 +68,7 @@ $alert-ios-button-group-justify-content : center;
 
 // Toolbar Button
 $toolbar-ios-button-color : color($colors, green-madera);
+$toolbar-ios-title-text-color : color($colors, brown-madera);
 
 // Input
 $text-input-ios-highlight-color : color($colors, grey-madera);
@@ -93,8 +94,15 @@ $button-md-background-color : color($colors, green-madera);
 $button-md-background-color-activated : color($colors, brown-madera);
 $button-md-text-color : white;
 
+// Fab
+$fab-md-text-color: color($colors, green-madera);
+$fab-md-list-button-text-color : color($colors, green-madera);
+$fab-md-background-color : white;
+$fab-md-list-button-background-color : white;
+
 // Toolbar Button
 $toolbar-md-button-color : color($colors, green-madera);
+$toolbar-md-title-text-color : color($colors, brown-madera);
 
 // Label
 $label-md-text-color : color($colors, grey-madera);
