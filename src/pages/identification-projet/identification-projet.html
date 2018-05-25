@@ -29,14 +29,16 @@
       <ion-grid class="height-max">
         <ion-row>
           <ion-col text-center>
-            Client : {{client.nomClient}} {{client.prenomClient}}
+            <p>Réf. Client :  {{client.referenceClient}}</p>
+            <p>Nom Client : {{client.nomClient}}</p>
+            <p>Prénom Client : {{client.prenomClient}}</p>
           </ion-col>
         </ion-row>
 
         <ion-row class="height-max" justify-content-center align-items-center>
 
           <ion-col col-md-6 col-xs-12>
-            <div *ngIf="this.client.projets.length>0" class="ion-card-projects">
+            <div *ngIf="client.projets && client.projets.length>0" class="ion-card-projects">
               VOS PROJETS
               <ion-card *ngFor="let projet of client.projets; let i = index" (click)="detailsDevis(projet)">
                 <ion-card-content>
@@ -62,7 +64,7 @@
                 </ion-card-content>
               </ion-card>
             </div>
-            <div *ngIf="this.client.projets.length<1" text-center>
+            <div *ngIf="!client.projets || client.projets.length<1" text-center>
               AUCUN PROJET
             </div>
           </ion-col>

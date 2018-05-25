@@ -32,8 +32,9 @@ export class ConceptionDevisPage {
 
     this.presentLoadingDefault();
     this.client = this.navParams.get('client');
-    this.projet = new Projet(this.client.projets.length,null,null,null,null,EtapeProjet.A_LA_SIGNATURE,null,null);
 
+    let referenceProjet = this.global.projets ? this.global.projets.length+1 : 1;
+    this.projet = new Projet(referenceProjet,null,null,null,null,EtapeProjet.A_LA_SIGNATURE,null,null);
   }
 
   presentLoadingDefault() {

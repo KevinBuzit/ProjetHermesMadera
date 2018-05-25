@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ModalController, LoadingController} from 'ionic-angular';
-import { NouveauClientPage } from '../nouveau-client/nouveau-client';
 import { IdentificationProjetPage } from '../identification-projet/identification-projet';
 import {GlobalProvider} from "../../providers/global/global";
 import { AddCustomerComponent } from '../../components/add-customer/add-customer';
@@ -67,10 +66,6 @@ export class IdentificationClientPage {
 
   }
 
-  createCustomer()
-  {
-      this.navCtrl.push(NouveauClientPage);
-  }
   validate()
   {
     let trouve = false;

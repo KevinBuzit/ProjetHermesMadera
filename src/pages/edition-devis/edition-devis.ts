@@ -9,8 +9,6 @@ import {Client} from "../../models/client.model";
 import {GlobalProvider} from "../../providers/global/global";
 import {AuthenticationPage} from "../authentication/authentication";
 import { Storage } from '@ionic/storage';
-import {IdentificationProjetPage} from "../identification-projet/identification-projet";
-import {EtapeProjet} from "../../models/etapeProjet.model";
 
 @IonicPage()
 @Component({

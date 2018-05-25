@@ -95,14 +95,32 @@ export class DevisPage {
 
   sendDevis(){
     this.projet.etatDevis=EtatDevis.EN_ATTENTE;
-    this.global.projets.push(this.projet);
 
-    let currentIndex = this.navCtrl.getActive().index;
-    this.navCtrl.push(IdentificationProjetPage, {'client':this.client} ).then(() => {
-      this.navCtrl.remove(currentIndex);
-      this.navCtrl.remove(currentIndex-1);
-      this.navCtrl.remove(currentIndex-2);
-    });
+    if(this.addProjectToClient(this.client.referenceClient.toString(),this.projet)){
+      // let currentIndex = this.navCtrl.getActive().index;
+      this.navCtrl.push(IdentificationProjetPage).then(() => {
+        // this.navCtrl.remove(currentIndex);
+      });
+    } else {
+      let currentIndex = this.navCtrl.getActive().index;
+      let alert = this.alertCtrl.create({
+        title: 'Erreur',
+        message: 'Impossible d\'ajouter le projet',
+        buttons: [{
+          text: 'Ok',
+          role: 'cancel',
+          handler: data => {
+            this.navCtrl.push(IdentificationProjetPage).then(() => {
+              this.navCtrl.remove(currentIndex);
+              this.navCtrl.remove(currentIndex-1);
+            });
+          }
+        }],
+        enableBackdropDismiss:false
+      });
+      alert.present();
+    }
+
   }
 
   disconnect() {
@@ -143,6 +161,29 @@ export class DevisPage {
 
   pop(){
     this.navCtrl.pop();
+  }
+
+  addProjectToClient(referenceClient:string,projet:Projet):boolean {
+
+    let added = false;
+    let i = 0;
+
+    while(!added && i< this.global.clients.length )
+    {
+      if((this.global.clients[i].referenceClient == parseInt(referenceClient)))
+      {
+        if(!this.global.clients[i].projets){
+          this.global.clients[i].projets = [];
+        }
+
+        this.global.clients[i].projets.push(projet);
+        added=true;
+      }
+
+      i++;
+    }
+
+    return added;
   }
 
 }

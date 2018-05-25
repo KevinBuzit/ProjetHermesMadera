@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis';
 import { AuthenticationPage } from '../pages/authentication/authentication';
-import { NouveauClientPage } from '../pages/nouveau-client/nouveau-client';
 import { IdentificationClientPage } from '../pages/identification-client/identification-client';
 import { IdentificationProjetPage } from '../pages/identification-projet/identification-projet';
 
@@ -26,7 +25,6 @@ import { IonicStorageModule } from '@ionic/storage';
     ConceptionDevisPage,
     AuthenticationPage,
     IdentificationClientPage,
-    NouveauClientPage,
     AddProductComponent,
     AddCustomerComponent,
     IdentificationProjetPage,
@@ -47,7 +45,6 @@ import { IonicStorageModule } from '@ionic/storage';
     AuthenticationPage,
     DisplayProductComponent,
     IdentificationClientPage,
-    NouveauClientPage,
     AddProductComponent,
     AddCustomerComponent,
     IdentificationProjetPage,

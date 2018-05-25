@@ -35,8 +35,10 @@ export class AddCustomerComponent {
   }
   addCustomer()
   {
+    let referenceClient = this.global.clients ? this.global.clients.length+1 : 1;
+
     this.client  = new Client(
-      this.global.clients.length,
+      referenceClient,
       this.clientForm.genreClient,
       this.clientForm.nomClient,
       this.clientForm.prenomClient,

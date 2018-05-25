@@ -42,10 +42,10 @@
           </ion-col>
           <ion-col col-0 col-sm-4></ion-col>
           <ion-col col-12 col-sm-4 text-center text-sm-end>
-            <p>Référence client : 1555</p>
-            <p>Mr. Kévin BUZIT</p>
-            <p>28 rue de Douarnenez</p>
-            <p>29100 Carhaix</p>
+            <p>Référence client : {{client.referenceClient}}</p>
+            <p>Mr. {{client.nomClient | uppercase }} {{client.prenomClient}}</p>
+            <p>{{client.adresseRueClient}}</p>
+            <p>{{client.codePostalClient}} {{client.adresseVilleClient}}</p>
           </ion-col>
         </ion-row>
         <ion-row justify-content-center>
