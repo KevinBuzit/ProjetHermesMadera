@@ -1,7 +1,17 @@
 <ion-header>
-  <ion-card-header>
-    <h2>Ajout d'un produit</h2>
-  </ion-card-header>
+  <ion-toolbar text-center>
+    <ion-buttons float-start>
+      <button ion-button (click)="pop()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      NOUVEAU PRODUIT
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -21,36 +31,40 @@
         </ion-item>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label>Isolation</ion-label>
+        <ion-select [(ngModel)]="product.isolation">
+          <ion-option value="1">Synthètique</ion-option>
+          <ion-option value="2">Naturelle</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Finition extérieure</ion-label>
+        <ion-select [(ngModel)]="product.finition">
+          <ion-option value="1">Bois</ion-option>
+          <ion-option value="2">Crépis</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Couverture</ion-label>
+        <ion-select [(ngModel)]="product.couverture">
+          <ion-option value="1">Tuiles</ion-option>
+          <ion-option value="2">Ardoises</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <img src="./assets/imgs/modeles/{{product.modele.urlImageModele}}" width="100%" alt="Plan Modèle {{ product.modele.designationModele }}"/>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button (click)="addProduct()" float-right>VALIDER</button>
+        <button ion-button (click)="dismiss()" float-right>ANNULER</button>
+      </ion-col>
+    </ion-row>
   </ion-grid>
-</ion-header>
-
-<ion-content padding>
-  <ion-item>
-    <ion-label>Isolation</ion-label>
-    <ion-select [(ngModel)]="product.isolation">
-      <ion-option value="1">Synthètique</ion-option>
-      <ion-option value="2">Naturelle</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Finition extérieure</ion-label>
-    <ion-select [(ngModel)]="product.finition">
-      <ion-option value="1">Bois</ion-option>
-      <ion-option value="2">Crépis</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Couverture</ion-label>
-    <ion-select [(ngModel)]="product.couverture">
-      <ion-option value="1">Tuiles</ion-option>
-      <ion-option value="2">Ardoises</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <img src="./assets/imgs/modeles/{{product.modele.urlImageModele}}" width="100%" height="100%" alt="Plan Modèle {{ product.modele.designationModele }}"/>
-  <button ion-button color="green-madera" (click)="addProduct()" float-right>VALIDER</button>
-  <button ion-button color="green-madera" (click)="dismiss()" float-right>ANNULER</button>
 
 </ion-content>

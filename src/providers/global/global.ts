@@ -65,22 +65,22 @@ export class GlobalProvider {
     let produit4 = new Produit(Isolation.Synthetique,FinitionExterieure.Bois,Couverture.Ardoise,modele1);
 
     this.projets = [];
-    let projet1 = new Projet('Maison bois Quimper','19 rue des lilas 29000 Quimper','25/12/2018',employe,EtapeProjet.A_LA_SIGNATURE,EtatDevis.ACCEPTE,produits1);
+    let projet1 = new Projet(1,'Maison bois Quimper','19 rue des lilas 29000 Quimper','25/12/2018',employe,EtapeProjet.A_LA_SIGNATURE,EtatDevis.ACCEPTE,produits1);
     this.projets.push(projet1);
 
     produits1.push(produit2);
 
-    let projet2 = new Projet('Maison bois Brest','20 rue siam 29200 Brest','10/12/2018',employe,EtapeProjet.ACHEVEMENT_DES_FONDATIONS,EtatDevis.BROUILLON,produits1);
+    let projet2 = new Projet(2,'Maison bois Brest','20 rue siam 29200 Brest','10/12/2018',employe,EtapeProjet.ACHEVEMENT_DES_FONDATIONS,EtatDevis.BROUILLON,produits1);
     this.projets.push(projet2);
-    let projet3 = new Projet('Maison bois Plougastel','32 theodore botrel 29470 Plougastel','25/05/2018',employe,EtapeProjet.ACHEVEMENT_DES_TRAVAUX_DEQUIPEMENT,EtatDevis.EN_ATTENTE,produits2);
+    let projet3 = new Projet(3,'Maison bois Plougastel','32 theodore botrel 29470 Plougastel','25/05/2018',employe,EtapeProjet.ACHEVEMENT_DES_TRAVAUX_DEQUIPEMENT,EtatDevis.EN_ATTENTE,produits2);
     this.projets.push(projet3);
     produits2.push(produit4);
 
-    let projet4 = new Projet('Maison bois Brest','2 rue du 2E RIC 29200 Brest','25/06/2018',employe,EtapeProjet.MISE_HORS_DEAU_HORS_DAIR,EtatDevis.EN_FACTURATION,produits2);
+    let projet4 = new Projet(4,'Maison bois Brest','2 rue du 2E RIC 29200 Brest','25/06/2018',employe,EtapeProjet.MISE_HORS_DEAU_HORS_DAIR,EtatDevis.EN_FACTURATION,produits2);
     this.projets.push(projet4);
-    let projet5 = new Projet('Maison bois Brest','24 rue Victor Hugo 29200 Brest','25/09/2018',employe,EtapeProjet.OBTENTION_DU_PERMIS_DE_CONSTRUIRE,EtatDevis.EN_COMMANDE,produits2);
+    let projet5 = new Projet(5,'Maison bois Brest','24 rue Victor Hugo 29200 Brest','25/09/2018',employe,EtapeProjet.OBTENTION_DU_PERMIS_DE_CONSTRUIRE,EtatDevis.EN_COMMANDE,produits2);
     this.projets.push(projet5);
-    let projet6 = new Projet('Maison bois Quimper ','19 rue Thomas Muller 29000 Quimper','25/05/2018',employe,EtapeProjet.REMISE_DES_CLES,EtatDevis.REFUSE,produits1);
+    let projet6 = new Projet(6,'Maiis Quimper ','19 rue Thomas Muller 29000 Quimper','25/05/2018',employe,EtapeProjet.REMISE_DES_CLES,EtatDevis.REFUSE,produits1);
     this.projets.push(projet6);
 
     this.clients = [];

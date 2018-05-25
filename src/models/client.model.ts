@@ -1,6 +1,5 @@
 import {Projet} from "./projet.model";
 
-
 export class Client {
   private _referenceClient: number;
   private _genreClient: string;

@@ -30,7 +30,7 @@
 
         <ion-row>
           <ion-col col-12 col-sm-4 text-center text-sm-left>
-            <p>Réf. projet : {{refProjet}}</p>
+            <p>Réf. projet : {{projet.referenceProjet}}</p>
             <p>Date projet : {{projet.dateProjet}}</p>
             <p>{{projet.adresseProjet}}</p>
           </ion-col>
@@ -138,6 +138,13 @@
 
           </ion-row>
         </div>
+
+        <ion-row>
+          <ion-col col-12>
+            <button ion-button color="green-madera" float-right (click)="sendDevis()">VALIDER</button>
+            <button ion-button color="green-madera" float-right (click)="cancel()">ANNULER</button>
+          </ion-col>
+        </ion-row>
 
       </ion-grid>
     </ion-card-content>

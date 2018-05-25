@@ -18,6 +18,7 @@ import {DevisPage} from "../pages/devis/devis";
 import {AccountPopoverComponent} from "../components/account-popover/account-popover";
 import {DisplayBrouillonComponent} from "../components/display-brouillon/display-brouillon";
 import { DisplayProductComponent } from '../components/display-product/display-product';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DisplayProductComponent } from '../components/display-product/display-p
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

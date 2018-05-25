@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, PopoverController, ModalController} from 'ionic-angular';
+import {
+  IonicPage, NavController, NavParams, ModalController,
+  AlertController, LoadingController
+} from 'ionic-angular';
 import {Projet} from "../../models/projet.model";
 import {DisplayBrouillonComponent} from "../../components/display-brouillon/display-brouillon";
 import {Client} from "../../models/client.model";
 import {GlobalProvider} from "../../providers/global/global";
+import {EtatDevis} from "../../models/etatDevis.model";
+import {IdentificationProjetPage} from "../identification-projet/identification-projet";
+import {AuthenticationPage} from "../authentication/authentication";
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -13,37 +20,98 @@ import {GlobalProvider} from "../../providers/global/global";
 export class DevisPage {
 
   private projet : Projet;
-  private refProjet : number;
   private client : Client;
   private totalHT : number;
 
   constructor(public navCtrl: NavController,
+              public alertCtrl: AlertController,
               public modalCtrl: ModalController,
               public navParams: NavParams,
-              public popoverCtrl: PopoverController,
-              public global: GlobalProvider
-  ) {
+              public global: GlobalProvider,
+              private storage: Storage,
+              public loadingCtrl: LoadingController) {
 
-    this.projet = navParams.get('projet');
-    this.client = navParams.get('client');
-    this.refProjet = navParams.get('index');
-    this.totalHT = this.calculateDevisTotalHT();
+    this.presentLoadingDefault();
+    this.client = this.navParams.get('client');
+    this.projet = this.navParams.get('projet');
+    this.totalHT = this.calculateDevisTotalHT(this.client.projets);
+  }
+
+  presentLoadingDefault() {
+    let loading = this.loadingCtrl.create({
+      content: 'Chargement...'
+    });
+
+    loading.present();
+
+    // Or to get a key/value pair
+    this.storage.get('referenceEmploye').then((referenceEmploye)=>{
+      loading.dismiss();
+    },()=>{
+      this.navCtrl.setRoot(AuthenticationPage);
+    });
   }
 
   cancel(){
+    let currentIndex = this.navCtrl.getActive().index;
+
+    let alert = this.alertCtrl.create({
+      title: 'Enregistrer en tant que brouillon ?',
+      buttons: [
+        {
+        text: 'Oui',
+        handler: data => {
+          this.projet.etatDevis = EtatDevis.BROUILLON;
+          this.global.projets.push(this.projet);
+
+          if(null == this.client.projets){
+            this.client.projets = [];
+          }
+
+          this.global.projets.push(this.projet);
+
+          // this.appCtrl.getRootNav().push(IdentificationProjetPage,{'client':this.client});
+          this.navCtrl.push(IdentificationProjetPage,{'client':this.client}).then(() =>{
+            this.navCtrl.remove(currentIndex);
+          })
+        }
+        },
+        {
+          text: 'Non',
+          role: 'cancel',
+          handler: data => {
+            this.navCtrl.push(IdentificationProjetPage,{'client':this.client}).then(() =>{
+              this.navCtrl.remove(currentIndex);
+            })
+          }
+        }
+      ]
+    });
+    alert.present();
+
     let displayBrouillonModal = this.modalCtrl.create(DisplayBrouillonComponent,{'client':this.client, 'projet':this.projet});
     displayBrouillonModal.present();
   }
 
   sendDevis(){
+    this.projet.etatDevis=EtatDevis.EN_ATTENTE;
+    this.global.projets.push(this.projet);
 
+    let currentIndex = this.navCtrl.getActive().index;
+    this.navCtrl.push(IdentificationProjetPage, {'client':this.client} ).then(() => {
+      this.navCtrl.remove(currentIndex);
+      this.navCtrl.remove(currentIndex-1);
+      this.navCtrl.remove(currentIndex-2);
+    });
   }
 
   disconnect() {
-    this.navCtrl.popToRoot();
+    this.navCtrl.setRoot(AuthenticationPage);
+    this.storage.remove('referenceClient');
+    this.storage.remove('referenceEmploye');
   }
 
-  calculateDevisTotalHT():number{
+  calculateDevisTotalHT(projets:Array<Projet>):number{
     let totalHT = 0;
 
     for(let produit of this.projet.produits){

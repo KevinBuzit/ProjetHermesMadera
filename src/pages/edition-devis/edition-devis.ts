@@ -9,17 +9,18 @@ import {Client} from "../../models/client.model";
 import {GlobalProvider} from "../../providers/global/global";
 import {AuthenticationPage} from "../authentication/authentication";
 import { Storage } from '@ionic/storage';
+import {IdentificationProjetPage} from "../identification-projet/identification-projet";
 import {EtapeProjet} from "../../models/etapeProjet.model";
 
 @IonicPage()
 @Component({
-  selector: 'page-conception-devis',
-  templateUrl: 'conception-devis.html'
+  selector: 'page-edition-devis',
+  templateUrl: 'edition-devis.html'
 })
-export class ConceptionDevisPage {
+export class EditionDevisPage {
 
   private projet : Projet;
-  private client : Client;
+  private client = Client;
 
   constructor(public modalCtrl: ModalController,
               public navParams: NavParams,
@@ -32,8 +33,7 @@ export class ConceptionDevisPage {
 
     this.presentLoadingDefault();
     this.client = this.navParams.get('client');
-    this.projet = new Projet(this.client.projets.length,null,null,null,null,EtapeProjet.A_LA_SIGNATURE,null,null);
-
+    this.projet = this.navParams.get('projet');
   }
 
   presentLoadingDefault() {

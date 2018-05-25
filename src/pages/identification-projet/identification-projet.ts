@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 import { ConceptionDevisPage } from '../conception-devis/conception-devis';
-import { Projet } from '../../models/projet.model';
 import { DevisPage } from '../devis/devis';
-import { Employe } from '../../models/employe.model';
 import { Client } from '../../models/client.model';
-import {EtapeProjet} from "../../models/etapeProjet.model";
 import {GlobalProvider} from "../../providers/global/global";
+import {AuthenticationPage} from "../authentication/authentication";
+import {IdentificationClientPage} from "../identification-client/identification-client";
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -15,36 +15,83 @@ import {GlobalProvider} from "../../providers/global/global";
 })
 export class IdentificationProjetPage {
   private client : Client;
-  private haveProjet = false;
-  private createdProjet : Projet;
-  private employe : Employe;
 
-  constructor(public navCtrl: NavController,public global: GlobalProvider, public params: NavParams) {
-    this.client = params.get('client');
-    this.employe = this.global.employe;
+  constructor(public navCtrl: NavController,
+              public global: GlobalProvider,
+              public params: NavParams,
+              private storage: Storage,
+              public loadingCtrl: LoadingController) {
 
-    if(!(this.client.projets===null))
-    {
-      if(this.client.projets.length>0){
-        this.haveProjet=true;
+    this.presentLoadingDefault();
+  }
+
+  presentLoadingDefault() {
+    let loading = this.loadingCtrl.create({
+      content: 'Chargement...'
+    });
+
+    loading.present();
+
+    this.storage.get('referenceEmploye').then(()=>{
+
+    },()=>{
+      this.navCtrl.setRoot(AuthenticationPage);
+    });
+
+    this.storage.get('referenceClient').then((referenceClient)=>{
+      this.client = this.getClient(referenceClient);
+
+      if(!this.client){
+        this.navCtrl.setRoot(IdentificationClientPage);
       }
-    }
+
+      loading.dismiss();
+    },()=>{
+      this.navCtrl.setRoot(IdentificationClientPage);
+    });
+
   }
 
   ionViewDidLoad() {
+
   }
 
+  getClient(referenceClient:string):Client {
+
+    let trouve = false;
+    let client : Client;
+    let i = 0;
+
+    while(!trouve && i< this.global.clients.length )
+    {
+      if((this.global.clients[i].referenceClient == parseInt(referenceClient)))
+      {
+        trouve=true;
+        client = this.global.clients[i];
+      }
+
+      i++;
+    }
+
+    return client;
+  }
   newProject()
   {
-    this.createdProjet = new Projet(null,null,null,this.employe,EtapeProjet.A_LA_SIGNATURE,null,null);
-    this.navCtrl.push(ConceptionDevisPage,{ 'projet': this.createdProjet,'index': 20, 'client': this.client});
+    this.navCtrl.push(ConceptionDevisPage,{ 'client': this.client });
   }
 
-  detailsDevis(projet : any, index : any )
+  detailsDevis(projet : any)
   {
-    this.navCtrl.push(DevisPage,{ 'projet': projet,'index': index, 'client': this.client });
+    this.navCtrl.push(DevisPage,{ 'client': this.client , 'projet': projet});
   }
+
   pop(){
     this.navCtrl.pop();
+  }
+
+  disconnect() {
+    this.navCtrl.setRoot(AuthenticationPage);
+    this.storage.remove('referenceClient');
+    this.storage.remove('referenceEmploye');
   }
 }

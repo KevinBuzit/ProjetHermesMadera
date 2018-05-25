@@ -3,16 +3,9 @@ import {NavController, NavParams } from 'ionic-angular';
 import { IdentificationProjetPage } from '../../pages/identification-projet/identification-projet';
 import { Client } from '../../models/client.model';
 import {GlobalProvider} from "../../providers/global/global";
-
 import moment from 'moment';
+import { Storage } from '@ionic/storage';
 
-
-/**
- * Generated class for the AddCustomerComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'add-customer',
   templateUrl: 'add-customer.html'
@@ -32,18 +25,33 @@ export class AddCustomerComponent {
     dateNaissanceClient: '',
     mailClient: '',
   };
-  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public global: GlobalProvider,
+              private storage: Storage) {
   }
 
   ionViewDidLoad() {
   }
   addCustomer()
   {
-    this.client  = new Client(2,this.clientForm.genreClient, this.clientForm.nomClient, this.clientForm.prenomClient, this.clientForm.adresseRueClient, this.clientForm.adresseVilleClient, this.clientForm.codePostalClient, this.clientForm.mailClient ,this.clientForm.telephoneClient, this.clientForm.dateNaissanceClient, (moment().format('DD/MM/YYYY')+" "+moment().format('HH:mm')),null );
-    this.global.clients.push(this.client);
-    console.log('global',this.global);
-    this.navCtrl.push(IdentificationProjetPage,{ 'client': this.client });
+    this.client  = new Client(
+      this.global.clients.length,
+      this.clientForm.genreClient,
+      this.clientForm.nomClient,
+      this.clientForm.prenomClient,
+      this.clientForm.adresseRueClient,
+      this.clientForm.adresseVilleClient,
+      this.clientForm.codePostalClient,
+      this.clientForm.mailClient ,
+      this.clientForm.telephoneClient,
+      this.clientForm.dateNaissanceClient,
+      (moment().format('DD/MM/YYYY')+" "+moment().format('HH:mm')),
+      null );
 
+    this.global.clients.push(this.client);
+    this.storage.set('referenceClient',this.client.referenceClient)
+    this.navCtrl.push(IdentificationProjetPage);
   }
   pop(){
     this.navCtrl.pop();

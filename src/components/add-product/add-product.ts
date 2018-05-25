@@ -36,6 +36,6 @@ export class AddProductComponent {
 
   addProduct() {
     let produit = new Produit(this.product.isolation, this.product.finition, this.product.couverture, this.product.modele  );
-    this.viewCtrl.dismiss(produit);
+    this.viewCtrl.dismiss({'produit' : produit});
   }
 }

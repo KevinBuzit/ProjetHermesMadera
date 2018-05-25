@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ModalController, LoadingController} from 'ionic-angular';
 import { NouveauClientPage } from '../nouveau-client/nouveau-client';
 import { IdentificationProjetPage } from '../identification-projet/identification-projet';
 import {GlobalProvider} from "../../providers/global/global";
 import { AddCustomerComponent } from '../../components/add-customer/add-customer';
 import { AlertController } from 'ionic-angular';
-import { Employe } from '../../models/employe.model';
-
+import {AuthenticationPage} from "../authentication/authentication";
+import { Storage } from '@ionic/storage';
+import {Client} from "../../models/client.model";
 
 @IonicPage()
 @Component({
@@ -15,28 +16,57 @@ import { Employe } from '../../models/employe.model';
 })
 
 export class IdentificationClientPage {
-  private pages: Array<{title: string, component: any}>;
-  private employe : Employe;
+  // private pages: Array<{title: string, component: any}>;
   private client = {
     nomClient: '',
     prenomClient: '',
     codePostalClient: ''
   };
-  constructor(public navCtrl: NavController, public navParams: NavParams,public global: GlobalProvider,public modal: ModalController,  private alertCtrl: AlertController,  public params: NavParams) {
-    this.pages = [
-      { title: 'Conception de devis', component: IdentificationProjetPage },
-    ];
-    this.employe = this.global.employe;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public global: GlobalProvider,
+              public modal: ModalController,
+              private alertCtrl: AlertController,
+              public params: NavParams,
+              private storage: Storage,
+              public loadingCtrl: LoadingController) {
+    // this.pages = [
+    //   { title: 'Conception de devis', component: IdentificationProjetPage },
+    // ];
+
+    this.presentLoadingDefault();
   }
+
+  presentLoadingDefault() {
+    let loading = this.loadingCtrl.create({
+      content: 'Chargement...'
+    });
+
+    loading.present();
+
+    this.storage.get('referenceEmploye').then((referenceEmploye)=>{
+      loading.dismiss();
+    },()=>{
+      this.navCtrl.setRoot(AuthenticationPage);
+    });
+
+  }
+
+  disconnect() {
+    this.navCtrl.setRoot(AuthenticationPage);
+    this.storage.remove('referenceClient');
+    this.storage.remove('referenceEmploye');
+  }
+
   presentAddCustomerModal() {
     const addCustomerModal = this.modal.create(AddCustomerComponent);
-    addCustomerModal.onDidDismiss(data => {
-      console.log(data);
-    });
     addCustomerModal.present();
   }
+
   ionViewDidLoad() {
+
   }
+
   createCustomer()
   {
       this.navCtrl.push(NouveauClientPage);
@@ -45,22 +75,27 @@ export class IdentificationClientPage {
   {
     let trouve = false;
     let i = 0;
+    let client : Client;
+
     while(!trouve && i< this.global.clients.length )
     {
-      if((this.global.clients[i].nomClient.toUpperCase() == this.client.nomClient.toUpperCase()) &&(this.global.clients[i].prenomClient.toUpperCase() == this.client.prenomClient.toUpperCase()) && (this.global.clients[i].codePostalClient.toUpperCase() == this.client.codePostalClient.toUpperCase()))
+
+      client=this.global.clients[i];
+
+      if((client.nomClient.toUpperCase() == this.client.nomClient.toUpperCase())
+        &&(client.prenomClient.toUpperCase() == this.client.prenomClient.toUpperCase())
+        && (client.codePostalClient.toUpperCase() == this.client.codePostalClient.toUpperCase()))
       {
         trouve=true;
+      }
 
-      }
-      else {
-        trouve=false;
-        i++;
-      }
+      i++;
     }
     if(trouve)
     {
-      this.navCtrl.push(IdentificationProjetPage,{ 'client': this.global.clients[i],'employe':  this.employe });
-      console.log("employe ",this.employe);
+      this.storage.set('referenceClient',client.referenceClient.toString()).then(()=>{
+        this.navCtrl.push(IdentificationProjetPage);
+      });
     }
     else
     {
@@ -71,8 +106,4 @@ export class IdentificationClientPage {
       });
       alert.present();
     }}
-
-    pop(){
-    this.navCtrl.pop();
-    }
 }
