@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar text-center>
     <ion-buttons float-start>
-      <button ion-button (click)="pop()">
+      <button ion-button (click)="dismiss()">
         <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
@@ -17,15 +17,15 @@
       <ion-col>
         <ion-item>
           <ion-label>Gamme</ion-label>
-          <ion-select [(ngModel)]="product.gamme">
+          <ion-select interface="popover" [(ngModel)]="product.gamme" okText="Ok" cancelText="Annuler">
             <ion-option *ngFor="let gamme of global.gammes" [value]="gamme">{{gamme.designationGamme}}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
-      <ion-col ngif="product.gamme.modeles.length > 0">
+      <ion-col ngif="product.gamme && product.gamme.modeles && product.gamme.modeles.length > 0">
         <ion-item>
           <ion-label>Modèle</ion-label>
-          <ion-select [(ngModel)]="product.modele">
+          <ion-select interface="popover" [(ngModel)]="product.modele" okText="Ok" cancelText="Annuler">
             <ion-option *ngFor="let modele of product.gamme.modeles" [value]="modele">{{modele.designationModele}}</ion-option>
           </ion-select>
         </ion-item>
@@ -34,7 +34,7 @@
     <ion-row>
       <ion-item>
         <ion-label>Isolation</ion-label>
-        <ion-select [(ngModel)]="product.isolation">
+        <ion-select interface="popover" [(ngModel)]="product.isolation" okText="Ok" cancelText="Annuler">
           <ion-option value="1">Synthètique</ion-option>
           <ion-option value="2">Naturelle</ion-option>
         </ion-select>
@@ -42,7 +42,7 @@
 
       <ion-item>
         <ion-label>Finition extérieure</ion-label>
-        <ion-select [(ngModel)]="product.finition">
+        <ion-select interface="popover" [(ngModel)]="product.finition" okText="Ok" cancelText="Annuler">
           <ion-option value="1">Bois</ion-option>
           <ion-option value="2">Crépis</ion-option>
         </ion-select>
@@ -50,18 +50,18 @@
 
       <ion-item>
         <ion-label>Couverture</ion-label>
-        <ion-select [(ngModel)]="product.couverture">
+        <ion-select interface="popover" [(ngModel)]="product.couverture" okText="Ok" cancelText="Annuler">
           <ion-option value="1">Tuiles</ion-option>
           <ion-option value="2">Ardoises</ion-option>
         </ion-select>
       </ion-item>
 
-      <img src="./assets/imgs/modeles/{{product.modele.urlImageModele}}" width="100%" alt="Plan Modèle {{ product.modele.designationModele }}"/>
+      <img *ngIf="product.modele" src="./assets/imgs/modeles/{{product.modele.urlImageModele}}" width="100%" alt="Plan Modèle {{ product.modele.designationModele }}"/>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <button ion-button (click)="addProduct()" float-right>VALIDER</button>
+        <button ion-button [disabled]="checkIfNotValid()" (click)="addProduct()" float-right>VALIDER</button>
         <button ion-button (click)="dismiss()" float-right>ANNULER</button>
       </ion-col>
     </ion-row>

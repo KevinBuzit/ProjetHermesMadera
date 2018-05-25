@@ -46,6 +46,12 @@ $text-color : color($colors, grey-madera);
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
+// Radio
+$radio-ios-color-on : color($colors, green-madera);
+
+// Datetime
+$datetime-ios-placeholder-color : color($colors, grey-madera);
+
 // Button
 $button-ios-background-color-hover : color($colors, brown-madera);
 $button-ios-background-color : color($colors, green-madera);
@@ -65,6 +71,8 @@ $alert-ios-button-text-color : white;
 $alert-ios-button-text-align : center;
 $alert-ios-message-text-color : color($colors, grey-madera);
 $alert-ios-button-group-justify-content : center;
+$alert-ios-radio-label-text-color : color($colors, grey-madera);
+$alert-ios-radio-label-text-color-checked : color($colors, grey-madera);
 
 // Toolbar Button
 $toolbar-ios-button-color : color($colors, green-madera);
@@ -84,9 +92,22 @@ $card-ios-text-color: color($colors, grey-madera);
 // List
 $list-ios-border-color : transparent;
 
+// Select
+$select-ios-placeholder-color: color($colors, grey-madera);
+
+// Popover
+$popover-ios-text-color : color($colors, grey-madera);
+
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
+
+// Datetime
+$datetime-md-placeholder-color : color($colors, grey-madera);
+$picker-md-button-text-color: color($colors, green-madera);
+
+// Radio
+$radio-md-color-on : color($colors, green-madera);
 
 // Button
 $button-md-background-color-hover : color($colors, brown-madera);
@@ -127,6 +148,15 @@ $alert-md-button-text-color : white;
 $alert-md-button-text-align : center;
 $alert-md-message-text-color : color($colors, grey-madera);
 $alert-md-button-group-justify-content : center;
+$alert-md-radio-label-text-color: color($colors, grey-madera);
+$alert-md-radio-label-text-color-checked: color($colors, grey-madera);
+
+// Select
+$select-md-placeholder-color: color($colors, grey-madera);
+$picker-md-option-selected-color: color($colors, grey-madera);
+
+// Popover
+$popover-md-text-color : color($colors, grey-madera);
 
 // App Windows Variables
 // --------------------------------------------------

@@ -32,12 +32,13 @@
             <ion-item text-center text-sm-start>
               <p>Référence projet : {{global.projets.length}}</p>
             </ion-item>
-            <ion-item>
+            <ion-item text-center text-sm-start>
+              <ion-label stacked>Adresse du projet</ion-label>
               <ion-input [(ngModel)]="projet.adresseProjet" text-center text-sm-start placeholder="Adresse projet" clearInput></ion-input>
             </ion-item>
             <ion-item text-center text-sm-start>
-              <ion-label fixed>Date du projet</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="projet.dateProjet" placeholder="Date du projet" clearInput></ion-datetime>
+              <ion-label stacked>Date du projet</ion-label>
+              <ion-datetime min="2018" max="2100" displayFormat="DD/MM/YYYY" [(ngModel)]="projet.dateProjet" placeholder="Date du projet" clearInput></ion-datetime>
             </ion-item>
           </ion-col>
           <ion-col col-0 col-sm-4></ion-col>
@@ -58,25 +59,49 @@
         <ion-row class="border">
           <ion-col col-9>Gestion des produits</ion-col>
           <ion-col text-end col-3>
-            <button ion-button icon-only class="button_add" (click)="presentAddProductModal()">
+            <button ion-button icon-only class="button-add" (click)="presentAddProductModal()">
               <ion-icon name="add"></ion-icon>
             </button>
-            <button ion-button icon-only class="button_remove">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="border text-bold" text-center>
+            <button ion-button icon-only class="button-remove" (click)="removeAllProducts()" [disabled]="!projet.produits">
               <ion-icon name="remove"></ion-icon>
             </button>
           </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-12 class="border" *ngIf="null != projet.produits && projet.produits.length > 0">
-            <ion-list>
-
-              <button ion-item *ngFor="let produit of projet.produits" (click)="presentDisplayProductModal(produit)">
-                {{ produit.modele.designationModele }}
-              </button>
-
-            </ion-list>
+          <ion-col class="border text-bold" text-center>
+            Réf.
+          </ion-col>
+          <ion-col class="border text-bold" text-center>
+            Dés.
           </ion-col>
         </ion-row>
+
+        <div *ngIf="projet.produits && projet.produits.length > 0">
+          <ion-row *ngFor="let produit of projet.produits">
+            <ion-col class="border" text-center>
+              <ion-buttons>
+                <button ion-button icon-only class="button-remove" (click)="removeProduct(produit)">
+                  <ion-icon name="remove"></ion-icon>
+                </button>
+                <button ion-button icon-only (click)="presentDisplayProductModal(produit)">
+                  <ion-icon name="eye"></ion-icon>
+                </button>
+              </ion-buttons>
+            </ion-col>
+            <ion-col class="border">
+              {{ produit.modele.referenceModele }}
+            </ion-col>
+            <ion-col class="border">
+              <button ion-item>
+                {{ produit.modele.designationModele }}
+              </button>
+            </ion-col>
+          </ion-row>
+        </div>
+
         <ion-row>
           <ion-col col-12>
             <button ion-button color="green-madera" float-right [disabled]="checkIfNotValid()" (click)="goToDevisPage()">VALIDER</button>

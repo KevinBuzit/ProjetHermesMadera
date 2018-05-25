@@ -1,17 +1,76 @@
-<ion-content padding text-center>
-  <div>
-    <p>Réf. modèle : {{product.modele.referenceModele}}</p>
-    <p>Désignation : {{product.modele.designationModele}}</p>
-    <p>Description : {{product.modele.descriptionModele}}</p>
-    <img src="./assets/imgs/modeles/{{product.modele.urlImageModele}}" width="100%" height="100%" alt="Plan Modèle {{ product.modele.designationModele }}"/>
-    <p>Modules :</p>
-    <ion-list class="border">
-      <p ion-item *ngFor="let module of product.modele.modules">
-        {{ module.designationModule }}
-      </p>
-    </ion-list>
+<ion-header>
+  <ion-toolbar text-center>
+    <ion-buttons float-start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      DESCRIPTION DU PRODUIT
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  </div>
+<ion-content padding text-center>
+  <p>Réf. Modèle : {{produit.modele.referenceModele}}</p>
+  <p>Dés. Modèle : {{produit.modele.designationModele}}</p>
+  <p>Description du Modèle : </p>
+  <p>{{produit.modele.descriptionModele}}</p>
+  <img src="./assets/imgs/modeles/{{produit.modele.urlImageModele}}" width="100%" height="100%" alt="Plan Modèle {{ produit.modele.designationModele }}"/>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="border">
+        <p>Liste des modules</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="border text-bold" text-center>
+        Réf.
+      </ion-col>
+      <ion-col class="border text-bold" text-center>
+        Dés.
+      </ion-col>
+      <ion-col class="border text-bold" text-center>
+        PU
+      </ion-col>
+      <ion-col class="border text-bold" text-center>
+        Qté
+      </ion-col>
+      <ion-col class="border text-bold" text-center>
+        Prix HT
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="border">
+        <p *ngFor="let module of produit.modele.modules">
+          {{ module.referenceModule }}
+        </p>
+      </ion-col>
+      <ion-col class="border">
+        <p *ngFor="let module of produit.modele.modules">
+          {{ module.designationModule }}
+        </p>
+      </ion-col>
+      <ion-col class="border">
+        <p *ngFor="let module of produit.modele.modules">
+          {{ module.prixHTModule }}€
+        </p>
+      </ion-col>
+      <ion-col class="border">
+        <p *ngFor="let module of produit.modele.modules">
+          {{ module.quantite }}
+        </p>
+      </ion-col>
+      <ion-col class="border">
+        <p *ngFor="let module of produit.modele.modules">
+          {{ module.quantite * module.prixHTModule }}€
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <button ion-button color="green-madera" (click)="dismiss()">ANNULER</button>
 

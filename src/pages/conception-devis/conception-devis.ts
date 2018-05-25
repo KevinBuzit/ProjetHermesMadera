@@ -20,6 +20,7 @@ export class ConceptionDevisPage {
 
   private projet : Projet;
   private client : Client;
+  private all : boolean;
 
   constructor(public modalCtrl: ModalController,
               public navParams: NavParams,
@@ -29,6 +30,8 @@ export class ConceptionDevisPage {
               private storage: Storage,
               public loadingCtrl: LoadingController
   ) {
+
+    this.all = false;
 
     this.presentLoadingDefault();
     this.client = this.navParams.get('client');
@@ -75,14 +78,22 @@ export class ConceptionDevisPage {
     addProductModal.present();
   }
 
-  presentDisplayProductModal(product:Produit)
+  presentDisplayProductModal(produit:Produit)
   {
-    let displayProductModal = this.modalCtrl.create(DisplayProductComponent, { product: product });
+    let displayProductModal = this.modalCtrl.create(DisplayProductComponent, { produit: produit });
     displayProductModal.present();
   }
 
   goToDevisPage(){
     this.navCtrl.push(DevisPage, { 'projet': this.projet, 'client':this.client} );
+  }
+
+  removeProduct(produit:Produit){
+    this.projet.produits.splice( this.projet.produits.indexOf(produit), 1 );
+  }
+
+  removeAllProducts(){
+    this.projet.produits = null;
   }
 
   ionViewDidLoad() {

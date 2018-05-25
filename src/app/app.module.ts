@@ -15,7 +15,6 @@ import {AddProductComponent} from "../components/add-product/add-product";
 import {AddCustomerComponent} from "../components/add-customer/add-customer";
 import {DevisPage} from "../pages/devis/devis";
 import {AccountPopoverComponent} from "../components/account-popover/account-popover";
-import {DisplayBrouillonComponent} from "../components/display-brouillon/display-brouillon";
 import { DisplayProductComponent } from '../components/display-product/display-product';
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -30,8 +29,7 @@ import { IonicStorageModule } from '@ionic/storage';
     IdentificationProjetPage,
     DisplayProductComponent,
     DevisPage,
-    AccountPopoverComponent,
-    DisplayBrouillonComponent
+    AccountPopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -49,8 +47,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AddCustomerComponent,
     IdentificationProjetPage,
     DevisPage,
-    AccountPopoverComponent,
-    DisplayBrouillonComponent
+    AccountPopoverComponent
   ],
   providers: [
     StatusBar,

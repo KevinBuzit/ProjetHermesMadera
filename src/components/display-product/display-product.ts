@@ -8,10 +8,10 @@ import {Produit} from "../../models/produit.model";
 })
 export class DisplayProductComponent {
 
-  product: Produit;
+  produit: Produit;
 
   constructor(params: NavParams, public viewCtrl: ViewController) {
-    this.product = params.get('product');
+    this.produit = params.get('produit');
   }
 
   dismiss() {

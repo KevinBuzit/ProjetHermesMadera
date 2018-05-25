@@ -4,13 +4,13 @@ import {
   AlertController, LoadingController
 } from 'ionic-angular';
 import {Projet} from "../../models/projet.model";
-import {DisplayBrouillonComponent} from "../../components/display-brouillon/display-brouillon";
 import {Client} from "../../models/client.model";
 import {GlobalProvider} from "../../providers/global/global";
 import {EtatDevis} from "../../models/etatDevis.model";
 import {IdentificationProjetPage} from "../identification-projet/identification-projet";
 import {AuthenticationPage} from "../authentication/authentication";
 import { Storage } from '@ionic/storage';
+import {Produit} from "../../models/produit.model";
 
 @IonicPage()
 @Component({
@@ -34,7 +34,7 @@ export class DevisPage {
     this.presentLoadingDefault();
     this.client = this.navParams.get('client');
     this.projet = this.navParams.get('projet');
-    this.totalHT = this.calculateDevisTotalHT(this.client.projets);
+    this.totalHT = this.calculateDevisTotalHT(this.projet.produits);
   }
 
   presentLoadingDefault() {
@@ -88,9 +88,6 @@ export class DevisPage {
       ]
     });
     alert.present();
-
-    let displayBrouillonModal = this.modalCtrl.create(DisplayBrouillonComponent,{'client':this.client, 'projet':this.projet});
-    displayBrouillonModal.present();
   }
 
   sendDevis(){
@@ -129,10 +126,10 @@ export class DevisPage {
     this.storage.remove('referenceEmploye');
   }
 
-  calculateDevisTotalHT(projets:Array<Projet>):number{
+  calculateDevisTotalHT(produits:Array<Produit>):number{
     let totalHT = 0;
 
-    for(let produit of this.projet.produits){
+    for(let produit of produits){
 
       for(let module of produit.modele.modules){
         totalHT += module.prixHTModule * module.quantite;
@@ -146,7 +143,8 @@ export class DevisPage {
     let totalHT = 0;
     let index = 0;
 
-    while(index < this.projet.produits.length-1){
+    while(index < this.projet.produits.length){
+
       if(referenceModele == this.projet.produits[index].modele.referenceModele){
         for(let module of this.projet.produits[index].modele.modules){
           totalHT += module.prixHTModule * module.quantite;

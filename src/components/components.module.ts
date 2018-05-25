@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { AddProductComponent } from './add-product/add-product';
 import { AddCustomerComponent } from './add-customer/add-customer';
 import { AccountPopoverComponent } from './account-popover/account-popover';
-import { DisplayBrouillonComponent } from './display-brouillon/display-brouillon';
 import { DisplayProductComponent } from './display-product/display-product';
 
 @NgModule({
@@ -10,16 +9,14 @@ import { DisplayProductComponent } from './display-product/display-product';
     DisplayProductComponent,
 	  AddProductComponent,
     AddCustomerComponent,
-    AccountPopoverComponent,
-    DisplayBrouillonComponent
+    AccountPopoverComponent
   ],
 	imports: [],
 	exports: [
     DisplayProductComponent,
 	  AddProductComponent,
     AddCustomerComponent,
-    AccountPopoverComponent,
-    DisplayBrouillonComponent
+    AccountPopoverComponent
   ]
 })
 export class ComponentsModule {}
