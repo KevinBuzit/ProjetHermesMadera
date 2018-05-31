@@ -107,4 +107,25 @@ export class IdentificationClientPage {
       });
       alert.present();
     }}
+  checkIfNotValid():boolean{
+    //Regex
+    let regexAlphaString = "^[a-zA-Z]{0,10}$";
+    let regexAlpha = new RegExp(regexAlphaString);
+
+    let regexCodePostalString = "^[a-zA-Z0-9]{0,10}$";
+    let regexCodePostal = new RegExp(regexCodePostalString);
+
+    let notValid : boolean = true;
+
+    if(this.client.nomClient
+      && this.client.prenomClient
+      && this.client.codePostalClient){
+
+      notValid = false;
+    }
+    if(!regexAlpha.test(this.client.nomClient) || !regexAlpha.test(this.client.prenomClient)|| !regexCodePostal.test(this.client.codePostalClient)) {
+      notValid = true;
+    }
+    return notValid;
+  }
 }
