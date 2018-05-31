@@ -34,7 +34,7 @@
             </ion-item>
             <ion-item text-center text-sm-start>
               <ion-label stacked>Adresse du projet</ion-label>
-              <ion-input [(ngModel)]="projet.adresseProjet" text-center text-sm-start placeholder="Adresse projet" clearInput></ion-input>
+              <ion-input [(ngModel)]="projet.adresseProjet" text-center text-sm-start placeholder="Adresse projet" clearInput pattern="^[a-zA-Z0-9' ]{0,50}$"></ion-input>
             </ion-item>
             <ion-item text-center text-sm-start>
               <ion-label stacked>Date du projet</ion-label>
@@ -52,7 +52,7 @@
         <ion-row justify-content-center>
           <ion-col col-12 col-md-4>
             <ion-item>
-              <ion-input text-center [(ngModel)]="projet.nomProjet" placeholder="Nom du projet" clearInput></ion-input>
+              <ion-input text-center [(ngModel)]="projet.nomProjet" placeholder="Nom du projet" clearInput pattern="^[a-zA-Z0-9' ]{0,50}$"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
