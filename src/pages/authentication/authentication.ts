@@ -65,4 +65,23 @@ export class AuthenticationPage {
       alert.present();
     }
   }
+  checkIfNotValid():boolean{
+    //Regex
+    let regexAlphaNumString = "^[a-zA-Z0-9]{8}$";
+    let regexAlphaNum = new RegExp(regexAlphaNumString);
+
+    let regexInjectionSQLString = "('(''|[^'])*')|(;)|(\b(ALTER|CREATE|DELETE|DROP|EXEC(UTE){0,1}|INSERT( +INTO){0,1}|MERGE|SELECT|UPDATE|UNION( +ALL){0,1})\b)";
+    let regexInjectionSQL = new RegExp(regexInjectionSQLString);
+
+    let notValid : boolean = true;
+
+    if(this.matricule
+      && this.password){
+      notValid = false;
+    }
+    if(!regexAlphaNum.test(String(this.matricule)) || regexInjectionSQL.test(this.password)) {
+      notValid = true;
+    }
+    return notValid;
+  }
 }

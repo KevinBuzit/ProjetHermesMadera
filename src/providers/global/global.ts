@@ -34,7 +34,7 @@ export class GlobalProvider {
     this.margeEntreprise = 5;
 
     let metier = new Metier(1,'Commercial');
-    let employe = new Employe(1,'test','Employe','Lambda','18 rue des lilas','Brest','29000','xxxxxxxx@gmail.com','0000000000','01/01/1995','26/02/2018 18:00',metier);
+    let employe = new Employe(12345678,'test','Employe','Lambda','18 rue des lilas','Brest','29200','xxxxxxxx@gmail.com','0000000000','01/01/1995','26/02/2018 18:00',metier);
 
     let familleComposant = new FamilleComposant(1,'planches');
     let composant = new Composant(1,10,'planche bois',familleComposant);
@@ -84,7 +84,7 @@ export class GlobalProvider {
     this.projets.push(projet6);
 
     this.clients = [];
-    let client1 = new Client(1,'Monsieur','Martins','Marco','19 rue des lilas','Quimper','29000','marcomartins@gmail.com','0612457896','01/01/1994','20/02/2018 18:00',this.projets);
+    let client1 = new Client(1,'Monsieur','Martins','Marco','19 rue des lilas','Quimper','29200','marcomartins@gmail.com','0612457896','01/01/1994','20/02/2018 18:00',this.projets);
     this.clients.push(client1);
 
   }

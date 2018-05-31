@@ -14,7 +14,7 @@
                 <form >
                   <ion-item>
                       <ion-label floating>Matricule</ion-label>
-                    <ion-input name="matricule"[(ngModel)]="matricule" type="text"></ion-input>
+                    <ion-input name="matricule"[(ngModel)]="matricule" type="text" pattern="^[a-zA-Z0-9]{8}$" ></ion-input>
                   </ion-item>
 
                   <ion-item>
@@ -23,7 +23,7 @@
                   </ion-item>
 
               <div padding class="button">
-                <button class="green-button" ion-button color="green-madera" (click)="login()">CONNEXION</button>
+                <button class="green-button" [disabled]="checkIfNotValid()" ion-button color="green-madera" (click)="login()">CONNEXION</button>
               </div>
                 </form>
             </ion-list>
