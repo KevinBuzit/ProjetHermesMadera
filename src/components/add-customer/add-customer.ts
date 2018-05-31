@@ -60,14 +60,17 @@ export class AddCustomerComponent {
     let regexInjectionSQLString = "('(''|[^'])*')|(;)|(\b(ALTER|CREATE|DELETE|DROP|EXEC(UTE){0,1}|INSERT( +INTO){0,1}|MERGE|SELECT|UPDATE|UNION( +ALL){0,1})\b)";
     let regexInjectionSQL = new RegExp(regexInjectionSQLString);
 
-    let regexMailString ="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"
+    let regexMailString ="[A-Za-z0-9._%+-]{3,30}@[a-zA-Z]{3,15}([.]{1}[a-zA-Z]{2,6}|[.]{1}[a-zA-Z]{2,6}[.]{1}[a-zA-Z]{2,6})"
     let regexMail = new RegExp(regexMailString);
 
-    let regexNumeriqueString = "^[0-9]*$";
+    let regexNumeriqueString = "^[0-9]{0,20}$";
     let regexNumerique = new RegExp(regexNumeriqueString);
 
-    let regexAlphaString = "^[a-zA-Z]+$";
+    let regexAlphaString = "^[a-zA-Z]{0,10}$";
     let regexAlpha = new RegExp(regexAlphaString);
+
+    let regexCodePostalString = "^[a-zA-Z0-9]{0,10}$";
+    let regexCodePostal = new RegExp(regexCodePostalString);
 
     let notValid : boolean = true;
 
@@ -87,7 +90,7 @@ export class AddCustomerComponent {
       || regexInjectionSQL.test(this.clientForm.mailClient)){
         notValid = true;
     }
-    if(!regexAlpha.test(this.clientForm.nomClient) || !regexAlpha.test(this.clientForm.prenomClient)|| !regexAlpha.test(this.clientForm.adresseVilleClient) || !regexNumerique.test(this.clientForm.telephoneClient) || !regexMail.test(this.clientForm.mailClient)) {
+    if(!regexAlpha.test(this.clientForm.nomClient) || !regexAlpha.test(this.clientForm.prenomClient)|| !regexAlpha.test(this.clientForm.adresseVilleClient) || !regexNumerique.test(this.clientForm.telephoneClient) || !regexMail.test(this.clientForm.mailClient) || !regexCodePostal.test(this.clientForm.codePostalClient)) {
       notValid = true;
     }
     return notValid;
