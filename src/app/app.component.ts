@@ -21,13 +21,7 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
-    // get current
-    // console.log(this.screenOrientation.type);
-
-    // set to landscape
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-
+    
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Conception de devis', component: ConceptionDevisPage, img: 'file.png' }
