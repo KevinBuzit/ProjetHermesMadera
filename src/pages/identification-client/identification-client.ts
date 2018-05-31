@@ -83,9 +83,9 @@ export class IdentificationClientPage {
 
       client=this.global.clients[i];
 
-      if((client.nomClient.toUpperCase() == this.client.nomClient.toUpperCase())
-        &&(client.prenomClient.toUpperCase() == this.client.prenomClient.toUpperCase())
-        && (client.codePostalClient.toUpperCase() == this.client.codePostalClient.toUpperCase()))
+      if((client.nomClient.toUpperCase() == this.client.nomClient.toUpperCase().trim())
+        &&(client.prenomClient.toUpperCase() == this.client.prenomClient.toUpperCase().trim())
+        && (client.codePostalClient.toUpperCase() == this.client.codePostalClient.toUpperCase().trim()))
       {
         trouve=true;
       }
