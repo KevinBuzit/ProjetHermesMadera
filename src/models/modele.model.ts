@@ -13,12 +13,22 @@ export class Modele {
     this._descriptionModele = descriptionModele;
   }
 
-  addModule(module:Module){
+  public addModule(module:Module){
     this._modules.push(module);
   }
 
   get modules(): Array<Module> {
     return this._modules;
+  }
+
+  public getTotalHT():number{
+    let totalHT : number = 0;
+
+    for(let module of this._modules){
+      totalHT += module.prixHTModule * module.quantite;
+    }
+
+    return totalHT;
   }
 
   set modules(value: Array<Module>) {
