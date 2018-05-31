@@ -11,6 +11,7 @@ import {IdentificationProjetPage} from "../identification-projet/identification-
 import {AuthenticationPage} from "../authentication/authentication";
 import { Storage } from '@ionic/storage';
 import {Produit} from "../../models/produit.model";
+import { EditionDevisPage } from '../edition-devis/edition-devis';
 
 @IonicPage()
 @Component({
@@ -92,15 +93,19 @@ export class DevisPage {
         },
         {
           text: 'Non',
-          role: 'cancel',
           handler: data => {
-            this.navCtrl.push(IdentificationProjetPage,{'client':this.client}).then(() =>{
+              console.log("Nope ..")
+              this.navCtrl.push(IdentificationProjetPage,{'client':this.client}).then(() =>{
               this.navCtrl.remove(currentIndex);
             })
           }
         }
       ]
     });
+    alert.onDidDismiss(() => {
+      console.log("Dismiss ..")
+    })
+
     alert.present();
   }
 
@@ -157,15 +162,12 @@ export class DevisPage {
     let totalHT = 0;
     let index = 0;
 
-    while(index < this.projet.produits.length){
+    while(totalHT === 0 && index < this.projet.produits.length ){
 
-      if(referenceModele == this.projet.produits[index].modele.referenceModele){
-        for(let module of this.projet.produits[index].modele.modules){
-          totalHT += module.prixHTModule * module.quantite;
-        }
+      if(referenceModele === this.projet.produits[index].modele.referenceModele){
+        totalHT += this.projet.produits[index].modele.getTotalHT();
       }
 
-      index++;
     }
 
     return totalHT;
@@ -198,4 +200,16 @@ export class DevisPage {
     return added;
   }
 
+  canUpdate():boolean{
+    if(this.projet.etatDevis == EtatDevis.BROUILLON || this.projet.etatDevis == EtatDevis.REFUSE){
+      return false
+    }
+    else{
+      return true
+    }
+  }
+
+  update(){
+    this.navCtrl.push(EditionDevisPage, { 'projet': this.projet, 'client':this.client} );
+  }
 }
