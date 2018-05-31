@@ -14,7 +14,6 @@ import { GlobalProvider } from '../providers/global/global';
 import {AddProductComponent} from "../components/add-product/add-product";
 import {AddCustomerComponent} from "../components/add-customer/add-customer";
 import {DevisPage} from "../pages/devis/devis";
-import {AccountPopoverComponent} from "../components/account-popover/account-popover";
 import { DisplayProductComponent } from '../components/display-product/display-product';
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -28,13 +27,12 @@ import { IonicStorageModule } from '@ionic/storage';
     AddCustomerComponent,
     IdentificationProjetPage,
     DisplayProductComponent,
-    DevisPage,
-    AccountPopoverComponent
+    DevisPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
-      scrollAssist: false, 
+      scrollAssist: false,
       autoFocusAssist: false
     }),
     IonicStorageModule.forRoot()
@@ -49,8 +47,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AddProductComponent,
     AddCustomerComponent,
     IdentificationProjetPage,
-    DevisPage,
-    AccountPopoverComponent
+    DevisPage
   ],
   providers: [
     StatusBar,

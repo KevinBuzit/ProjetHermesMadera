@@ -40,7 +40,7 @@ export class ConceptionDevisPage {
         let referenceProjet = this.global.projets ? this.global.projets.length+1 : 1;
         this.projet = new Projet(referenceProjet,null,null,null,null,EtapeProjet.A_LA_SIGNATURE,null,null);
 
-        return this.projet && this.client;
+        return (this.projet && this.client) ? true : false;
       },
       (cannotEnter) => {return false}
     );

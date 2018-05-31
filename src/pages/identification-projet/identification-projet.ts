@@ -5,7 +5,6 @@ import { DevisPage } from '../devis/devis';
 import { Client } from '../../models/client.model';
 import {GlobalProvider} from "../../providers/global/global";
 import {AuthenticationPage} from "../authentication/authentication";
-import {IdentificationClientPage} from "../identification-client/identification-client";
 import { Storage } from '@ionic/storage';
 
 @IonicPage()

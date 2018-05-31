@@ -40,7 +40,7 @@ export class DevisPage {
         this.projet = this.navParams.get('projet');
         this.totalHT = this.calculateDevisTotalHT(this.projet.produits);
 
-        return this.client && this.projet && this.totalHT;
+        return (this.client && this.projet && this.totalHT) ? true : false;
       },
       (cannotEnter) => {return false}
     );
