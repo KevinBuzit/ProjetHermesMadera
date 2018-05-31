@@ -30,25 +30,39 @@ export class DevisPage {
               public global: GlobalProvider,
               private storage: Storage,
               public loadingCtrl: LoadingController) {
-
-    this.presentLoadingDefault();
-    this.client = this.navParams.get('client');
-    this.projet = this.navParams.get('projet');
-    this.totalHT = this.calculateDevisTotalHT(this.projet.produits);
   }
 
-  presentLoadingDefault() {
+  ionViewCanEnter(): Promise<boolean>{
+    return this.presentLoadingDefault().then(
+      (canEnter) => {
+
+        this.client = this.navParams.get('client');
+        this.projet = this.navParams.get('projet');
+        this.totalHT = this.calculateDevisTotalHT(this.projet.produits);
+
+        return this.client && this.projet && this.totalHT;
+      },
+      (cannotEnter) => {return false}
+    );
+  }
+
+  presentLoadingDefault():Promise<boolean> {
     let loading = this.loadingCtrl.create({
       content: 'Chargement...'
     });
 
-    loading.present();
+    return new Promise((resolve,reject)=>{
 
-    // Or to get a key/value pair
-    this.storage.get('referenceEmploye').then((referenceEmploye)=>{
-      loading.dismiss();
-    },()=>{
-      this.navCtrl.setRoot(AuthenticationPage);
+      loading.present()
+        .catch(()=>{reject(false);})
+        .then(()=>{
+          this.storage.get('referenceEmploye')
+            .catch(()=>{reject(false)})
+            .then(()=>{
+              loading.dismiss();
+              resolve(true);
+            });
+        });
     });
   }
 

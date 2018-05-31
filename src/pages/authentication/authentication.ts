@@ -29,8 +29,7 @@ export class AuthenticationPage {
       { title: 'Identification client', component: IdentificationClientPage },
     ];
   }
-  ionViewDidLoad() {
-  }
+
   login()
   {
     let trouve = false;

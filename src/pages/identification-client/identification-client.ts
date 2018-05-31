@@ -32,23 +32,33 @@ export class IdentificationClientPage {
     // this.pages = [
     //   { title: 'Conception de devis', component: IdentificationProjetPage },
     // ];
-
-    this.presentLoadingDefault();
   }
 
-  presentLoadingDefault() {
+  ionViewCanEnter(): Promise<boolean>{
+    return this.presentLoadingDefault().then(
+      (canEnter) => {return canEnter},
+      (cannotEnter) => {return cannotEnter}
+    );
+  }
+
+  presentLoadingDefault():Promise<boolean> {
     let loading = this.loadingCtrl.create({
       content: 'Chargement...'
     });
 
-    loading.present();
+    return new Promise((resolve,reject)=>{
 
-    this.storage.get('referenceEmploye').then((referenceEmploye)=>{
-      loading.dismiss();
-    },()=>{
-      this.navCtrl.setRoot(AuthenticationPage);
+      loading.present()
+        .catch(()=>{reject(false);})
+        .then(()=>{
+          this.storage.get('referenceEmploye')
+            .catch(()=>{reject(false)})
+            .then(()=>{
+              loading.dismiss();
+              resolve(true);
+            });
+        });
     });
-
   }
 
   disconnect() {
@@ -60,10 +70,6 @@ export class IdentificationClientPage {
   presentAddCustomerModal() {
     const addCustomerModal = this.modal.create(AddCustomerComponent);
     addCustomerModal.present();
-  }
-
-  ionViewDidLoad() {
-
   }
 
   validate()

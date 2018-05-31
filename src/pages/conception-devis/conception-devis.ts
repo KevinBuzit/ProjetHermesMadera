@@ -28,30 +28,41 @@ export class ConceptionDevisPage {
               public navCtrl: NavController,
               public global: GlobalProvider,
               private storage: Storage,
-              public loadingCtrl: LoadingController
-  ) {
-
-    this.all = false;
-
-    this.presentLoadingDefault();
-    this.client = this.navParams.get('client');
-
-    let referenceProjet = this.global.projets ? this.global.projets.length+1 : 1;
-    this.projet = new Projet(referenceProjet,null,null,null,null,EtapeProjet.A_LA_SIGNATURE,null,null);
+              public loadingCtrl: LoadingController) {
   }
 
-  presentLoadingDefault() {
+  ionViewCanEnter(): Promise<boolean>{
+    return this.presentLoadingDefault().then(
+      (canEnter) => {
+
+        this.all = false;
+        this.client = this.navParams.get('client');
+        let referenceProjet = this.global.projets ? this.global.projets.length+1 : 1;
+        this.projet = new Projet(referenceProjet,null,null,null,null,EtapeProjet.A_LA_SIGNATURE,null,null);
+
+        return this.projet && this.client;
+      },
+      (cannotEnter) => {return false}
+    );
+  }
+
+  presentLoadingDefault():Promise<boolean> {
     let loading = this.loadingCtrl.create({
       content: 'Chargement...'
     });
 
-    loading.present();
+    return new Promise((resolve,reject)=>{
 
-    // Or to get a key/value pair
-    this.storage.get('referenceEmploye').then((referenceEmploye)=>{
-      loading.dismiss();
-    },()=>{
-      this.navCtrl.setRoot(AuthenticationPage);
+      loading.present()
+        .catch(()=>{reject(false);})
+        .then(()=>{
+          this.storage.get('referenceEmploye')
+            .catch(()=>{reject(false)})
+            .then(()=>{
+              loading.dismiss();
+              resolve(true);
+            });
+        });
     });
   }
 
@@ -94,9 +105,6 @@ export class ConceptionDevisPage {
 
   removeAllProducts(){
     this.projet.produits = null;
-  }
-
-  ionViewDidLoad() {
   }
 
   cancel(){
