@@ -93,15 +93,19 @@ export class DevisPage {
         },
         {
           text: 'Non',
-          role: 'cancel',
           handler: data => {
-            this.navCtrl.push(IdentificationProjetPage,{'client':this.client}).then(() =>{
+              console.log("Nope ..")
+              this.navCtrl.push(IdentificationProjetPage,{'client':this.client}).then(() =>{
               this.navCtrl.remove(currentIndex);
             })
           }
         }
       ]
     });
+    alert.onDidDismiss(() => {
+      console.log("Dismiss ..")
+    })
+
     alert.present();
   }
 
