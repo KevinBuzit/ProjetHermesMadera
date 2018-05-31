@@ -34,13 +34,13 @@
         <ion-col>
           <ion-item>
             <ion-label floating>Prénom</ion-label>
-            <ion-input name="name" [(ngModel)]="clientForm.prenomClient" type="text" clearInput pattern="^[a-zA-Z]{0,20}$"></ion-input>
+            <ion-input name="name" [(ngModel)]="clientForm.prenomClient" type="text" clearInput pattern="^[a-zA-Z ]{0,20}$"></ion-input>
           </ion-item>
         </ion-col >
         <ion-col>
           <ion-item>
             <ion-label floating>Nom</ion-label>
-            <ion-input name="surname"[(ngModel)]="clientForm.nomClient" type="text" clearInput pattern="^[a-zA-Z]{0,20}$"></ion-input>
+            <ion-input name="surname"[(ngModel)]="clientForm.nomClient" type="text" clearInput pattern="^[a-zA-Z ]{0,20}$"></ion-input>
           </ion-item>
         </ion-col >
       </ion-row>
@@ -49,7 +49,7 @@
         <ion-col>
           <ion-item>
             <ion-label floating>Adresse</ion-label>
-            <ion-input name="address" [(ngModel)]="clientForm.adresseRueClient" type="text" clearInput> </ion-input>
+            <ion-input name="address" [(ngModel)]="clientForm.adresseRueClient" type="text" clearInput pattern="^[a-zA-Z0-9' ]{0,50}$"> </ion-input>
           </ion-item>
         </ion-col >
       </ion-row>
@@ -58,13 +58,13 @@
         <ion-col>
           <ion-item>
             <ion-label floating>Code Postal</ion-label>
-            <ion-input name="zipcode" [(ngModel)]="clientForm.codePostalClient" type="text" clearInput pattern="^[a-zA-Z0-9]{0,10}$"></ion-input>
+            <ion-input name="zipcode" [(ngModel)]="clientForm.codePostalClient" type="text" clearInput pattern="^[a-zA-Z0-9 ]{0,15}$"></ion-input>
           </ion-item>
         </ion-col >
         <ion-col>
           <ion-item>
             <ion-label floating>Ville</ion-label>
-            <ion-input name="city"[(ngModel)]="clientForm.adresseVilleClient" type="text" clearInput pattern="^[a-zA-Z]{0,20}$"></ion-input>
+            <ion-input name="city"[(ngModel)]="clientForm.adresseVilleClient" type="text" clearInput pattern="^[a-zA-Z ]{0,20}$"></ion-input>
           </ion-item>
         </ion-col >
       </ion-row>
@@ -73,7 +73,7 @@
         <ion-col>
           <ion-item>
             <ion-label floating>Numéro de téléphone</ion-label>
-            <ion-input name="phone" [(ngModel)]="clientForm.telephoneClient" type="text" clearInput pattern="^[0-9]{0,20}$"></ion-input>
+            <ion-input name="phone" [(ngModel)]="clientForm.telephoneClient" type="text" clearInput pattern="^[0-9 ]{0,20}$"></ion-input>
           </ion-item>
         </ion-col >
         <ion-col>

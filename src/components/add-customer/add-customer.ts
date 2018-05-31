@@ -60,17 +60,20 @@ export class AddCustomerComponent {
     let regexInjectionSQLString = "('(''|[^'])*')|(;)|(\b(ALTER|CREATE|DELETE|DROP|EXEC(UTE){0,1}|INSERT( +INTO){0,1}|MERGE|SELECT|UPDATE|UNION( +ALL){0,1})\b)";
     let regexInjectionSQL = new RegExp(regexInjectionSQLString);
 
-    let regexMailString ="[A-Za-z0-9._%+-]{3,30}@[a-zA-Z]{3,15}([.]{1}[a-zA-Z]{2,6}|[.]{1}[a-zA-Z]{2,6}[.]{1}[a-zA-Z]{2,6})"
+    let regexMailString ="[A-Za-z0-9._%+-]{3,30}@[a-zA-Z]{3,15}([.]{1}[a-zA-Z]{2,6}|[.]{1}[a-zA-Z]{2,6}[.]{1}[a-zA-Z]{2,6})";
     let regexMail = new RegExp(regexMailString);
 
-    let regexNumeriqueString = "^[0-9]{0,20}$";
+    let regexNumeriqueString = "^[0-9 ]{0,20}$";
     let regexNumerique = new RegExp(regexNumeriqueString);
 
-    let regexAlphaString = "^[a-zA-Z]{0,10}$";
+    let regexAlphaString = "^[a-zA-Z ]{0,20}$";
     let regexAlpha = new RegExp(regexAlphaString);
 
-    let regexCodePostalString = "^[a-zA-Z0-9]{0,10}$";
+    let regexCodePostalString = "^[a-zA-Z0-9 ]{0,15}$";
     let regexCodePostal = new RegExp(regexCodePostalString);
+
+    let regexAdresseString = "^[a-zA-Z0-9' ]{0,50}$";
+    let regexAdresse = new RegExp(regexAdresseString);
 
     let notValid : boolean = true;
 
@@ -90,7 +93,8 @@ export class AddCustomerComponent {
       || regexInjectionSQL.test(this.clientForm.mailClient)){
         notValid = true;
     }
-    if(!regexAlpha.test(this.clientForm.nomClient) || !regexAlpha.test(this.clientForm.prenomClient)|| !regexAlpha.test(this.clientForm.adresseVilleClient) || !regexNumerique.test(this.clientForm.telephoneClient) || !regexMail.test(this.clientForm.mailClient) || !regexCodePostal.test(this.clientForm.codePostalClient)) {
+    if(!regexAlpha.test(this.clientForm.nomClient) || !regexAlpha.test(this.clientForm.prenomClient)|| !regexAlpha.test(this.clientForm.adresseVilleClient) || !regexNumerique.test(this.clientForm.telephoneClient)
+      || !regexMail.test(this.clientForm.mailClient) || !regexCodePostal.test(this.clientForm.codePostalClient) || !regexAdresse.test(this.clientForm.adresseRueClient)) {
       notValid = true;
     }
     return notValid;

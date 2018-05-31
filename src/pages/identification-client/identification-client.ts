@@ -109,10 +109,10 @@ export class IdentificationClientPage {
     }}
   checkIfNotValid():boolean{
     //Regex
-    let regexAlphaString = "^[a-zA-Z]{0,10}$";
+    let regexAlphaString = "^[a-zA-Z ]{0,20}$";
     let regexAlpha = new RegExp(regexAlphaString);
 
-    let regexCodePostalString = "^[a-zA-Z0-9]{0,10}$";
+    let regexCodePostalString = "^[a-zA-Z0-9 ]{0,15}$";
     let regexCodePostal = new RegExp(regexCodePostalString);
 
     let notValid : boolean = true;
