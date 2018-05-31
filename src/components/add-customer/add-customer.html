@@ -16,11 +16,11 @@
 
     <ion-grid class="height-max" >
 
-      <ion-row class="height-max" [(ngModel)]="clientForm.genreClient" name="genreClient" ngDefaultControl>
-        <ion-list radio-group>
+      <ion-row class="height-max"   ngDefaultControl>
+        <ion-list radio-group [(ngModel)]="clientForm.genreClient" name="genreClient">
           <ion-item>
             <ion-label>Madame</ion-label>
-            <ion-radio checked="true" value="Madame"></ion-radio>
+            <ion-radio checked="true" value="Madame" ></ion-radio>
           </ion-item>
 
           <ion-item>
@@ -95,7 +95,7 @@
 
       <ion-row>
         <ion-col>
-          <button ion-button type="submit" float-right>VALIDER</button>
+          <button  ion-button [disabled]="checkIfNotValid()" ion-button type="submit" float-right>VALIDER</button>
         </ion-col>
       </ion-row>
     </ion-grid>

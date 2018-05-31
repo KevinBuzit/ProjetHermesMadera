@@ -55,6 +55,24 @@ export class AddCustomerComponent {
     this.storage.set('referenceClient',this.client.referenceClient)
     this.navCtrl.push(IdentificationProjetPage);
   }
+  checkIfNotValid():boolean{
+
+    let notValid : boolean = true;
+
+    if(this.clientForm.genreClient
+      && this.clientForm.nomClient
+      && this.clientForm.prenomClient
+      && this.clientForm.adresseRueClient
+      && this.clientForm.codePostalClient
+      && this.clientForm.mailClient
+      && this.clientForm.telephoneClient
+      && this.clientForm.dateNaissanceClient){
+
+      notValid = false;
+    }
+
+    return notValid;
+  }
   pop(){
     this.navCtrl.pop();
   }
