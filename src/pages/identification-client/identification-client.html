@@ -35,20 +35,20 @@
               <form #form="ngForm"(ngSubmit)="validate(form)">
                   <ion-item>
                     <ion-label floating>Nom</ion-label>
-                    <ion-input name="surname" required [(ngModel)]="client.nomClient" type="text"></ion-input>
+                    <ion-input name="surname" required [(ngModel)]="client.nomClient" type="text" pattern="^[a-zA-Z]{1,20}$"></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label floating>Prénom</ion-label>
-                    <ion-input name="name" required [(ngModel)]="client.prenomClient" type="text"></ion-input>
+                    <ion-input name="name" required [(ngModel)]="client.prenomClient" type="text" pattern="^[a-zA-Z]{1,20}$"></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label floating>Code postal</ion-label>
-                    <ion-input name="zipcode" required  [(ngModel)]="client.codePostalClient" type="text"></ion-input>
+                    <ion-input name="zipcode" required  [(ngModel)]="client.codePostalClient" type="text" pattern="^[a-zA-Z0-9]{1,10}$"></ion-input>
                   </ion-item>
                 <div padding class="button">
-                  <button class="green-button" ion-button color="green-madera" >VALIDER</button>
+                  <button [disabled]="checkIfNotValid()" class="green-button" ion-button color="green-madera" >VALIDER</button>
                 </div>
               </form>
             </div>
