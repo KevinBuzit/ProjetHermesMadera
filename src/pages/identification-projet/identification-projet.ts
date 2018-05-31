@@ -22,38 +22,45 @@ export class IdentificationProjetPage {
               private storage: Storage,
               public loadingCtrl: LoadingController) {
 
-    this.presentLoadingDefault();
   }
 
-  presentLoadingDefault() {
+  ionViewCanEnter(): Promise<boolean>{
+    return this.presentLoadingDefault().then(
+      (canEnter) => {return canEnter},
+      (cannotEnter) => {return cannotEnter}
+    );
+  }
+
+  presentLoadingDefault():Promise<boolean> {
     let loading = this.loadingCtrl.create({
       content: 'Chargement...'
     });
 
-    loading.present();
+    return new Promise((resolve,reject)=>{
 
-    this.storage.get('referenceEmploye').then(()=>{
+      loading.present()
+        .catch(()=>{reject(false);})
+        .then(()=>{
+          this.storage.get('referenceEmploye')
+            .catch(()=>{this.navCtrl.setRoot(AuthenticationPage)})
+            .then(()=>{
+              this.storage.get('referenceClient')
+                .then((referenceClient)=>{
+                  this.client = this.getClient(referenceClient);
 
-    },()=>{
-      this.navCtrl.setRoot(AuthenticationPage);
+                  if(!this.client){
+                    reject(false);
+                  }
+
+                  loading.dismiss();
+                  resolve(true);
+
+                }).catch(()=>{
+                reject(false);
+              });
+            });
+        });
     });
-
-    this.storage.get('referenceClient').then((referenceClient)=>{
-      this.client = this.getClient(referenceClient);
-
-      if(!this.client){
-        this.navCtrl.setRoot(IdentificationClientPage);
-      }
-
-      loading.dismiss();
-    },()=>{
-      this.navCtrl.setRoot(IdentificationClientPage);
-    });
-
-  }
-
-  ionViewDidLoad() {
-
   }
 
   getClient(referenceClient:string):Client {
