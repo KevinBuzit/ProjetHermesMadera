@@ -41,7 +41,7 @@ export class AuthenticationPage {
 
       employe=this.global.projets[i].employe;
 
-      if((employe.matriculeEmploye == this.matricule) &&( employe.motDePasseEmploye==this.password))
+      if((employe.matriculeEmploye == this.matricule) &&( employe.motDePasseEmploye==this.password.trim()))
       {
         trouve=true;
       }

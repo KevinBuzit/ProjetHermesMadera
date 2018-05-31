@@ -137,6 +137,11 @@ export class ConceptionDevisPage {
 
   checkIfNotValid():boolean{
 
+    //Regex
+
+    let regexAlphaNumericString = "^[a-zA-Z0-9' ]{0,50}$";
+    let regexAlphaNumeric = new RegExp(regexAlphaNumericString);
+
     let notValid : boolean = true;
 
     if(this.projet.produits && this.projet.produits.length > 0){
@@ -144,6 +149,9 @@ export class ConceptionDevisPage {
       if(this.projet.adresseProjet && this.projet.dateProjet && this.projet.nomProjet){
         notValid = false;
       }
+    }
+    if(!regexAlphaNumeric.test(this.projet.adresseProjet) || !regexAlphaNumeric.test(this.projet.nomProjet)) {
+      notValid = true;
     }
 
     return notValid;
