@@ -16,11 +16,11 @@
 
     <ion-grid class="height-max" >
 
-      <ion-row class="height-max" [(ngModel)]="clientForm.genreClient" name="genreClient" ngDefaultControl>
-        <ion-list radio-group>
+      <ion-row class="height-max"   ngDefaultControl>
+        <ion-list radio-group [(ngModel)]="clientForm.genreClient" name="genreClient">
           <ion-item>
             <ion-label>Madame</ion-label>
-            <ion-radio checked="true" value="Madame"></ion-radio>
+            <ion-radio checked="true" value="Madame" ></ion-radio>
           </ion-item>
 
           <ion-item>
@@ -34,13 +34,13 @@
         <ion-col>
           <ion-item>
             <ion-label floating>Prénom</ion-label>
-            <ion-input name="name" [(ngModel)]="clientForm.prenomClient" type="text" clearInput></ion-input>
+            <ion-input name="name" [(ngModel)]="clientForm.prenomClient" type="text" clearInput pattern="^[a-zA-Z]+$"></ion-input>
           </ion-item>
         </ion-col >
         <ion-col>
           <ion-item>
             <ion-label floating>Nom</ion-label>
-            <ion-input name="surname"[(ngModel)]="clientForm.nomClient" type="text" clearInput></ion-input>
+            <ion-input name="surname"[(ngModel)]="clientForm.nomClient" type="text" clearInput pattern="^[a-zA-Z]+$"></ion-input>
           </ion-item>
         </ion-col >
       </ion-row>
@@ -64,7 +64,7 @@
         <ion-col>
           <ion-item>
             <ion-label floating>Ville</ion-label>
-            <ion-input name="city"[(ngModel)]="clientForm.adresseVilleClient" type="text" clearInput></ion-input>
+            <ion-input name="city"[(ngModel)]="clientForm.adresseVilleClient" type="text" clearInput pattern="^[a-zA-Z]+$"></ion-input>
           </ion-item>
         </ion-col >
       </ion-row>
@@ -73,7 +73,7 @@
         <ion-col>
           <ion-item>
             <ion-label floating>Numéro de téléphone</ion-label>
-            <ion-input name="phone" [(ngModel)]="clientForm.telephoneClient" type="text" clearInput></ion-input>
+            <ion-input name="phone" [(ngModel)]="clientForm.telephoneClient" type="text" clearInput pattern="^[0-9]*$"></ion-input>
           </ion-item>
         </ion-col >
         <ion-col>
@@ -88,14 +88,14 @@
         <ion-col>
           <ion-item>
             <ion-label floating>Email</ion-label>
-            <ion-input name="email" [(ngModel)]="clientForm.mailClient" type="text" clearInput></ion-input>
+            <ion-input name="email" [(ngModel)]="clientForm.mailClient" type="email" clearInput pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <button ion-button type="submit" float-right>VALIDER</button>
+          <button  ion-button [disabled]="checkIfNotValid()" ion-button type="submit" float-right>VALIDER</button>
         </ion-col>
       </ion-row>
     </ion-grid>

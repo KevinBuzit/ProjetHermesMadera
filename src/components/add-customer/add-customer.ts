@@ -55,6 +55,43 @@ export class AddCustomerComponent {
     this.storage.set('referenceClient',this.client.referenceClient)
     this.navCtrl.push(IdentificationProjetPage);
   }
+  checkIfNotValid():boolean{
+
+    let regexInjectionSQLString = "('(''|[^'])*')|(;)|(\b(ALTER|CREATE|DELETE|DROP|EXEC(UTE){0,1}|INSERT( +INTO){0,1}|MERGE|SELECT|UPDATE|UNION( +ALL){0,1})\b)";
+    let regexInjectionSQL = new RegExp(regexInjectionSQLString);
+
+    let regexMailString ="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"
+    let regexMail = new RegExp(regexMailString);
+
+    let regexNumeriqueString = "^[0-9]*$";
+    let regexNumerique = new RegExp(regexNumeriqueString);
+
+    let regexAlphaString = "^[a-zA-Z]+$";
+    let regexAlpha = new RegExp(regexAlphaString);
+
+    let notValid : boolean = true;
+
+    if(this.clientForm.genreClient
+      && this.clientForm.nomClient
+      && this.clientForm.prenomClient
+      && this.clientForm.adresseRueClient
+      && this.clientForm.codePostalClient
+      && this.clientForm.mailClient
+      && this.clientForm.telephoneClient
+      && this.clientForm.dateNaissanceClient){
+
+      notValid = false;
+    }
+    if (regexInjectionSQL.test(this.clientForm.nomClient) || regexInjectionSQL.test(this.clientForm.prenomClient) || regexInjectionSQL.test(this.clientForm.adresseRueClient)
+      || regexInjectionSQL.test(this.clientForm.codePostalClient)  || regexInjectionSQL.test(this.clientForm.adresseVilleClient) || regexInjectionSQL.test(this.clientForm.telephoneClient)
+      || regexInjectionSQL.test(this.clientForm.mailClient)){
+        notValid = true;
+    }
+    if(!regexAlpha.test(this.clientForm.nomClient) || !regexAlpha.test(this.clientForm.prenomClient)|| !regexAlpha.test(this.clientForm.adresseVilleClient) || !regexNumerique.test(this.clientForm.telephoneClient) || !regexMail.test(this.clientForm.mailClient)) {
+      notValid = true;
+    }
+    return notValid;
+  }
   pop(){
     this.navCtrl.pop();
   }
