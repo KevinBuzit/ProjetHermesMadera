@@ -158,15 +158,12 @@ export class DevisPage {
     let totalHT = 0;
     let index = 0;
 
-    while(index < this.projet.produits.length){
+    while(totalHT === 0 && index < this.projet.produits.length ){
 
-      if(referenceModele == this.projet.produits[index].modele.referenceModele){
-        for(let module of this.projet.produits[index].modele.modules){
-          totalHT += module.prixHTModule * module.quantite;
-        }
+      if(referenceModele === this.projet.produits[index].modele.referenceModele){
+        totalHT += this.projet.produits[index].modele.getTotalHT();
       }
 
-      index++;
     }
 
     return totalHT;
