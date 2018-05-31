@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import {IonicPage, ModalController, NavParams, NavController, LoadingController, ViewController} from 'ionic-angular';
+import {
+  IonicPage, ModalController, NavParams, NavController, LoadingController, ViewController,
+  AlertController
+} from 'ionic-angular';
 import { AddProductComponent } from '../../components/add-product/add-product';
 import {Produit} from "../../models/produit.model";
 import {DisplayProductComponent} from "../../components/display-product/display-product";
@@ -23,6 +26,7 @@ export class ConceptionDevisPage {
   private all : boolean;
 
   constructor(public modalCtrl: ModalController,
+              public alertCtrl: AlertController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
               public navCtrl: NavController,
@@ -107,7 +111,24 @@ export class ConceptionDevisPage {
   }
 
   removeAllProducts(){
-    this.projet.produits = null;
+
+    let alert = this.alertCtrl.create({
+      title: 'Supprimer les produits ?',
+      buttons: [
+        {
+          text: 'Oui',
+          handler: data => {
+            this.projet.produits = null;
+          }
+        },
+        {
+          text: 'Non',
+          handler: data => {}
+        }
+      ]
+    });
+
+    alert.present();
   }
 
   cancel(){

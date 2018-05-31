@@ -65,10 +65,10 @@
           </ion-col>
         </ion-row>
 
-        <ion-row>
-          <ion-col class="border text-bold" text-center>
-            <button ion-button icon-only class="button-remove" (click)="removeAllProducts()" [disabled]="!projet.produits">
-              <ion-icon name="remove"></ion-icon>
+        <ion-row *ngIf="projet.produits && projet.produits.length > 0">
+          <ion-col class="border text-bold">
+            <button ion-button icon-only class="button-product-remove" (click)="removeAllProducts()" [disabled]="!projet.produits">
+              <ion-icon name="trash"></ion-icon>
             </button>
           </ion-col>
           <ion-col class="border text-bold" text-center>
@@ -77,27 +77,31 @@
           <ion-col class="border text-bold" text-center>
             Dés.
           </ion-col>
+          <ion-col class="border text-bold" text-center>
+            Prix HT
+          </ion-col>
         </ion-row>
 
         <div *ngIf="projet.produits && projet.produits.length > 0">
           <ion-row *ngFor="let produit of projet.produits">
-            <ion-col class="border" text-center>
+            <ion-col class="border">
               <ion-buttons>
-                <button ion-button icon-only class="button-remove" (click)="removeProduct(produit)">
-                  <ion-icon name="remove"></ion-icon>
+                <button ion-button icon-only class="button-product-remove" (click)="removeProduct(produit)">
+                  <ion-icon name="trash"></ion-icon>
                 </button>
-                <button ion-button icon-only (click)="presentDisplayProductModal(produit)">
+                <button ion-button icon-only class="button-product-view" (click)="presentDisplayProductModal(produit)">
                   <ion-icon name="eye"></ion-icon>
                 </button>
               </ion-buttons>
             </ion-col>
-            <ion-col class="border">
+            <ion-col class="border" text-center>
               {{ produit.modele.referenceModele }}
             </ion-col>
-            <ion-col class="border">
-              <button ion-item>
+            <ion-col class="border" text-center>
                 {{ produit.modele.designationModele }}
-              </button>
+            </ion-col>
+            <ion-col class="border" text-center>
+                {{ produit.modele.getTotalHT() }}€
             </ion-col>
           </ion-row>
         </div>

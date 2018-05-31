@@ -17,16 +17,16 @@
       <ion-col>
         <ion-item>
           <ion-label>Gamme</ion-label>
-          <ion-select interface="popover" [(ngModel)]="product.gamme" okText="Ok" cancelText="Annuler">
+          <ion-select interface="popover" [(ngModel)]="produit.gamme" okText="Ok" cancelText="Annuler">
             <ion-option *ngFor="let gamme of global.gammes" [value]="gamme">{{gamme.designationGamme}}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
-      <ion-col ngif="product.gamme && product.gamme.modeles && product.gamme.modeles.length > 0">
+      <ion-col ngif="produit.gamme && produit.gamme.modeles && produit.gamme.modeles.length > 0">
         <ion-item>
           <ion-label>Modèle</ion-label>
-          <ion-select interface="popover" [(ngModel)]="product.modele" okText="Ok" cancelText="Annuler">
-            <ion-option *ngFor="let modele of product.gamme.modeles" [value]="modele">{{modele.designationModele}}</ion-option>
+          <ion-select interface="popover" [(ngModel)]="produit.modele" okText="Ok" cancelText="Annuler">
+            <ion-option *ngFor="let modele of produit.gamme.modeles" [value]="modele">{{modele.designationModele}}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
@@ -34,7 +34,7 @@
     <ion-row>
       <ion-item>
         <ion-label>Isolation</ion-label>
-        <ion-select interface="popover" [(ngModel)]="product.isolation" okText="Ok" cancelText="Annuler">
+        <ion-select interface="popover" [(ngModel)]="produit.isolation" okText="Ok" cancelText="Annuler">
           <ion-option value="1">Synthètique</ion-option>
           <ion-option value="2">Naturelle</ion-option>
         </ion-select>
@@ -42,7 +42,7 @@
 
       <ion-item>
         <ion-label>Finition extérieure</ion-label>
-        <ion-select interface="popover" [(ngModel)]="product.finition" okText="Ok" cancelText="Annuler">
+        <ion-select interface="popover" [(ngModel)]="produit.finition" okText="Ok" cancelText="Annuler">
           <ion-option value="1">Bois</ion-option>
           <ion-option value="2">Crépis</ion-option>
         </ion-select>
@@ -50,14 +50,68 @@
 
       <ion-item>
         <ion-label>Couverture</ion-label>
-        <ion-select interface="popover" [(ngModel)]="product.couverture" okText="Ok" cancelText="Annuler">
+        <ion-select interface="popover" [(ngModel)]="produit.couverture" okText="Ok" cancelText="Annuler">
           <ion-option value="1">Tuiles</ion-option>
           <ion-option value="2">Ardoises</ion-option>
         </ion-select>
       </ion-item>
 
-      <img *ngIf="product.modele" src="./assets/imgs/modeles/{{product.modele.urlImageModele}}" width="100%" alt="Plan Modèle {{ product.modele.designationModele }}"/>
+      <img *ngIf="produit.modele" src="./assets/imgs/modeles/{{produit.modele.urlImageModele}}" width="100%" alt="Plan Modèle {{ produit.modele.designationModele }}"/>
     </ion-row>
+
+    <div *ngIf="produit.modele">
+      <ion-row>
+        <ion-col class="border">
+          <p>Liste des modules</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="border text-bold" text-center>
+          Réf.
+        </ion-col>
+        <ion-col class="border text-bold" text-center>
+          Dés.
+        </ion-col>
+        <ion-col class="border text-bold" text-center>
+          PU
+        </ion-col>
+        <ion-col class="border text-bold" text-center>
+          Qté
+        </ion-col>
+        <ion-col class="border text-bold" text-center>
+          Prix HT
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="border">
+          <p *ngFor="let module of produit.modele.modules">
+            {{ module.referenceModule }}
+          </p>
+        </ion-col>
+        <ion-col class="border">
+          <p *ngFor="let module of produit.modele.modules">
+            {{ module.designationModule }}
+          </p>
+        </ion-col>
+        <ion-col class="border">
+          <p *ngFor="let module of produit.modele.modules">
+            {{ module.prixHTModule }}€
+          </p>
+        </ion-col>
+        <ion-col class="border">
+          <p *ngFor="let module of produit.modele.modules">
+            {{ module.quantite }}
+          </p>
+        </ion-col>
+        <ion-col class="border">
+          <p *ngFor="let module of produit.modele.modules">
+            {{ module.quantite * module.prixHTModule }}€
+          </p>
+        </ion-col>
+      </ion-row>
+    </div>
 
     <ion-row>
       <ion-col>

@@ -102,9 +102,6 @@ export class DevisPage {
         }
       ]
     });
-    alert.onDidDismiss(() => {
-      console.log("Dismiss ..")
-    })
 
     alert.present();
   }
@@ -114,9 +111,36 @@ export class DevisPage {
 
     if(this.addProjectToClient(this.client.referenceClient.toString(),this.projet)){
       // let currentIndex = this.navCtrl.getActive().index;
-      this.navCtrl.push(IdentificationProjetPage).then(() => {
-        // this.navCtrl.remove(currentIndex);
+
+      let alert = this.alertCtrl.create({
+        title: 'Valider le devis ?',
+        buttons: [{
+          text: 'Oui',
+          role: 'data',
+          handler: data =>
+          {
+            let alert = this.alertCtrl.create({
+              title: 'Un mail a été envoyé',
+              buttons: [{
+                text: 'Ok',
+                role: 'cancel',
+                handler: data => {
+                  this.navCtrl.push(IdentificationProjetPage).then(() => {
+                    // this.navCtrl.remove(currentIndex);
+                  });
+                }
+              }]
+            });
+            alert.present();
+          }},
+          {
+            text: 'Non',
+            role: 'data',
+            handler: data => {}
+          }]
       });
+      alert.present();
+
     } else {
       let currentIndex = this.navCtrl.getActive().index;
       let alert = this.alertCtrl.create({
@@ -153,21 +177,6 @@ export class DevisPage {
       for(let module of produit.modele.modules){
         totalHT += module.prixHTModule * module.quantite;
       }
-    }
-
-    return totalHT;
-  }
-
-  calculateProduitTotalHT(referenceModele : number):number{
-    let totalHT = 0;
-    let index = 0;
-
-    while(totalHT === 0 && index < this.projet.produits.length ){
-
-      if(referenceModele === this.projet.produits[index].modele.referenceModele){
-        totalHT += this.projet.produits[index].modele.getTotalHT();
-      }
-
     }
 
     return totalHT;

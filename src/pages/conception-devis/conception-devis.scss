@@ -1,9 +1,28 @@
 page-conception-devis {
 
-  .button-remove{
-    background-color:red;
+  .button-product-remove, .button-product-view{
+    background-color: transparent !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    opacity:1;
+
+    &:hover{
+      background-color: transparent !important;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      box-shadow: none !important;
+      opacity:0.8;
+    }
   }
 
+  .button-product-remove{
+    color: color($colors, red-madera);
+  }
+
+  .button-product-view{
+    color: color($colors, grey-madera);
+  }
 
 }
 

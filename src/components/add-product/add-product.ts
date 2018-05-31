@@ -10,7 +10,7 @@ import {Gamme} from "../../models/gamme.model";
 })
 export class AddProductComponent {
 
-  private product = {
+  private produit = {
     gamme : null,
     modele :  null,
     isolation :  null,
@@ -25,7 +25,7 @@ export class AddProductComponent {
 
     this.gammes = this.global.gammes;
 
-    this.product = {
+    this.produit = {
       gamme : this.gammes[0],
       modele :  null,
       isolation :  null,
@@ -40,7 +40,7 @@ export class AddProductComponent {
   }
 
   addProduct() {
-    let produit = new Produit(this.product.isolation, this.product.finition, this.product.couverture, this.product.modele  );
+    let produit = new Produit(this.produit.isolation, this.produit.finition, this.produit.couverture, this.produit.modele  );
     this.viewCtrl.dismiss({'produit' : produit});
   }
 
@@ -48,11 +48,11 @@ export class AddProductComponent {
 
     let notValid : boolean = true;
 
-    if(this.product.gamme
-      && this.product.modele
-      && this.product.couverture
-      && this.product.isolation
-      && this.product.finition){
+    if(this.produit.gamme
+      && this.produit.modele
+      && this.produit.couverture
+      && this.produit.isolation
+      && this.produit.finition){
 
         notValid = false;
     }
