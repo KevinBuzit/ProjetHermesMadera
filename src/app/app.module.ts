@@ -7,6 +7,7 @@ import { ConceptionDevisPage } from '../pages/conception-devis/conception-devis'
 import { AuthenticationPage } from '../pages/authentication/authentication';
 import { IdentificationClientPage } from '../pages/identification-client/identification-client';
 import { IdentificationProjetPage } from '../pages/identification-projet/identification-projet';
+import { EditionDevisPage } from '../pages/edition-devis/edition-devis';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +28,8 @@ import { IonicStorageModule } from '@ionic/storage';
     AddCustomerComponent,
     IdentificationProjetPage,
     DisplayProductComponent,
-    DevisPage
+    DevisPage,
+    EditionDevisPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { IonicStorageModule } from '@ionic/storage';
     AddProductComponent,
     AddCustomerComponent,
     IdentificationProjetPage,
-    DevisPage
+    DevisPage,
+    EditionDevisPage
   ],
   providers: [
     StatusBar,

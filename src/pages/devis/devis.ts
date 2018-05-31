@@ -11,6 +11,7 @@ import {IdentificationProjetPage} from "../identification-projet/identification-
 import {AuthenticationPage} from "../authentication/authentication";
 import { Storage } from '@ionic/storage';
 import {Produit} from "../../models/produit.model";
+import { EditionDevisPage } from '../edition-devis/edition-devis';
 
 @IonicPage()
 @Component({
@@ -198,4 +199,16 @@ export class DevisPage {
     return added;
   }
 
+  canUpdate():boolean{
+    if(this.projet.etatDevis == EtatDevis.BROUILLON || this.projet.etatDevis == EtatDevis.REFUSE){
+      return false
+    }
+    else{
+      return true
+    }
+  }
+
+  update(){
+    this.navCtrl.push(EditionDevisPage, { 'projet': this.projet, 'client':this.client} );
+  }
 }
