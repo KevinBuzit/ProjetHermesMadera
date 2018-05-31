@@ -18,7 +18,7 @@
     </ion-fab-list>
   </ion-fab>
 
-  <ion-card class="height-max">
+  <ion-card class="min-height-max">
 
     <ion-card-header text-center>
       <ion-icon name="arrow-back" (click)="pop()" float-start></ion-icon>
@@ -26,7 +26,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-grid class="height-max">
+      <ion-grid>
         <ion-row>
           <ion-col text-center>
             <p>Réf. Client :  {{client.referenceClient}}</p>
@@ -35,35 +35,37 @@
           </ion-col>
         </ion-row>
 
-        <ion-row class="height-max" justify-content-center align-items-center>
+        <ion-row align-items-center>
 
           <ion-col col-md-6 col-xs-12>
-            <div *ngIf="client.projets && client.projets.length>0" class="ion-card-projects">
-              VOS PROJETS
-              <ion-card *ngFor="let projet of client.projets; let i = index" (click)="detailsDevis(projet)">
-                <ion-card-content>
-                  {{projet.nomProjet}}
+              <div *ngIf="client.projets && client.projets.length>0" class="projects-div">
+                <h3>VOS PROJETS</h3>
+                <div class="projects-scroll">
+                  <ion-card *ngFor="let projet of client.projets; let i = index" (click)="detailsDevis(projet)">
+                    <ion-card-content>
+                      {{projet.nomProjet}}
 
-                  <ion-icon *ngIf="projet.etatDevis=== 1" name="create" class="text-color-green-madera" float-right>
-                  </ion-icon>
+                      <ion-icon *ngIf="projet.etatDevis=== 1" name="create" class="text-color-green-madera" float-right>
+                      </ion-icon>
 
-                  <ion-icon *ngIf="projet.etatDevis=== 2" name="checkmark" class="text-color-green-madera" float-right>
-                  </ion-icon>
+                      <ion-icon *ngIf="projet.etatDevis=== 2" name="checkmark" class="text-color-green-madera" float-right>
+                      </ion-icon>
 
-                  <ion-icon *ngIf="projet.etatDevis=== 3" name="time" class="text-color-green-madera" float-right>
-                  </ion-icon>
+                      <ion-icon *ngIf="projet.etatDevis=== 3" name="time" class="text-color-green-madera" float-right>
+                      </ion-icon>
 
-                  <ion-icon *ngIf="projet.etatDevis=== 4" name="close" class="text-color-green-madera" float-right>
-                  </ion-icon>
+                      <ion-icon *ngIf="projet.etatDevis=== 4" name="close" class="text-color-green-madera" float-right>
+                      </ion-icon>
 
-                  <ion-icon *ngIf="projet.etatDevis=== 5" name="basket" class="text-color-green-madera" float-right>
-                  </ion-icon>
+                      <ion-icon *ngIf="projet.etatDevis=== 5" name="basket" class="text-color-green-madera" float-right>
+                      </ion-icon>
 
-                  <ion-icon *ngIf="projet.etatDevis=== 6" name="filing" class="text-color-green-madera" float-right>
-                  </ion-icon>
-                </ion-card-content>
-              </ion-card>
-            </div>
+                      <ion-icon *ngIf="projet.etatDevis=== 6" name="filing" class="text-color-green-madera" float-right>
+                      </ion-icon>
+                    </ion-card-content>
+                  </ion-card>
+                </div>
+              </div>
             <div *ngIf="!client.projets || client.projets.length<1" text-center>
               AUCUN PROJET
             </div>
