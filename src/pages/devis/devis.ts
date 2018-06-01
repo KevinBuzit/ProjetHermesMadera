@@ -88,15 +88,16 @@ export class DevisPage {
           // this.appCtrl.getRootNav().push(IdentificationProjetPage,{'client':this.client});
           this.navCtrl.push(IdentificationProjetPage,{'client':this.client}).then(() =>{
             this.navCtrl.remove(currentIndex);
+            this.navCtrl.remove((currentIndex-1));
           })
         }
         },
         {
           text: 'Non',
           handler: data => {
-              console.log("Nope ..")
               this.navCtrl.push(IdentificationProjetPage,{'client':this.client}).then(() =>{
               this.navCtrl.remove(currentIndex);
+              this.navCtrl.remove((currentIndex-1));
             })
           }
         }
@@ -136,7 +137,8 @@ export class DevisPage {
           {
             text: 'Non',
             role: 'data',
-            handler: data => {}
+            handler: data => {
+            }
           }]
       });
       alert.present();
