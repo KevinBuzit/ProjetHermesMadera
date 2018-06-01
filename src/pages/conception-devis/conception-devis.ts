@@ -83,14 +83,14 @@ export class ConceptionDevisPage {
   presentAddProductModal()
   {
     let addProductModal = this.modalCtrl.create(AddProductComponent);
-    addProductModal.onDidDismiss(data => {
+    addProductModal.onDidDismiss(produit => {
 
       if(!this.projet.produits){
         this.projet.produits = [];
       }
 
-      if(data){
-        this.projet.produits.push(data.produit);
+      if(produit){
+        this.projet.produits.push(produit.produit);
       }
     });
     addProductModal.present();

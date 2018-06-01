@@ -141,8 +141,8 @@
 
         <ion-row>
           <ion-col col-12>
-            <button ion-button color="green-madera" float-right (click)="sendDevis()">VALIDER</button>
-            <button ion-button color="green-madera" float-right [disabled]="canUpdate()" (click)="update()">EDITER</button>
+            <button ion-button color="green-madera" float-right *ngIf="canUpdateOrSend()" (click)="sendDevis()">ENVOYER</button>
+            <button ion-button color="green-madera" float-right *ngIf="canUpdateOrSend()" (click)="update()">EDITER</button>
             <button ion-button color="green-madera" float-right (click)="cancel()">ANNULER</button>
           </ion-col>
         </ion-row>

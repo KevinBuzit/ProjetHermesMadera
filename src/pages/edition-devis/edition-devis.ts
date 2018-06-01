@@ -9,6 +9,7 @@ import {Client} from "../../models/client.model";
 import {GlobalProvider} from "../../providers/global/global";
 import {AuthenticationPage} from "../authentication/authentication";
 import { Storage } from '@ionic/storage';
+import { cloneDeep } from 'lodash';
 
 @IonicPage()
 @Component({
@@ -17,7 +18,8 @@ import { Storage } from '@ionic/storage';
 })
 export class EditionDevisPage {
 
-  private projet : Projet;
+  private baseProjet : Projet;
+  private updatedProjet : Projet;
   private client = Client;
 
   constructor(public modalCtrl: ModalController,
@@ -31,7 +33,8 @@ export class EditionDevisPage {
 
     this.presentLoadingDefault();
     this.client = this.navParams.get('client');
-    this.projet = this.navParams.get('projet');
+    this.updatedProjet = this.navParams.get('projet');
+    this.baseProjet = cloneDeep(this.updatedProjet);
   }
 
   presentLoadingDefault() {
@@ -55,19 +58,17 @@ export class EditionDevisPage {
     this.storage.remove('referenceEmploye');
   }
 
-  pop(){
-    this.navCtrl.pop();
-  }
-
-  presentAddProductModal()
-  {
+  presentAddProductModal() {
     let addProductModal = this.modalCtrl.create(AddProductComponent);
-    addProductModal.onDidDismiss(data => {
+    addProductModal.onDidDismiss(produit => {
 
-      if(null == this.projet.produits){
-        this.projet.produits = [];
+      if(null == this.updatedProjet.produits){
+        this.updatedProjet.produits = [];
       }
-      this.projet.produits.push(data.produit);
+
+      if(produit) {
+        this.updatedProjet.produits.push(produit.produit);
+      }
     });
     addProductModal.present();
   }
@@ -79,23 +80,20 @@ export class EditionDevisPage {
   }
 
   goToDevisPage(){
-    this.navCtrl.push(DevisPage, { 'projet': this.projet, 'client':this.client} );
-  }
-
-  ionViewDidLoad() {
+    this.navCtrl.push(DevisPage, { 'projet': this.updatedProjet, 'client':this.client} );
   }
 
   cancel(){
-    this.navCtrl.pop();
+    this.navCtrl.push(DevisPage, { 'projet': this.baseProjet, 'client':this.client} );
   }
 
   checkIfNotValid():boolean{
 
     let notValid : boolean = true;
 
-    if(this.projet.produits && this.projet.produits.length > 0){
+    if(this.updatedProjet.produits && this.updatedProjet.produits.length > 0){
 
-      if(this.projet.adresseProjet && this.projet.dateProjet && this.projet.nomProjet){
+      if(this.updatedProjet.adresseProjet && this.updatedProjet.dateProjet && this.updatedProjet.nomProjet){
         notValid = false;
       }
     }

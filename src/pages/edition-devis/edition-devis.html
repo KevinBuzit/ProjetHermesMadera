@@ -21,7 +21,7 @@
   <ion-card>
 
     <ion-card-header text-center>
-      <ion-icon name="arrow-back" (click)="pop()" float-start></ion-icon>
+      <ion-icon name="arrow-back" (click)="cancel()" float-start></ion-icon>
       <h2>CONCEPTION DE DEVIS</h2>
     </ion-card-header>
 
@@ -33,11 +33,11 @@
               <p>Référence projet : {{global.projets.length}}</p>
             </ion-item>
             <ion-item>
-              <ion-input [(ngModel)]="projet.adresseProjet" text-center text-sm-start placeholder="Adresse projet" clearInput></ion-input>
+              <ion-input [(ngModel)]="updatedProjet.adresseProjet" text-center text-sm-start placeholder="Adresse projet" clearInput></ion-input>
             </ion-item>
             <ion-item text-center text-sm-start>
               <ion-label fixed>Date du projet</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="projet.dateProjet" placeholder="Date du projet" clearInput></ion-datetime>
+              <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="updatedProjet.dateProjet" placeholder="Date du projet" clearInput></ion-datetime>
             </ion-item>
           </ion-col>
           <ion-col col-0 col-sm-4></ion-col>
@@ -51,7 +51,7 @@
         <ion-row justify-content-center>
           <ion-col col-12 col-md-4>
             <ion-item>
-              <ion-input text-center [(ngModel)]="projet.nomProjet" placeholder="Nom du projet" clearInput></ion-input>
+              <ion-input text-center [(ngModel)]="updatedProjet.nomProjet" placeholder="Nom du projet" clearInput></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -67,10 +67,10 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col col-12 class="border" *ngIf="null != projet.produits && projet.produits.length > 0">
+          <ion-col col-12 class="border" *ngIf="null != updatedProjet.produits && updatedProjet.produits.length > 0">
             <ion-list>
 
-              <button ion-item *ngFor="let produit of projet.produits" (click)="presentDisplayProductModal(produit)">
+              <button ion-item *ngFor="let produit of updatedProjet.produits" (click)="presentDisplayProductModal(produit)">
                 {{ produit.modele.designationModele }}
               </button>
 
