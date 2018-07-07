@@ -53,8 +53,8 @@
           <ion-col col-12 text-center>
             <strong>TOTAL HT : {{ totalHT }}</strong>
             <p>+ TVA {{global.tva}}% : {{(totalHT * global.tva) / 100}}€</p>
-            <p>+ MARGE COM {{global.margeCommerciale}}% : {{(totalHT * global.margeCommerciale) / 100}}€</p>
-            <p>+ MARGE ENT {{global.margeEntreprise}}% : {{(totalHT * global.margeEntreprise) / 100}}€</p>
+            <p>+ BONUS COM {{global.margeCommerciale}}% : {{(totalHT * global.margeCommerciale) / 100}}€</p>
+            <p>+ MARGE COM {{global.margeEntreprise}}% : {{(totalHT * global.margeEntreprise) / 100}}€</p>
             <strong>TOTAL TTC : {{ totalHT+ (totalHT * (global.tva + global.margeCommerciale + global.margeEntreprise) / 100) }}</strong>
             <br>
           </ion-col>
