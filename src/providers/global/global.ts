@@ -153,13 +153,13 @@ export class GlobalProvider {
     produits1 = [];
     let produit1 = new Produit(Isolation.Naturelle,FinitionExterieure.Crepis,Couverture.Tuile,modele1);
     produits1.push(produit1);
-    let produit2 = new Produit(Isolation.Synthetique,FinitionExterieure.Bois,Couverture.Ardoise,modele1);
+    let produit2 = new Produit(Isolation.Synthetique,FinitionExterieure.Bois,Couverture.Ardoise,modele2);
     produits1.push(produit2);
 
     produits2 = [];
-    let produit3 = new Produit(Isolation.Naturelle,FinitionExterieure.Bois,Couverture.Ardoise,modele1);
+    let produit3 = new Produit(Isolation.Naturelle,FinitionExterieure.Bois,Couverture.Ardoise,modele4);
     produits2.push(produit3);
-    let produit4 = new Produit(Isolation.Synthetique,FinitionExterieure.Bois,Couverture.Ardoise,modele1);
+    let produit4 = new Produit(Isolation.Synthetique,FinitionExterieure.Bois,Couverture.Ardoise,modele3);
     produits2.push(produit4);
 
     //Construction Projet
@@ -179,7 +179,7 @@ export class GlobalProvider {
     let projet5 = new Projet(5,'Maison rue Victor Hugo','24 rue Victor Hugo 29200 Brest','25/09/2018',employe,EtapeProjet.OBTENTION_DU_PERMIS_DE_CONSTRUIRE,EtatDevis.EN_COMMANDE,produits2);
     this.projets.push(projet5);
 
-    let projet6 = new Projet(6,'Maiis Quimper Alin','19 rue Thomas Muller 29000 Quimper','25/05/2018',employe,EtapeProjet.REMISE_DES_CLES,EtatDevis.REFUSE,produits1);
+    let projet6 = new Projet(6,'Maison Quimper Alin','19 rue Thomas Muller 29000 Quimper','25/05/2018',employe,EtapeProjet.REMISE_DES_CLES,EtatDevis.REFUSE,produits1);
     this.projets.push(projet6);
 
     //Construction Clientd
